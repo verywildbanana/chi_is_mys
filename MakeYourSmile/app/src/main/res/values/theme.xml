@@ -17,4 +17,12 @@
     </style>
 
 
+    <style name="Theme.SplashBackground" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@drawable/shape_splash_bg</item>
+
+    </style>
+
+
 </resources>

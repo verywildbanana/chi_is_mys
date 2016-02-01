@@ -2,8 +2,19 @@ package com.avocado.makeyoursmile;
 
 import android.app.Application;
 
+import com.avocado.makeyoursmile.network.ApiRequestInterceptor;
+import com.avocado.makeyoursmile.network.InterceptingOkClient;
+import com.avocado.makeyoursmile.network.ServerConfig;
+import com.avocado.makeyoursmile.network.UserAgentInterceptor;
+import com.avocado.makeyoursmile.util.SharedPreferenceManager;
 import com.avocado.makeyoursmile.util.SmartLog;
+import com.avocado.makeyoursmile.util.ToastManager;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.integration.okhttp.OkHttpUrlLoader;
+import com.bumptech.glide.load.model.GlideUrl;
 import com.squareup.okhttp.OkHttpClient;
+
+import java.io.InputStream;
 
 import retrofit.RestAdapter;
 
@@ -36,44 +47,46 @@ public class MakeYourSmileApp extends Application {
         super.onCreate();
 
         SmartLog.getInstance().d(TAG, "Application onCreate");
-
-//        initOkHttp();
-//        initRestAdapter();
-//        initGlide();
+        Global.getInstance().setApplicationContext(getApplicationContext());
+        initOkHttp();
+        initRestAdapter();
+        initGlide();
+        ToastManager.getInstance().init(this);
+        SharedPreferenceManager.getInstance().init(getApplicationContext());
         mApplication = this;
+        SharedPreferenceManager.getInstance().setPID(android.os.Process.myPid());
 
     }
 
-//    public static <T> T createApi(Class<T> service) {
-//        return getInstance().mApiRestAdapter.create(service);
-//    }
-//
-//    private void initOkHttp() {
-//        mOkHttpClient = new OkHttpClient();
-//        mOkHttpClient.interceptors().add(new UserAgentInterceptor(ServerConfig.getUserAgent()));
-//
-//        SmartLog.getInstance().w("TAG", "userAgent ~~~ " + ServerConfig.getUserAgent());
-//
-//    }
-//
-//    private void initRestAdapter() {
-//
-//        ApiRequestInterceptor apiRequestInterceptor = new ApiRequestInterceptor();
-//
-//        InterceptingOkClient client =  new InterceptingOkClient(mOkHttpClient);
-//        mApiRestAdapter = new RestAdapter.Builder()
-//                .setEndpoint(Global.getInstance().getEndpoint())
-//                .setRequestInterceptor(apiRequestInterceptor)
-//                .setLogLevel(RestAdapter.LogLevel.FULL)
-//                .setClient(client)
-//                .build();
-//
-//
-//    }
-//
-//    private void initGlide() {
-//        Glide.get(this).register(GlideUrl.class, InputStream.class, new OkHttpUrlLoader.Factory(mOkHttpClient));
-//    }
+    public static <T> T createApi(Class<T> service) {
+        return getInstance().mApiRestAdapter.create(service);
+    }
 
+    private void initOkHttp() {
+        mOkHttpClient = new OkHttpClient();
+        mOkHttpClient.interceptors().add(new UserAgentInterceptor(ServerConfig.getUserAgent()));
+
+        SmartLog.getInstance().w("TAG", "userAgent ~~~ " + ServerConfig.getUserAgent());
+
+    }
+
+    private void initRestAdapter() {
+
+        ApiRequestInterceptor apiRequestInterceptor = new ApiRequestInterceptor();
+
+        InterceptingOkClient client =  new InterceptingOkClient(mOkHttpClient);
+        mApiRestAdapter = new RestAdapter.Builder()
+                .setEndpoint(Global.getInstance().getEndpoint())
+                .setRequestInterceptor(apiRequestInterceptor)
+                .setLogLevel(RestAdapter.LogLevel.FULL)
+                .setClient(client)
+                .build();
+
+
+    }
+
+    private void initGlide() {
+        Glide.get(this).register(GlideUrl.class, InputStream.class, new OkHttpUrlLoader.Factory(mOkHttpClient));
+    }
 }
 
