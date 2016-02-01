@@ -62,7 +62,7 @@
                 android:layout_marginTop="3dp"
                 android:src="@drawable/placeicon" />
 
-            <TextView
+            <com.avocado.makeyoursmile.view.AVTextView
                 android:id="@+id/DistanceTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -74,7 +74,7 @@
         </LinearLayout>
 
 
-        <TextView
+        <com.avocado.makeyoursmile.view.AVTextView
             android:id="@+id/TitleTxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
             android:textSize="17dp"
             android:textStyle="bold" />
 
-        <TextView
+        <com.avocado.makeyoursmile.view.AVTextView
             android:id="@+id/SubTitleTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

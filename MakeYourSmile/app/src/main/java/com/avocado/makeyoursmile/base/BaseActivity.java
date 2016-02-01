@@ -3,6 +3,8 @@ package com.avocado.makeyoursmile.base;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
+import com.avocado.makeyoursmile.util.IntentManager;
+
 /**
  * Created by HDlee on 1/29/16.
  */
@@ -12,7 +14,9 @@ public abstract class BaseActivity extends FragmentActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+
+        IntentManager.getInstance().pop(this);
+
     }
 
     @Override
