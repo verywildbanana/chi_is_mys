@@ -48,9 +48,8 @@
     <RelativeLayout
         android:id="@+id/BannerBar"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/TitleBar"
-        android:layout_marginTop="10dp"
         android:background="@color/mys_banner">
 
     </RelativeLayout>
@@ -68,15 +67,16 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:text="테마별 보기"
-            android:textColor="@color/darkgray"
-            android:textSize="13dp"
-            android:textStyle="bold" />
+            android:textColor="@color/mys_txt_dark_gray"
+            android:textSize="11dp"
+            />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="341dp"
+            android:layout_height="101dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="22dp"
+            android:scaleType="fitXY"
             android:src="@drawable/theme" />
 
 
@@ -163,19 +163,19 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:text="내 주변 병원"
-            android:textColor="@color/darkgray"
-            android:textSize="13dp"
-            android:textStyle="bold" />
+            android:textColor="@color/mys_txt_dark_gray"
+            android:textSize="11dp"
+            />
 
         <com.avocado.makeyoursmile.view.AVTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="15dp"
             android:text="더보기"
-            android:textColor="@color/darkgray"
+            android:textColor="@color/mys_txt_dark_gray"
             android:layout_alignParentRight="true"
-            android:textSize="13dp"
-            android:textStyle="bold" />
+            android:textSize="11dp"
+            />
 
 
         <android.support.v7.widget.RecyclerView
@@ -183,8 +183,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="20dp"
             android:scrollbars="none" />
 
     </RelativeLayout>

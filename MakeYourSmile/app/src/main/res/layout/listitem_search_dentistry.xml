@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:avocado="http://schemas.avocado.com/mys"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:background="@color/white">
+
+
+    <RelativeLayout
+        android:id="@+id/ProfileImgLay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/DentistImgLay"
+            android:layout_width="220dp"
+            android:layout_height="150dp">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/photosample_list" />
+
+            <ImageView
+                android:id="@+id/DentistImg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/TagLay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/DentistImgLay"
+            android:layout_marginTop="8dp"
+            android:paddingLeft="15dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/keyword" />
+
+            <include
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                layout="@layout/layout_taglay" />
+
+            <include
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                layout="@layout/layout_taglay" />
+
+            <include
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                layout="@layout/layout_taglay" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ProfileImgLay"
+        android:layout_marginLeft="10dp">
+
+        <ImageView
+            android:id="@+id/EventImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="20dp"
+            android:src="@drawable/cheeseicon" />
+
+        <RelativeLayout
+            android:id="@+id/DetailLay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/EventImg"
+            android:paddingLeft="10dp">
+
+            <LinearLayout
+                android:id="@+id/LocationLay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/PlaceIconImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/placeicon" />
+
+                <com.avocado.makeyoursmile.view.AVTextView
+                    android:id="@+id/DistanceTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="000m"
+                    android:textColor="@color/mys_txt_dark_gray"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:id="@+id/TitleTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_toLeftOf="@+id/LocationLay"
+                android:singleLine="true"
+                android:text="지엔 치과"
+                android:textColor="@color/black"
+                android:textSize="11dp"
+                android:textStyle="bold" />
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:id="@+id/SubTitleTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TitleTxt"
+                android:layout_marginTop="5dp"
+                android:lines="2"
+                android:text="서울시 강남구 역삼동 749-12번지\n엘리빌 202호"
+                android:textColor="@color/mys_txt_dark_gray"
+                android:textSize="10dp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

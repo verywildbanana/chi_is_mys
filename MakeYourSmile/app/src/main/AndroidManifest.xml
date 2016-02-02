@@ -47,6 +47,23 @@
             android:theme="@style/Theme.NoBackground"
             />
 
+        <activity android:name="com.avocado.makeyoursmile.ui.Setting"
+            android:configChanges="keyboardHidden|orientation|locale|uiMode"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NoBackground"
+            />
+
+        <activity android:name="com.avocado.makeyoursmile.ui.search.Dentistry"
+            android:configChanges="keyboardHidden|orientation|locale|uiMode"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NoBackground"
+            />
+        <activity android:name="com.avocado.makeyoursmile.ui.search.DentistryList"
+            android:configChanges="keyboardHidden|orientation|locale|uiMode"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NoBackground"
+            />
+
 
 
     </application>

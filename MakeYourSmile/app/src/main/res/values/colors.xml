@@ -26,9 +26,12 @@
     <color name="mys_titlebar">#112d52</color>
     <color name="mys_banner">#fef44a</color>
     <color name="mys_bg">#eeeeee</color>
-    <color name="mys_txt_blue">#00004e</color>
+    <color name="mys_txt_blue">#112d52</color>
     <color name="mys_txt_gray">#959595</color>
     <color name="mys_txt_dark_gray">#535353</color>
+    <color name="mys_stroke_color">#959595</color>
+    <color name="mys_setting_line">#b5b5b5</color>
+
 
 
 </resources>

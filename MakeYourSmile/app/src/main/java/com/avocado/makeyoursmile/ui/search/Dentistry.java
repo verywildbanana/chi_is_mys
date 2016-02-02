@@ -1,38 +1,35 @@
-package com.avocado.makeyoursmile.ui;
+package com.avocado.makeyoursmile.ui.search;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
+import android.view.View;
 
 import com.avocado.makeyoursmile.R;
 import com.avocado.makeyoursmile.base.BaseActivity;
-import com.avocado.makeyoursmile.ui.search.DentistryList;
-import com.avocado.makeyoursmile.util.IntentManager;
+import com.avocado.makeyoursmile.view.AVEditText;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by HDlee on 1/29/16.
  */
-public class Start extends BaseActivity {
+public class Dentistry extends BaseActivity {
+
+
+    @Bind(R.id.SearchEdit)
+    protected AVEditText mSearchEdit;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start);
+        setContentView(R.layout.activity_search_dentistry);
         ButterKnife.bind(this);
 
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
 
-                IntentManager.getInstance().push(Start.this, DentistryList.class, true);
-
-
-            }
-        }, 1000);
     }
 
     @Override
@@ -59,6 +56,19 @@ public class Start extends BaseActivity {
 
 
         super.onActivityResult(requestCode, resultCode, data);
+
+    }
+
+    @OnClick(R.id.TitleLeftImg)
+    public void onClickTitleLeft(View v) {
+
+        onBackPressed();
+
+    }
+
+    @OnClick(R.id.SearchImg)
+    public void onClickTitleSearch(View v) {
+
 
     }
 
