@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:avocado="http://schemas.avocado.com/mys"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mys_bg"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/TitleBar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/mys_titlebar">
+
+
+        <ImageView
+            android:id="@+id/TitleLeftImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/top_back" />
+
+        <com.avocado.makeyoursmile.view.AVTextView
+            android:id="@+id/TitleTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/TitleLeftImg"
+            android:text="문의하기"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/TitleSearchImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/searchicon" />
+
+
+        <ImageView
+            android:id="@+id/TitleLogoImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/TitleSearchImg"
+            android:src="@drawable/makeyoursmile" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/TitleBar"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="19dp"
+            android:paddingRight="19dp">
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="19dp"
+                android:text="지역선택"
+                android:textColor="@color/black"
+                android:textSize="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+
+                <RelativeLayout
+                    android:id="@+id/AddressTagLay1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/tag_round_bg_blue_tranparent"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <com.avocado.makeyoursmile.view.AVTextView
+                        android:id="@+id/AddressTagTxt1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:singleLine="true"
+                        android:text="서울시, 강남구"
+                        android:textColor="@color/mys_txt_blue"
+                        android:textSize="10dp" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/AddressTagLay2"
+                    android:layout_width="100dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/tag_round_bg_blue_tranparent"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <com.avocado.makeyoursmile.view.AVTextView
+                        android:id="@+id/AddressTagTxt2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:singleLine="true"
+                        android:text="지역2"
+                        android:textColor="@color/mys_txt_blue"
+                        android:textSize="10dp" />
+
+                    <RelativeLayout
+                        android:id="@+id/AddressTagCross2"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical">
+
+
+                        <View
+                            android:layout_width="1px"
+                            android:layout_height="5dp"
+                            android:layout_centerInParent="true"
+                            android:background="@color/mys_txt_blue" />
+
+                        <View
+                            android:layout_width="5dp"
+                            android:layout_height="1px"
+                            android:layout_centerInParent="true"
+                            android:background="@color/mys_txt_blue" />
+
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="성별"
+                android:textColor="@color/black"
+                android:textSize="12dp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+
+                <RelativeLayout
+                    android:id="@+id/FemaleTagLay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/tag_round_bg_blue"
+                    android:orientation="horizontal">
+
+                    <com.avocado.makeyoursmile.view.AVTextView
+                        android:id="@+id/FemaleTagTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:singleLine="true"
+                        android:text="여성"
+                        android:textColor="@color/white"
+                        android:textSize="10dp" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/MaleTagLay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/tag_round_bg_blue_tranparent"
+                    android:orientation="horizontal">
+
+                    <com.avocado.makeyoursmile.view.AVTextView
+                        android:id="@+id/MaleTagTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:singleLine="true"
+                        android:text="남성"
+                        android:textColor="@color/mys_txt_blue"
+                        android:textSize="10dp" />
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="나이"
+                android:textColor="@color/black"
+                android:textSize="12dp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+
+                <RelativeLayout
+                    android:id="@+id/Year10TagLay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/tag_round_bg_blue"
+                    android:orientation="horizontal">
+
+                    <com.avocado.makeyoursmile.view.AVTextView
+                        android:id="@+id/Year10TagTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:singleLine="true"
+                        android:text="10대"
+                        android:textColor="@color/white"
+                        android:textSize="10dp" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/Year20TagLay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/tag_round_bg_blue_tranparent"
+                    android:orientation="horizontal">
+
+                    <com.avocado.makeyoursmile.view.AVTextView
+                        android:id="@+id/Year20TagTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:singleLine="true"
+                        android:text="20대"
+                        android:textColor="@color/mys_txt_blue"
+                        android:textSize="10dp" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/Year30TagLay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/tag_round_bg_blue_tranparent"
+                    android:orientation="horizontal">
+
+                    <com.avocado.makeyoursmile.view.AVTextView
+                        android:id="@+id/Year30TagTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:singleLine="true"
+                        android:text="30대"
+                        android:textColor="@color/mys_txt_blue"
+                        android:textSize="10dp" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/Year40TagLay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/tag_round_bg_blue_tranparent"
+                    android:orientation="horizontal">
+
+                    <com.avocado.makeyoursmile.view.AVTextView
+                        android:id="@+id/Year40TagTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:singleLine="true"
+                        android:text="40대"
+                        android:textColor="@color/mys_txt_blue"
+                        android:textSize="10dp" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/Year50TagLay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/tag_round_bg_blue_tranparent"
+                    android:orientation="horizontal">
+
+                    <com.avocado.makeyoursmile.view.AVTextView
+                        android:id="@+id/Year50TagTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:singleLine="true"
+                        android:text="50대"
+                        android:textColor="@color/mys_txt_blue"
+                        android:textSize="10dp" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+
+                <com.avocado.makeyoursmile.view.AVTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:text="진료 문의 항목"
+                    android:textColor="@color/black"
+                    android:textSize="12dp" />
+
+                <com.avocado.makeyoursmile.view.AVTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(중복 선택 가능)"
+                    android:textColor="@color/black"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+
+                <RelativeLayout
+                    android:id="@+id/Ask1TagLay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/tag_round_bg_blue"
+                    android:orientation="horizontal">
+
+                    <com.avocado.makeyoursmile.view.AVTextView
+                        android:id="@+id/Ask1TagTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:singleLine="true"
+                        android:text="교정"
+                        android:textColor="@color/white"
+                        android:textSize="10dp" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/Ask2TagLay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/tag_round_bg_blue_tranparent"
+                    android:orientation="horizontal">
+
+                    <com.avocado.makeyoursmile.view.AVTextView
+                        android:id="@+id/Ask2TagTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:singleLine="true"
+                        android:text="미백"
+                        android:textColor="@color/mys_txt_blue"
+                        android:textSize="10dp" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/Ask3TagLay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/tag_round_bg_blue_tranparent"
+                    android:orientation="horizontal">
+
+                    <com.avocado.makeyoursmile.view.AVTextView
+                        android:id="@+id/Ask3TagTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:singleLine="true"
+                        android:text="보철"
+                        android:textColor="@color/mys_txt_blue"
+                        android:textSize="10dp" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/Ask4TagLay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/tag_round_bg_blue_tranparent"
+                    android:orientation="horizontal">
+
+                    <com.avocado.makeyoursmile.view.AVTextView
+                        android:id="@+id/Ask4TagTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:singleLine="true"
+                        android:text="검진"
+                        android:textColor="@color/mys_txt_blue"
+                        android:textSize="10dp" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/Ask5TagLay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/tag_round_bg_blue_tranparent"
+                    android:orientation="horizontal">
+
+                    <com.avocado.makeyoursmile.view.AVTextView
+                        android:id="@+id/Ask5TagTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:singleLine="true"
+                        android:text="임플란트"
+                        android:textColor="@color/mys_txt_blue"
+                        android:textSize="10dp" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+
+                <RelativeLayout
+                    android:id="@+id/Ask6TagLay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/tag_round_bg_blue"
+                    android:orientation="horizontal">
+
+                    <com.avocado.makeyoursmile.view.AVTextView
+                        android:id="@+id/Ask6TagTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:singleLine="true"
+                        android:text="사랑니"
+                        android:textColor="@color/white"
+                        android:textSize="10dp" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/Ask7TagLay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/tag_round_bg_blue_tranparent"
+                    android:orientation="horizontal">
+
+                    <com.avocado.makeyoursmile.view.AVTextView
+                        android:id="@+id/Ask7TagTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:singleLine="true"
+                        android:text="틀니"
+                        android:textColor="@color/mys_txt_blue"
+                        android:textSize="10dp" />
+
+
+                </RelativeLayout>
+            </LinearLayout>
+
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="사진 첨부"
+                android:textColor="@color/black"
+                android:textSize="12dp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:id="@+id/UploadImg1"
+                    android:layout_width="105dp"
+                    android:layout_height="80dp"
+                    android:layout_marginRight="4dp"
+                    android:orientation="horizontal"
+                    android:src="@drawable/photoplus" />
+
+                <ImageView
+                    android:id="@+id/UploadImg2"
+                    android:layout_width="105dp"
+                    android:layout_height="80dp"
+                    android:layout_marginRight="4dp"
+                    android:orientation="horizontal"
+                    android:src="@drawable/photoplus" />
+
+                <ImageView
+                    android:id="@+id/UploadImg3"
+                    android:layout_width="105dp"
+                    android:layout_height="80dp"
+                    android:layout_marginRight="4dp"
+                    android:orientation="horizontal"
+                    android:src="@drawable/photoplus" />
+
+            </LinearLayout>
+
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="기타 문의 사항"
+                android:textColor="@color/black"
+                android:textSize="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/mys_stroke_color"
+                android:orientation="horizontal">
+
+                <ScrollView
+                    android:id="@+id/ScrollView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1px"
+                    android:background="@color/mys_bg"
+                    android:fillViewport="true">
+
+                    <com.avocado.makeyoursmile.view.AVEditText
+                        android:id="@+id/EtcEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@null"
+                        android:gravity="top"
+                        android:hint="안녕하세요. 좋은 견적 부탁 드립니다."
+                        android:textColor="@color/black"
+                        android:textSize="12dp" />
+                </ScrollView>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ReqBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/sendicon"
+                android:orientation="horizontal" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>
