@@ -78,30 +78,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ProfileImgLay"
-        android:layout_marginLeft="10dp">
+        android:layout_margin="10dp">
 
         <ImageView
-            android:id="@+id/EventImg"
+            android:id="@+id/LandingBntImg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_margin="20dp"
-            android:src="@drawable/cheeseicon" />
+            android:src="@drawable/moreicon" />
 
         <RelativeLayout
             android:id="@+id/DetailLay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/EventImg"
-            android:paddingLeft="10dp">
+            android:layout_toLeftOf="@+id/LandingBntImg"
+            >
+
+            <ImageView
+                android:id="@+id/EventImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/cheeseicon" />
 
             <LinearLayout
                 android:id="@+id/LocationLay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
+                android:layout_toLeftOf="@+id/EventImg"
                 android:layout_marginRight="10dp"
-                android:layout_marginTop="20dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -127,19 +133,19 @@
                 android:id="@+id/TitleTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:layout_toLeftOf="@+id/LocationLay"
                 android:singleLine="true"
                 android:text="지엔 치과"
                 android:textColor="@color/black"
-                android:textSize="11dp"
+                android:textSize="15dp"
                 android:textStyle="bold" />
 
             <com.avocado.makeyoursmile.view.AVTextView
                 android:id="@+id/SubTitleTxt"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/TitleTxt"
+                android:layout_toLeftOf="@+id/EventImg"
                 android:layout_marginTop="5dp"
                 android:lines="2"
                 android:text="서울시 강남구 역삼동 749-12번지\n엘리빌 202호"

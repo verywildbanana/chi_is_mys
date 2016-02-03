@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:avocado="http://schemas.avocado.com/mys"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="5dp"
+    >
+
+    <RelativeLayout
+        android:id="@+id/TagLay"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:background="@drawable/tag_round_bg_transparent"
+        android:orientation="horizontal"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp">
+
+        <com.avocado.makeyoursmile.view.AVTextView
+            android:id="@+id/TagText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:singleLine="true"
+            android:text="#임플란트"
+            android:textColor="@color/white"
+            android:textSize="10dp" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

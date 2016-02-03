@@ -6,7 +6,6 @@ import android.os.Handler;
 
 import com.avocado.makeyoursmile.R;
 import com.avocado.makeyoursmile.base.BaseActivity;
-import com.avocado.makeyoursmile.ui.search.DentistryList;
 import com.avocado.makeyoursmile.util.IntentManager;
 
 import butterknife.ButterKnife;
@@ -28,7 +27,7 @@ public class Start extends BaseActivity {
             @Override
             public void run() {
 
-                IntentManager.getInstance().push(Start.this, DentistryList.class, true);
+                IntentManager.getInstance().push(Start.this, Landing.class, true);
 
 
             }

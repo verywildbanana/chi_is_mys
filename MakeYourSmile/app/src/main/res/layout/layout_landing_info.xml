@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:avocado="http://schemas.avocado.com/mys"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.avocado.makeyoursmile.view.AVTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="14dp"
+            android:singleLine="true"
+            android:text="주소"
+            android:textColor="@color/mys_txt_dark_gray"
+            android:textSize="11dp" />
+
+        <com.avocado.makeyoursmile.view.AVTextView
+            android:id="@+id/DentistAddressTxt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="27dp"
+            android:layout_marginTop="5dp"
+            android:singleLine="true"
+            android:text="서울시 강남구 역삼동 749-12번지"
+            android:textColor="@color/black"
+            android:textSize="10dp" />
+
+        <com.avocado.makeyoursmile.view.AVTextView
+            android:id="@+id/DentistAddressTxt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="27dp"
+            android:singleLine="true"
+            android:text="엘리트빌 202호"
+            android:textColor="@color/black"
+            android:textSize="10dp" />
+
+        <com.avocado.makeyoursmile.view.AVTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="14dp"
+            android:singleLine="true"
+            android:text="진료시간"
+            android:textColor="@color/mys_txt_dark_gray"
+            android:textSize="11dp" />
+
+
+        <com.avocado.makeyoursmile.view.AVTextView
+            android:id="@+id/CareHours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="27dp"
+            android:layout_marginTop="5dp"
+            android:text="평 일 10:00 ~ 19:00\t주 말 10:00 ~ 19:00\n점 심 정보없음\t\t\t\t점 심 정보없음"
+            android:textColor="@color/black"
+            android:textSize="10dp" />
+
+
+        <com.avocado.makeyoursmile.view.AVTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="14dp"
+            android:singleLine="true"
+            android:text="프로모션"
+            android:textColor="@color/mys_txt_dark_gray"
+            android:textSize="11dp" />
+
+
+        <com.avocado.makeyoursmile.view.AVTextView
+            android:id="@+id/PromotionTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="27dp"
+            android:layout_marginTop="5dp"
+            android:text="임플란트 30%할인 행사 중"
+            android:textColor="@color/black"
+            android:textSize="10dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/IntroduceDoctorImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/bigdoctor" />
+
+            <ImageView
+                android:id="@+id/MapImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/bigmap" />
+
+            <ImageView
+                android:id="@+id/AskImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/biganswer" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/EventImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="18dp"
+        android:src="@drawable/cheeseicon" />
+
+</RelativeLayout>

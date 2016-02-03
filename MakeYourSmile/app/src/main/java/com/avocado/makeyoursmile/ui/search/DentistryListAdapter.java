@@ -7,9 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.avocado.makeyoursmile.R;
+import com.avocado.makeyoursmile.view.AVTextView;
 
 import java.util.List;
 
@@ -45,7 +45,7 @@ public class DentistryListAdapter extends RecyclerView.Adapter<RecyclerView.View
 
             case ITEM:
 
-                View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.listitem_home, parent, false);
+                View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.listitem_search_dentistry, parent, false);
                 ViewHolder holder = new ViewHolder(v);
                 holder.itemView.setOnClickListener(this);
                 return holder;
@@ -156,13 +156,19 @@ public class DentistryListAdapter extends RecyclerView.Adapter<RecyclerView.View
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder  {
-        private TextView mTitleTxt, mSubTitleTxt;
-        private ImageView detailImg;
+        private AVTextView mTitleTxt, mSubTitleTxt, mDistanceTxt;
+        private ImageView mDentistImg,mLandingBntImg, mEventImg;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            mTitleTxt = (TextView) itemView.findViewById(R.id.TitleTxt);
-            mSubTitleTxt = (TextView) itemView.findViewById(R.id.SubTitleTxt);
+
+            mDentistImg = (ImageView) itemView.findViewById(R.id.DentistImg);
+            mLandingBntImg = (ImageView) itemView.findViewById(R.id.LandingBntImg);
+            mEventImg = (ImageView) itemView.findViewById(R.id.EventImg);
+
+            mTitleTxt = (AVTextView) itemView.findViewById(R.id.TitleTxt);
+            mSubTitleTxt = (AVTextView) itemView.findViewById(R.id.SubTitleTxt);
+            mDistanceTxt = (AVTextView) itemView.findViewById(R.id.DistanceTxt);
         }
 
     }
