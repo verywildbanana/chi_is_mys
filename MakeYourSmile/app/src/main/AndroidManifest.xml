@@ -87,6 +87,16 @@
             android:theme="@style/Theme.NoBackground"
             />
 
+        <activity android:name="com.avocado.makeyoursmile.ui.HostJoin"
+            android:configChanges="keyboardHidden|orientation|locale|uiMode"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NoBackground"
+            />
+
+
+
+
+
     </application>
 
 </manifest>

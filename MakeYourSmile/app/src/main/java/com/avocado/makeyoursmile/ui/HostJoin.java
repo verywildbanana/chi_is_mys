@@ -2,36 +2,29 @@ package com.avocado.makeyoursmile.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
+import android.view.View;
 
 import com.avocado.makeyoursmile.R;
 import com.avocado.makeyoursmile.base.BaseActivity;
-import com.avocado.makeyoursmile.util.IntentManager;
 
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by HDlee on 1/29/16.
  */
-public class Start extends BaseActivity {
+public class HostJoin extends BaseActivity {
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start);
+        setContentView(R.layout.activity_hostjoin);
         ButterKnife.bind(this);
 
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-
-                IntentManager.getInstance().push(Start.this, HostJoin.class, true);
 
 
-            }
-        }, 1000);
     }
 
     @Override
@@ -61,4 +54,16 @@ public class Start extends BaseActivity {
 
     }
 
+    @OnClick(R.id.TitleLeftImg)
+    public void onClickTitleLeft(View v) {
+
+        onBackPressed();
+
+    }
+
+    @OnClick(R.id.TitleSearchImg)
+    public void onClickTitleSearch(View v) {
+
+
+    }
 }
