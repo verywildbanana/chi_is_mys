@@ -81,8 +81,11 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.NoBackground"
             />
-
-
+        <activity android:name="com.avocado.makeyoursmile.ui.alarm.Notice"
+            android:configChanges="keyboardHidden|orientation|locale|uiMode"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NoBackground"
+            />
 
     </application>
 

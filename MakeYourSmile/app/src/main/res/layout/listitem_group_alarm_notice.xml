@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:avocado="http://schemas.avocado.com/mys"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:background="@color/white">
+
+
+    <ImageView
+        android:id="@+id/ArrowBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/closed"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="18dp"
+        />
+
+
+    <RelativeLayout
+        android:id="@+id/DetailLay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="18dp"
+        >
+
+        <com.avocado.makeyoursmile.view.AVTextView
+            android:id="@+id/TitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="[안내]~~~~~~~~"
+            android:textColor="@color/mys_titlebar"
+            android:textSize="12dp" />
+
+        <com.avocado.makeyoursmile.view.AVTextView
+            android:id="@+id/TitleSubText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TitleText"
+            android:layout_marginTop="7dp"
+            android:singleLine="true"
+            android:text="2016-00-00"
+            android:layout_marginLeft="7dp"
+            android:textColor="@color/mys_txt_dark_gray"
+            android:textSize="11dp" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

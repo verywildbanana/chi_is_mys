@@ -6,7 +6,7 @@ import android.os.Handler;
 
 import com.avocado.makeyoursmile.R;
 import com.avocado.makeyoursmile.base.BaseActivity;
-import com.avocado.makeyoursmile.ui.ask.Answer;
+import com.avocado.makeyoursmile.ui.alarm.Notice;
 import com.avocado.makeyoursmile.util.IntentManager;
 
 import butterknife.ButterKnife;
@@ -28,7 +28,7 @@ public class Start extends BaseActivity {
             @Override
             public void run() {
 
-                IntentManager.getInstance().push(Start.this, Answer.class, true);
+                IntentManager.getInstance().push(Start.this, Notice.class, true);
 
 
             }
