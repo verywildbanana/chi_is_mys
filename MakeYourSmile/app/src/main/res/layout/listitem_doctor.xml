@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:avocado="http://schemas.avocado.com/mys"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+
+    <RelativeLayout
+        android:id="@+id/ProfileImgLay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/photosample" />
+
+        <ImageView
+            android:id="@+id/ProfileImg"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+
+            />
+
+    </RelativeLayout>
+
+
+
+    <com.avocado.makeyoursmile.view.AVTextView
+        android:id="@+id/DateTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:singleLine="true"
+        android:text="2016-01-22"
+        android:layout_marginRight="12dp"
+        android:textColor="@color/mys_txt_dark_gray"
+        android:textSize="9dp" />
+
+
+    <com.avocado.makeyoursmile.view.AVTextView
+        android:id="@+id/NameTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/ProfileImgLay"
+        android:layout_alignBottom="@+id/ProfileImgLay"
+        android:layout_marginLeft="10dp"
+        android:singleLine="true"
+        android:text="강남 지엔 치과"
+        android:textColor="@color/mys_txt_dark_gray"
+        android:textStyle="bold"
+        android:textSize="11dp" />
+
+
+
+        <com.avocado.makeyoursmile.view.AVTextView
+            android:id="@+id/DescribeTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ProfileImgLay"
+            android:layout_margin="14dp"
+            android:lineSpacingExtra="1dp"
+            android:text="안녕하세요? 지엔 치과입니다.\n문의하신 내용에 대한 답변입니다"
+            android:textColor="@color/black"
+            android:textSize="10dp" />
+
+
+
+
+</RelativeLayout>

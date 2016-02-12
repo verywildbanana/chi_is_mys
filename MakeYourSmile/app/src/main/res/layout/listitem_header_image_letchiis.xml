@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:avocado="http://schemas.avocado.com/mys"
+    android:layout_width="match_parent"
+    android:layout_height="25dp"
+    android:layout_marginLeft="17dp"
+    android:layout_marginRight="17dp"
+    android:background="@color/white"
+    android:clickable="true"
+    >
+
+    <com.avocado.makeyoursmile.view.AVTextView
+        android:id="@+id/TitleTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:singleLine="true"
+        android:text="좋아요"
+        android:textColor="@color/mys_txt_blue"
+        android:textStyle="bold"
+        android:textSize="12dp" />
+
+    <com.avocado.makeyoursmile.view.AVTextView
+        android:id="@+id/SubSubTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:singleLine="true"
+        android:textColor="@color/mys_txt_dark_gray"
+        android:textSize="10dp" />
+
+    <View
+        android:id="@+id/SubLine"
+        android:layout_width="1px"
+        android:layout_height="10dp"
+        android:layout_toLeftOf="@+id/SubSubTxt"
+        android:layout_centerVertical="true"
+        android:layout_margin="5dp"
+        android:visibility="gone"
+        android:background="@color/mys_txt_dark_gray"
+        />
+
+    <com.avocado.makeyoursmile.view.AVTextView
+        android:id="@+id/SubTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/SubLine"
+        android:layout_centerVertical="true"
+        android:singleLine="true"
+        android:textColor="@color/mys_txt_dark_gray"
+        android:textSize="10dp" />
+
+
+</RelativeLayout>

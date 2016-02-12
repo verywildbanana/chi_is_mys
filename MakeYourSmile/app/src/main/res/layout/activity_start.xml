@@ -9,4 +9,375 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
+    <RelativeLayout
+        android:id="@+id/TitleBar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/mys_titlebar">
+
+
+        <ImageView
+            android:id="@+id/TitleLogoImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/makeyoursmile" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/TitleBar"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <com.avocado.makeyoursmile.view.AVTextView
+                    android:id="@+id/Click1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="30dp"
+                    android:text="홈"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="@color/mys_setting_line"
+                android:orientation="horizontal" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <com.avocado.makeyoursmile.view.AVTextView
+                    android:id="@+id/Click2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="30dp"
+                    android:text="견적문의"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="@color/mys_setting_line"
+                android:orientation="horizontal" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <com.avocado.makeyoursmile.view.AVTextView
+                    android:id="@+id/Click3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="30dp"
+                    android:text="환경설정"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="@color/mys_setting_line"
+                android:orientation="horizontal" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <com.avocado.makeyoursmile.view.AVTextView
+                    android:id="@+id/Click4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="30dp"
+                    android:text="검색"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="@color/mys_setting_line"
+                android:orientation="horizontal" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <com.avocado.makeyoursmile.view.AVTextView
+                    android:id="@+id/Click5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="30dp"
+                    android:text="목록보기"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="@color/mys_setting_line"
+                android:orientation="horizontal" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <com.avocado.makeyoursmile.view.AVTextView
+                    android:id="@+id/Click6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="30dp"
+                    android:text="상세보기"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="@color/mys_setting_line"
+                android:orientation="horizontal" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <com.avocado.makeyoursmile.view.AVTextView
+                    android:id="@+id/Click7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="30dp"
+                    android:text="문의하기"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="@color/mys_setting_line"
+                android:orientation="horizontal" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <com.avocado.makeyoursmile.view.AVTextView
+                    android:id="@+id/Click8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="30dp"
+                    android:text="답변보기"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="@color/mys_setting_line"
+                android:orientation="horizontal" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <com.avocado.makeyoursmile.view.AVTextView
+                    android:id="@+id/Click9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="30dp"
+                    android:text="공지사항"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="@color/mys_setting_line"
+                android:orientation="horizontal" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <com.avocado.makeyoursmile.view.AVTextView
+                    android:id="@+id/Click10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="30dp"
+                    android:text="병원 제휴 및 계정 신청"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="@color/mys_setting_line"
+                android:orientation="horizontal" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <com.avocado.makeyoursmile.view.AVTextView
+                    android:id="@+id/Click11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="30dp"
+                    android:text="의료진소개"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="@color/mys_setting_line"
+                android:orientation="horizontal" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <com.avocado.makeyoursmile.view.AVTextView
+                    android:id="@+id/Click12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="30dp"
+                    android:text="견적문의"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="@color/mys_setting_line"
+                android:orientation="horizontal" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <com.avocado.makeyoursmile.view.AVTextView
+                    android:id="@+id/Click13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="30dp"
+                    android:text="렛치이즈"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="@color/mys_setting_line"
+                android:orientation="horizontal" />
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
 </RelativeLayout>

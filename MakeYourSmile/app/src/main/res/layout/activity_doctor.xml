@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:avocado="http://schemas.avocado.com/mys"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mys_bg"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/TitleBar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/mys_titlebar">
+
+
+        <ImageView
+            android:id="@+id/TitleLeftImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/top_back" />
+
+        <com.avocado.makeyoursmile.view.AVTextView
+            android:id="@+id/TitleTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/TitleLeftImg"
+            android:text="의료진 소개"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/TitleSearchImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/searchicon" />
+
+
+        <ImageView
+            android:id="@+id/TitleLogoImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/TitleSearchImg"
+            android:src="@drawable/makeyoursmile" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/TitleBar"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:id="@+id/HosTitleTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:text="지엔 치과"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/ContentAddLay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="17dp"
+                android:orientation="vertical">
+
+
+                <include
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    layout="@layout/listitem_doctor" />
+
+                <include
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    layout="@layout/listitem_doctor" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

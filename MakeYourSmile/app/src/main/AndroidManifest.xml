@@ -92,9 +92,21 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.NoBackground"
             />
-
-
-
+        <activity android:name="com.avocado.makeyoursmile.ui.Doctor"
+            android:configChanges="keyboardHidden|orientation|locale|uiMode"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NoBackground"
+            />
+        <activity android:name="com.avocado.makeyoursmile.ui.EstimateLogin"
+            android:configChanges="keyboardHidden|orientation|locale|uiMode"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NoBackground"
+            />
+        <activity android:name="com.avocado.makeyoursmile.ui.photo.Letchiis"
+            android:configChanges="keyboardHidden|orientation|locale|uiMode"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NoBackground"
+            />
 
 
     </application>
