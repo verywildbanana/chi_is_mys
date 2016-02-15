@@ -149,6 +149,9 @@ public class Start extends BaseActivity {
 
                 break;
 
+//            IntentManager.getInstance().push(Start.this, Terms.class, true);
+
+
 
         }
     }
