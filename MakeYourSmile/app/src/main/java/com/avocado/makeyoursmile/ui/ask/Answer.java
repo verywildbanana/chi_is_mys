@@ -6,6 +6,9 @@ import android.view.View;
 
 import com.avocado.makeyoursmile.R;
 import com.avocado.makeyoursmile.base.BaseActivity;
+import com.avocado.makeyoursmile.ui.Doctor;
+import com.avocado.makeyoursmile.ui.search.Dentistry;
+import com.avocado.makeyoursmile.util.IntentManager;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -64,6 +67,32 @@ public class Answer extends BaseActivity {
     @OnClick(R.id.TitleSearchImg)
     public void onClickTitleSearch(View v) {
 
+        IntentManager.getInstance().push(this, Dentistry.class, true);
+    }
 
+    @OnClick({R.id.IntroduceDoctorImg, R.id.MapImg, R.id.AskImg, R.id.EventImg})
+    public void onClickLay(View v) {
+
+        switch (v.getId()) {
+
+            case R.id.IntroduceDoctorImg:
+
+                IntentManager.getInstance().push(Answer.this, Doctor.class, true);
+                break;
+
+            case R.id.MapImg:
+
+
+                break;
+
+            case R.id.AskImg:
+
+                break;
+
+            case R.id.EventImg:
+
+
+                break;
+        }
     }
 }

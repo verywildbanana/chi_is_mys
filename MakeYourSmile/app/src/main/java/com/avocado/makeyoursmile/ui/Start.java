@@ -30,6 +30,8 @@ public class Start extends BaseActivity {
         setContentView(R.layout.activity_start);
         ButterKnife.bind(this);
 
+        IntentManager.getInstance().push(Start.this, Home.class, true);
+
     }
 
     @Override

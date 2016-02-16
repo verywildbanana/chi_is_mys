@@ -11,6 +11,8 @@ import com.avocado.makeyoursmile.R;
 import com.avocado.makeyoursmile.base.BaseActivity;
 import com.avocado.makeyoursmile.network.data.host.Answer;
 import com.avocado.makeyoursmile.network.data.user.Ask;
+import com.avocado.makeyoursmile.ui.search.Dentistry;
+import com.avocado.makeyoursmile.util.IntentManager;
 
 import java.util.ArrayList;
 
@@ -49,6 +51,8 @@ public class Estimate extends BaseActivity {
             @Override
             public void onClick(View view) {
                 super.onClick(view);
+
+                IntentManager.getInstance().push(Estimate.this, com.avocado.makeyoursmile.ui.ask.Answer.class, true);
 
                 }
 
@@ -115,7 +119,7 @@ public class Estimate extends BaseActivity {
     @OnClick(R.id.TitleSearchImg)
     public void onClickTitleSearch(View v) {
 
-
+        IntentManager.getInstance().push(this, Dentistry.class, true);
 
     }
 
@@ -126,5 +130,20 @@ public class Estimate extends BaseActivity {
 
     }
 
+
+
+
+    @OnClick(R.id.AskBtLogoImg)
+    public void onClickLay(View v) {
+
+        switch (v.getId()) {
+
+            case R.id.AskBtLogoImg:
+
+                IntentManager.getInstance().push(Estimate.this, Request.class, true);
+
+                break;
+        }
+    }
 
 }

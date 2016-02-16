@@ -7,6 +7,8 @@ import android.view.View;
 import com.avocado.makeyoursmile.Global;
 import com.avocado.makeyoursmile.R;
 import com.avocado.makeyoursmile.base.BaseActivity;
+import com.avocado.makeyoursmile.ui.alarm.Notice;
+import com.avocado.makeyoursmile.util.IntentManager;
 import com.avocado.makeyoursmile.view.AVTextView;
 import com.avocado.makeyoursmile.view.AVToggleButton;
 
@@ -85,6 +87,8 @@ public class Setting extends BaseActivity {
 
             case R.id.NoticeLay:
 
+                IntentManager.getInstance().push(Setting.this, Notice.class, true);
+
                 break;
 
             case R.id.ExplainLay:
@@ -93,6 +97,8 @@ public class Setting extends BaseActivity {
                 break;
 
             case R.id.ReqLay:
+
+                IntentManager.getInstance().push(Setting.this, HostJoin.class, true);
 
                 break;
 
@@ -103,10 +109,13 @@ public class Setting extends BaseActivity {
 
             case R.id.TermLay:
 
+                IntentManager.getInstance().push(Setting.this, Terms.class, true);
+
                 break;
 
             case R.id.PersonalTermLay:
 
+                IntentManager.getInstance().push(Setting.this, Terms.class, true);
 
                 break;
 

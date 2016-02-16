@@ -79,8 +79,50 @@
             android:scaleType="fitXY"
             android:src="@drawable/theme" />
 
+        <RelativeLayout
+            android:layout_width="341dp"
+            android:layout_height="101dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="22dp">
 
-    </RelativeLayout>
+
+            <View
+                android:id="@+id/ToothTheme1"
+                android:layout_width="150dp"
+                android:layout_height="50px"
+                android:layout_marginTop="10dp"
+                />
+
+            <View
+                android:id="@+id/ToothTheme2"
+                android:layout_width="150dp"
+                android:layout_height="50px"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentRight="true"
+                />
+
+            <View
+                android:id="@+id/ToothTheme3"
+                android:layout_width="150dp"
+                android:layout_height="50px"
+                android:layout_marginBottom="10dp"
+                android:layout_alignParentBottom="true"
+                />
+
+            <View
+                android:id="@+id/ToothTheme4"
+                android:layout_width="150dp"
+                android:layout_height="50px"
+                android:layout_marginBottom="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                />
+
+        </RelativeLayout>
+
+
+
+        </RelativeLayout>
 
 
     <RelativeLayout

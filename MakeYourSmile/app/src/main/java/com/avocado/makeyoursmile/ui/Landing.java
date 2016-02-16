@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 import com.avocado.makeyoursmile.R;
 import com.avocado.makeyoursmile.base.BaseActivity;
+import com.avocado.makeyoursmile.util.IntentManager;
 import com.avocado.makeyoursmile.view.AVCirclePageIndicator;
 
 import java.util.ArrayList;
@@ -120,45 +121,31 @@ public class Landing extends BaseActivity {
 
     }
 
-//    @OnClick({R.id.NoticeLay, R.id.ExplainLay, R.id.ReqLay, R.id.FAQLay, R.id.TermLay, R.id.PersonalTermLay, R.id.AccountTermLay})
-//    public void onClickLay(View v) {
-//
-//        switch (v.getId()) {
-//
-//            case R.id.NoticeLay:
-//
-//                break;
-//
-//            case R.id.ExplainLay:
-//
-//
-//                break;
-//
-//            case R.id.ReqLay:
-//
-//                break;
-//
-//            case R.id.FAQLay:
-//
-//
-//                break;
-//
-//            case R.id.TermLay:
-//
-//                break;
-//
-//            case R.id.PersonalTermLay:
-//
-//
-//                break;
-//
-//
-//            case R.id.AccountTermLay:
-//
-//                break;
-//
-//        }
-//    }
+    @OnClick({R.id.IntroduceDoctorImg, R.id.MapImg, R.id.AskImg, R.id.EventImg})
+    public void onClickLay(View v) {
+
+        switch (v.getId()) {
+
+            case R.id.IntroduceDoctorImg:
+
+                IntentManager.getInstance().push(Landing.this, Doctor.class, true);
+                break;
+
+            case R.id.MapImg:
+
+
+                break;
+
+            case R.id.AskImg:
+
+                break;
+
+            case R.id.EventImg:
+
+
+                break;
+        }
+    }
 
     class ViewPagerAdapter extends PagerAdapter {
 

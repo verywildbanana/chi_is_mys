@@ -18,6 +18,9 @@ import com.avocado.makeyoursmile.base.BaseActivity;
 import com.avocado.makeyoursmile.network.data.image.ImageData;
 import com.avocado.makeyoursmile.network.data.image.ImageDetailGoupData;
 import com.avocado.makeyoursmile.network.data.image.ImageSubData;
+import com.avocado.makeyoursmile.ui.ask.Request;
+import com.avocado.makeyoursmile.ui.search.Dentistry;
+import com.avocado.makeyoursmile.util.IntentManager;
 
 import java.util.ArrayList;
 
@@ -171,8 +174,23 @@ public class Letchiis extends BaseActivity {
     @OnClick(R.id.TitleSearchImg)
     public void onClickTitleSearch(View v) {
 
-
+        IntentManager.getInstance().push(this, Dentistry.class, true);
     }
+
+    @OnClick({R.id.UploadImg})
+    public void onClickLay(View v) {
+
+        switch (v.getId()) {
+
+            case R.id.UploadImg:
+
+                IntentManager.getInstance().push(Letchiis.this, Request.class, true);
+                break;
+
+        }
+    }
+
+
 
     View.OnClickListener mChildClickListener = new View.OnClickListener() {
 

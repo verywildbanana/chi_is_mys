@@ -6,6 +6,8 @@ import android.view.View;
 
 import com.avocado.makeyoursmile.R;
 import com.avocado.makeyoursmile.base.BaseActivity;
+import com.avocado.makeyoursmile.ui.search.Dentistry;
+import com.avocado.makeyoursmile.util.IntentManager;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -63,7 +65,7 @@ public class HostJoin extends BaseActivity {
 
     @OnClick(R.id.TitleSearchImg)
     public void onClickTitleSearch(View v) {
-
+        IntentManager.getInstance().push(this, Dentistry.class, true);
 
     }
 }

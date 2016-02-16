@@ -14,6 +14,8 @@ import android.widget.TextView;
 import com.avocado.makeyoursmile.R;
 import com.avocado.makeyoursmile.base.BaseActivity;
 import com.avocado.makeyoursmile.network.data.NoticeData;
+import com.avocado.makeyoursmile.ui.search.Dentistry;
+import com.avocado.makeyoursmile.util.IntentManager;
 
 import java.util.ArrayList;
 
@@ -24,7 +26,11 @@ import butterknife.OnClick;
 /**
  * Created by HDlee on 1/29/16.
  */
-public class Notice extends BaseActivity {
+public class
+
+
+
+        Notice extends BaseActivity {
 
 
     @Bind(R.id.ExpandListView)
@@ -161,7 +167,7 @@ public class Notice extends BaseActivity {
     @OnClick(R.id.TitleSearchImg)
     public void onClickTitleSearch(View v) {
 
-
+        IntentManager.getInstance().push(this, Dentistry.class, true);
     }
 
 

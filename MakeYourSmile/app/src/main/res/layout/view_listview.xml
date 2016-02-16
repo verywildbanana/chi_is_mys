@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ListView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:cacheColorHint="#00000000"
+    android:childDivider="#d9d9d9"
+    android:divider="#ebebeb"
+    android:dividerHeight="1px"
+    android:fadingEdge="vertical"
+    android:fadingEdgeLength="5dip"
+    android:scrollingCache="false"
+    android:animationCache="false"
+    android:focusable="false"
+    android:groupIndicator="@null"
+    android:listSelector="#00000000"
+    android:scrollbarStyle="outsideOverlay" />

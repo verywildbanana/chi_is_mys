@@ -47,7 +47,6 @@ public class DentistryListAdapter extends RecyclerView.Adapter<RecyclerView.View
 
                 View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.listitem_search_dentistry, parent, false);
                 ViewHolder holder = new ViewHolder(v);
-                holder.itemView.setOnClickListener(this);
                 return holder;
         }
         return null;
@@ -119,7 +118,9 @@ public class DentistryListAdapter extends RecyclerView.Adapter<RecyclerView.View
                 ViewHolder h = (ViewHolder) holder;
                 h.mTitleTxt.setText(data);
                 h.itemView.setTag(data);
-
+                h.itemView.setOnClickListener(this);
+                h.mLandingBntImg.setTag(data);
+                h.mLandingBntImg.setOnClickListener(this);
 
                 break;
             }

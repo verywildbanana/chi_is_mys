@@ -1,12 +1,17 @@
 package com.avocado.makeyoursmile.ui.ask;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.avocado.makeyoursmile.R;
 import com.avocado.makeyoursmile.base.BaseActivity;
+import com.avocado.makeyoursmile.ui.search.Dentistry;
+import com.avocado.makeyoursmile.util.IntentManager;
 import com.avocado.makeyoursmile.view.AVTextView;
 
 import butterknife.Bind;
@@ -108,6 +113,8 @@ public class Request extends BaseActivity {
 
     boolean[] mAskTagSelect = {false, false, false, false, false, false, false};
 
+    String[] DONG1 = {"역삼동","개포동", "청담동", "삼성동", "대치동", "신사동", "논현동", "압구정동", "세곡동", "자곡동", "율현동", "일원동", "수서동", "도곡동", "논현1동", "논현2동", "삼성1동", "삼성2동", "대치1동", "대치2동", "대치4동", "역삼1동", "역삼2동", "도곡1동", "도곡2동", "개포1동", "개포2동", "개포4동", "일원본동", "일원1동", "일원2동"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -154,12 +161,45 @@ public class Request extends BaseActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) {
 
+        super.onActivityResult(requestCode, resultCode, imageReturnedIntent);
 
-        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case IntentManager.REQ_CODE_PHOTO_ALBUM:
+            case IntentManager.REQ_CODE_CAMERA:
+
+                if (resultCode == RESULT_OK) {
+                    Uri selectedImage = imageReturnedIntent.getData();
+                    String selectImagePath = getRealPathFromURI(selectedImage);
+
+//                    Glide.with(getContext())
+//                            .load(selectedImage)
+//                            .transform(new CircleTransformation(getContext()))
+//                            .into(mProfileImg);
+//
+//                    String[] temp = {selectImagePath};
+//                    new ProcessImageTask().execute(temp);
+                }
+
+                break;
+
+        }
 
     }
+
+    public String getRealPathFromURI(Uri contentUri) {
+        try {
+            String[] proj = {MediaStore.Images.Media.DATA};
+            Cursor cursor = managedQuery(contentUri, proj, null, null, null);
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            return cursor.getString(column_index);
+        } catch (Exception e) {
+            return contentUri.getPath();
+        }
+    }
+
 
     @OnClick(R.id.TitleLeftImg)
     public void onClickTitleLeft(View v) {
@@ -171,9 +211,109 @@ public class Request extends BaseActivity {
     @OnClick(R.id.TitleSearchImg)
     public void onClickTitleSearch(View v) {
 
-
+        IntentManager.getInstance().push(this, Dentistry.class, true);
     }
 
+    @OnClick({R.id.AddressTagLay1, R.id.AddressTagLay2, R.id.UploadImg1, R.id.UploadImg2, R.id.UploadImg3, R.id.ReqBtn})
+    public void onClickLay(View v) {
+
+        switch (v.getId()) {
+
+            case R.id.AddressTagLay1:
+
+                break;
+
+            case R.id.AddressTagLay2:
+
+                showListDialog("동을 선택하세요.", null, null, null, true, DONG1, new BaseActivity.OnDialogButtonListener() {
+                            @Override
+                            public void onPositiveButtonClick() {
+
+
+                            }
+
+                            @Override
+                            public void onNegativeButtonClick() {
+
+                            }
+                        },
+                        new BaseActivity.OnListDialogButtonListener() {
+                            @Override
+                            public void onListClick(int position) {
+
+                                if (position == 0) {
+
+
+
+                                } else if (position == 1) {
+
+
+                                }
+
+                            }
+                        });
+
+
+                break;
+
+            case R.id.UploadImg1:
+
+
+                String[] menus = {"카메라", "앨범"};
+
+               showListDialog(null, null, null, null, true, menus, new BaseActivity.OnDialogButtonListener() {
+                            @Override
+                            public void onPositiveButtonClick() {
+
+
+                            }
+
+                            @Override
+                            public void onNegativeButtonClick() {
+
+                            }
+                        },
+                        new BaseActivity.OnListDialogButtonListener() {
+                            @Override
+                            public void onListClick(int position) {
+
+                                if (position == 0) {
+
+                                    Intent intent = new Intent();
+                                    intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
+                                    startActivityForResult(intent, IntentManager.REQ_CODE_CAMERA);
+
+
+                                } else if (position == 1) {
+
+                                    Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+                                    photoPickerIntent.setType("image/*");
+                                    startActivityForResult(photoPickerIntent, IntentManager.REQ_CODE_PHOTO_ALBUM);
+
+
+                                }
+
+                            }
+                        });
+
+                break;
+
+            case R.id.UploadImg2:
+
+
+                break;
+
+            case R.id.UploadImg3:
+
+                break;
+
+            case R.id.ReqBtn:
+
+
+                break;
+
+        }
+    }
 
     View.OnClickListener mGenderClickListener = new View.OnClickListener() {
         @Override
