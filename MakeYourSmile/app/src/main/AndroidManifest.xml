@@ -28,7 +28,8 @@
         android:largeHeap="true"
         android:supportsRtl="true">
 
-        <activity android:name="com.avocado.makeyoursmile.ui.Start"
+
+        <activity android:name="com.avocado.makeyoursmile.ui.Info"
             android:configChanges="keyboardHidden|orientation|locale|uiMode"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.SplashBackground"
@@ -37,6 +38,13 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity android:name="com.avocado.makeyoursmile.ui.Start"
+            android:configChanges="keyboardHidden|orientation|locale|uiMode"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NoBackground"
+            >
         </activity>
 
 
@@ -113,6 +121,11 @@
             android:theme="@style/Theme.NoBackground"
             />
         <activity android:name="com.avocado.makeyoursmile.ui.Terms"
+            android:configChanges="keyboardHidden|orientation|locale|uiMode"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NoBackground"
+            />
+        <activity android:name="com.avocado.makeyoursmile.ui.Login"
             android:configChanges="keyboardHidden|orientation|locale|uiMode"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.NoBackground"

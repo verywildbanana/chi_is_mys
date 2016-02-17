@@ -2,7 +2,16 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:top="0dp">
-        <bitmap android:src="@drawable/intro_img"></bitmap>
+        <bitmap android:src="@drawable/intromain"></bitmap>
     </item>
+
+
+    <item android:bottom="10dp">
+        <bitmap
+            android:gravity="center_horizontal|bottom"
+            android:src="@drawable/gncomms" >
+        </bitmap>
+    </item>
+
 
 </layer-list>

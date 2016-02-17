@@ -3,6 +3,7 @@ package com.avocado.makeyoursmile.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -11,7 +12,6 @@ import android.widget.ImageView;
 
 import com.avocado.makeyoursmile.R;
 import com.avocado.makeyoursmile.base.BaseActivity;
-import com.avocado.makeyoursmile.ui.search.Dentistry;
 import com.avocado.makeyoursmile.util.IntentManager;
 import com.avocado.makeyoursmile.view.AVCirclePageIndicator;
 
@@ -24,11 +24,16 @@ import butterknife.OnClick;
 /**
  * Created by HDlee on 1/29/16.
  */
-public class Landing extends BaseActivity {
+public class Info extends BaseActivity {
 
 
-    @Bind(R.id.LandingViewPage)
-    protected ViewPager mLandingViewPage;
+
+
+    @Bind(R.id.ContentLay)
+    protected ViewGroup mContentLay;
+
+    @Bind(R.id.MYSViewPage)
+    protected ViewPager mMYSViewPage;
 
     @Bind(R.id.CirclePageIndicator)
     AVCirclePageIndicator mCirclePageIndicator;
@@ -38,7 +43,7 @@ public class Landing extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_landing);
+        setContentView(R.layout.activity_info);
         ButterKnife.bind(this);
 
         ArrayList<String> images = new ArrayList<>();
@@ -48,15 +53,15 @@ public class Landing extends BaseActivity {
         images.add("1");
         images.add("1");
 
-        mViewPagerAdapter = new ViewPagerAdapter(this, images);
+        mViewPagerAdapter = new ViewPagerAdapter(this);
 
-        mLandingViewPage.setAdapter(mViewPagerAdapter);
+        mMYSViewPage.setAdapter(mViewPagerAdapter);
 
         float density = getResources().getDisplayMetrics().density;
-        mCirclePageIndicator.setViewPager(mLandingViewPage);
+        mCirclePageIndicator.setViewPager(mMYSViewPage);
         mCirclePageIndicator.setRadius(4 * density);
         mCirclePageIndicator.setPageColor(0xFFcccccc);
-        mCirclePageIndicator.setFillColor(0xffFFFFFF);
+        mCirclePageIndicator.setFillColor(0xffff0000);
         mCirclePageIndicator.setStrokeColor(0xFFCCCCCC);
         mCirclePageIndicator.setStrokeWidth(2 * density);
         mCirclePageIndicator.setCentered(true);
@@ -79,6 +84,16 @@ public class Landing extends BaseActivity {
 
             }
         });
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                mContentLay.setVisibility(View.VISIBLE);
+
+            }
+        }, 700);
 
     }
 
@@ -109,78 +124,44 @@ public class Landing extends BaseActivity {
 
     }
 
-    @OnClick(R.id.TitleLeftImg)
-    public void onClickTitleLeft(View v) {
+    @OnClick(R.id.SkipImg)
+    public void onClicSkip(View v) {
 
-        onBackPressed();
-
-    }
-
-    @OnClick(R.id.TitleSearchImg)
-    public void onClickTitleSearch(View v) {
-
-        IntentManager.getInstance().push(this, Dentistry.class, true);
+        IntentManager.getInstance().push(this, Login.class, true);
 
     }
 
-    @OnClick({R.id.IntroduceDoctorImg, R.id.MapImg, R.id.AskImg, R.id.EventImg})
-    public void onClickLay(View v) {
-
-        switch (v.getId()) {
-
-            case R.id.IntroduceDoctorImg:
-
-                IntentManager.getInstance().push(Landing.this, Doctor.class, true);
-                break;
-
-            case R.id.MapImg:
-
-
-                break;
-
-            case R.id.AskImg:
-
-                break;
-
-            case R.id.EventImg:
-
-
-                break;
-        }
-    }
 
     class ViewPagerAdapter extends PagerAdapter {
 
         Context mContext;
-        ArrayList<String> mImageUrlData;
         ArrayList<View> mContentView = new ArrayList<>();
 
-        public ViewPagerAdapter(Context context, ArrayList<String> images) {
+        public ViewPagerAdapter(Context context) {
 
             mContext = context;
 
+            ImageView img = new ImageView(context);
+            img.setImageResource(R.drawable.info_01);
+            img.setScaleType(ImageView.ScaleType.FIT_XY);
+            mContentView.add(img);
 
-            if (images != null && images.isEmpty() == false) {
+            img = new ImageView(context);
+            img.setImageResource(R.drawable.info_02);
+            img.setScaleType(ImageView.ScaleType.FIT_XY);
+            mContentView.add(img);
 
-                mImageUrlData = images;
-                int size = images.size();
-                ImageView[] imageView = new ImageView[size];
+            img = new ImageView(context);
+            img.setImageResource(R.drawable.info_03);
+            img.setScaleType(ImageView.ScaleType.FIT_XY);
+            mContentView.add(img);
 
-                for (int i = 0; i < size; i++) {
-
-                    imageView[i] = new ImageView(context);
-                    imageView[i].setImageResource(R.drawable.photosample_list);
-                    mContentView.add(imageView[i]);
-
-                }
-
-            }
         }
 
         @Override
         public int getCount() {
 
-            return mContentView.size();
+            return 3;
 
         }
 

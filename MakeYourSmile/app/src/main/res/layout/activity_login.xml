@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:avocado="http://schemas.avocado.com/mys"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/BottomLay"
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:id="@+id/GNImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/gncomms" />
+
+
+        <ImageView
+            android:id="@+id/SkipImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/GNImg"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="23dp"
+            android:src="@drawable/loginpass" />
+
+        <ImageView
+            android:id="@+id/KakaoImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/SkipImg"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="23dp"
+            android:src="@drawable/kakao" />
+
+        <ImageView
+            android:id="@+id/FacebookImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/KakaoImg"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/facebook" />
+
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/LoginImg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:layout_above="@+id/BottomLay"
+        android:src="@drawable/joinmain" />
+
+</RelativeLayout>
