@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/mys_bg"
+    android:background="@color/mys_bg_238"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
@@ -13,7 +13,7 @@
         android:id="@+id/TitleBar"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@color/mys_titlebar">
+        android:background="@color/mys_titlebar_0">
 
 
         <ImageView
@@ -128,7 +128,7 @@
             android:gravity="center_horizontal"
             android:lines="3"
             android:text="임플란드틀 잘하고 교종을 잫라고 이것저것 잘하는 \n병원 입니다 잘 부탁 드립니다.\n 감사합니다"
-            android:textColor="@color/mys_txt_dark_gray"
+            android:textColor="@color/mys_txt_dark_gray_83"
             android:textSize="10dp" />
 
 

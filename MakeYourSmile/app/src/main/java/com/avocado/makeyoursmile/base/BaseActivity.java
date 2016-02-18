@@ -1,11 +1,13 @@
 package com.avocado.makeyoursmile.base;
 
+import android.annotation.TargetApi;
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
@@ -13,12 +15,15 @@ import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.avocado.makeyoursmile.Constants;
+import com.avocado.makeyoursmile.Global;
 import com.avocado.makeyoursmile.R;
 import com.avocado.makeyoursmile.util.IntentManager;
 import com.avocado.makeyoursmile.util.SmartLog;
@@ -34,6 +39,23 @@ public abstract class BaseActivity extends FragmentActivity {
     boolean mReceiverBlock = false;
     private String mLastActionName = "";
     private BaseReceiver mReceiver;
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+
+
+        if ( Global.getInstance().getSdkInt() >= Build.VERSION_CODES.LOLLIPOP) {
+
+            Window window = getWindow();
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(getResources().getColor(R.color.mys_titlebar_0));
+
+        }
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

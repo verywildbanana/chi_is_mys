@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/mys_bg"
+    android:background="@color/mys_bg_238"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
@@ -14,7 +14,7 @@
         android:id="@+id/TitleBar"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@color/mys_titlebar">
+        android:background="@color/mys_titlebar_0">
 
 
         <ImageView
@@ -82,7 +82,7 @@
             android:layout_marginRight="11dp"
             android:singleLine="true"
             android:text="위치지정"
-            android:textColor="@color/mys_txt_dark_gray"
+            android:textColor="@color/mys_txt_dark_gray_83"
             android:textSize="10dp" />
 
         <View
@@ -91,7 +91,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="8dp"
             android:layout_toLeftOf="@+id/SelectLocationTxt"
-            android:background="@color/mys_txt_dark_gray" />
+            android:background="@color/mys_txt_dark_gray_83" />
 
         <com.avocado.makeyoursmile.view.AVTextView
             android:id="@+id/ReSettingTxt"
@@ -102,7 +102,7 @@
             android:layout_toLeftOf="@+id/SelectLocationTxt"
             android:singleLine="true"
             android:text="재설정"
-            android:textColor="@color/mys_txt_dark_gray"
+            android:textColor="@color/mys_txt_dark_gray_83"
             android:textSize="10dp" />
 
         <com.avocado.makeyoursmile.view.AVTextView
@@ -115,7 +115,7 @@
             android:layout_toRightOf="@+id/Myplace"
             android:singleLine="true"
             android:text="서울시 강남구 역삼1동"
-            android:textColor="@color/mys_txt_dark_gray"
+            android:textColor="@color/mys_txt_dark_gray_83"
             android:textSize="11dp" />
 
 

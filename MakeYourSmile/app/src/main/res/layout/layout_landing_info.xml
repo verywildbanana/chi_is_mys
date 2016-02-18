@@ -18,7 +18,7 @@
             android:layout_marginTop="14dp"
             android:singleLine="true"
             android:text="주소"
-            android:textColor="@color/mys_txt_dark_gray"
+            android:textColor="@color/mys_txt_dark_gray_83"
             android:textSize="11dp" />
 
         <com.avocado.makeyoursmile.view.AVTextView
@@ -52,7 +52,7 @@
             android:layout_marginTop="14dp"
             android:singleLine="true"
             android:text="진료시간"
-            android:textColor="@color/mys_txt_dark_gray"
+            android:textColor="@color/mys_txt_dark_gray_83"
             android:textSize="11dp" />
 
 
@@ -76,7 +76,7 @@
             android:layout_marginTop="14dp"
             android:singleLine="true"
             android:text="프로모션"
-            android:textColor="@color/mys_txt_dark_gray"
+            android:textColor="@color/mys_txt_dark_gray_83"
             android:textSize="11dp" />
 
 

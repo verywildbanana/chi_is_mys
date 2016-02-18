@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/mys_bg"
+    android:background="@color/mys_bg_238"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
@@ -14,7 +14,7 @@
         android:id="@+id/TitleBar"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@color/mys_titlebar">
+        android:background="@color/mys_titlebar_0">
 
 
         <ImageView
@@ -86,7 +86,7 @@
             android:hint="검색어 입력 또는 키워드 선택"
             android:paddingLeft="7dp"
             android:textColor="@color/black"
-            android:textColorHint="@color/mys_txt_gray"
+            android:textColorHint="@color/mys_txt_gray_149"
             android:textSize="12dp" />
 
     </RelativeLayout>

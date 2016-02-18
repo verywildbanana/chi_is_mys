@@ -39,7 +39,7 @@
         android:singleLine="true"
         android:text="2016-01-22"
         android:layout_marginRight="12dp"
-        android:textColor="@color/mys_txt_dark_gray"
+        android:textColor="@color/mys_txt_dark_gray_83"
         android:textSize="9dp" />
 
 
@@ -52,7 +52,7 @@
         android:layout_marginLeft="10dp"
         android:singleLine="true"
         android:text="강남 지엔 치과"
-        android:textColor="@color/mys_txt_dark_gray"
+        android:textColor="@color/mys_txt_dark_gray_83"
         android:textStyle="bold"
         android:textSize="11dp" />
 

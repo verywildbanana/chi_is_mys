@@ -50,7 +50,7 @@
             android:singleLine="true"
             android:text="2016-01-22"
             android:layout_marginRight="10dp"
-            android:textColor="@color/mys_txt_dark_gray"
+            android:textColor="@color/mys_txt_dark_gray_83"
             android:textSize="10dp" />
 
         <ImageView

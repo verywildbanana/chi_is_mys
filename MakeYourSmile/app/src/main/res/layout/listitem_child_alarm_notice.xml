@@ -3,7 +3,7 @@
     xmlns:avocado="http://schemas.avocado.com/mys"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/mys_bg">
+    android:background="@color/mys_bg_238">
 
 
     <RelativeLayout

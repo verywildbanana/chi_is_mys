@@ -45,7 +45,7 @@
                 android:layout_toRightOf="@+id/ToggleLike"
                 android:singleLine="true"
                 android:text="0000"
-                android:textColor="@color/mys_txt_blue"
+                android:textColor="@color/mys_txt_blue_11"
                 android:textSize="10dp" />
 
             <ImageView

@@ -5,7 +5,7 @@
     xmlns:avocado="http://schemas.avocado.com/mys"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/mys_bg"
+    android:background="@color/mys_bg_238"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
@@ -13,7 +13,7 @@
         android:id="@+id/TitleBar"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@color/mys_titlebar">
+        android:background="@color/mys_titlebar_0">
 
 
         <ImageView
@@ -21,7 +21,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
             android:src="@drawable/toplogo" />
 
         <ImageView
@@ -30,7 +29,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
             android:src="@drawable/searchicon" />
 
 
@@ -39,7 +37,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
             android:layout_toLeftOf="@+id/TitleSearchImg"
             android:src="@drawable/makeyoursmile" />
 
@@ -59,61 +56,60 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/BannerBar"
-        android:layout_marginTop="10dp">
+        >
 
 
         <com.avocado.makeyoursmile.view.AVTextView
+            android:id="@+id/ThemeLayTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:text="테마별 보기"
-            android:textColor="@color/mys_txt_dark_gray"
-            android:textSize="11dp"
+            android:textColor="@color/mys_txt_dark_gray_83"
+            android:textSize="12dp"
+            android:layout_marginTop="12dp"
             />
 
-        <ImageView
-            android:layout_width="341dp"
-            android:layout_height="101dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="22dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/theme" />
 
         <RelativeLayout
-            android:layout_width="341dp"
-            android:layout_height="101dp"
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="22dp">
+            android:layout_below="@+id/ThemeLayTitle"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            >
 
 
-            <View
+            <ImageView
                 android:id="@+id/ToothTheme1"
-                android:layout_width="150dp"
-                android:layout_height="50px"
-                android:layout_marginTop="10dp"
+                android:layout_width="163dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/theme1"
                 />
 
-            <View
+            <ImageView
                 android:id="@+id/ToothTheme2"
-                android:layout_width="150dp"
-                android:layout_height="50px"
-                android:layout_marginTop="10dp"
+                android:layout_width="163dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/theme2"
                 android:layout_alignParentRight="true"
                 />
 
-            <View
+            <ImageView
                 android:id="@+id/ToothTheme3"
-                android:layout_width="150dp"
-                android:layout_height="50px"
-                android:layout_marginBottom="10dp"
+                android:layout_width="163dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/theme3"
                 android:layout_alignParentBottom="true"
                 />
 
-            <View
+            <ImageView
                 android:id="@+id/ToothTheme4"
-                android:layout_width="150dp"
-                android:layout_height="50px"
-                android:layout_marginBottom="10dp"
+                android:layout_width="163dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/theme4"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
                 />
@@ -128,15 +124,15 @@
     <RelativeLayout
         android:id="@+id/BottomTabLay"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
+        android:background="@color/white"
         android:layout_alignParentBottom="true">
 
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:layout_marginTop="10dp"
-            android:background="@color/gray" />
+            android:background="@color/mys_stroke_color_149" />
 
         <ImageView
             android:id="@+id/PictureBtn"
@@ -152,8 +148,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="23dp"
             android:src="@drawable/homeicon" />
 
 
@@ -162,8 +157,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/HomeBtn"
             android:src="@drawable/estimateicon" />
 
@@ -174,8 +168,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:layout_marginBottom="5dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginRight="23dp"
             android:src="@drawable/settingicon" />
 
         <ImageView
@@ -183,8 +176,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="5dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginRight="10dp"
             android:layout_toLeftOf="@+id/SettingBtn"
             android:src="@drawable/eventicon" />
 
@@ -198,15 +190,16 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/BottomTabLay"
         android:layout_below="@+id/ThemeLay"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="12dp">
 
         <com.avocado.makeyoursmile.view.AVTextView
+            android:id="@+id/ListLayTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:text="내 주변 병원"
-            android:textColor="@color/mys_txt_dark_gray"
-            android:textSize="11dp"
+            android:textColor="@color/mys_txt_dark_gray_83"
+            android:textSize="12dp"
             />
 
         <com.avocado.makeyoursmile.view.AVTextView
@@ -214,9 +207,9 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="15dp"
             android:text="더보기"
-            android:textColor="@color/mys_txt_dark_gray"
+            android:textColor="@color/mys_txt_dark_gray_83"
             android:layout_alignParentRight="true"
-            android:textSize="11dp"
+            android:textSize="12dp"
             />
 
 
@@ -224,7 +217,8 @@
             android:id="@+id/ListRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
+            android:layout_below="@+id/ListLayTitle"
+            android:layout_marginTop="5dp"
             android:scrollbars="none" />
 
     </RelativeLayout>

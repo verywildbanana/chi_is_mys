@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:text="[안내]~~~~~~~~"
-            android:textColor="@color/mys_titlebar"
+            android:textColor="@color/mys_titlebar_0"
             android:textSize="12dp" />
 
         <com.avocado.makeyoursmile.view.AVTextView
@@ -43,7 +43,7 @@
             android:singleLine="true"
             android:text="2016-00-00"
             android:layout_marginLeft="7dp"
-            android:textColor="@color/mys_txt_dark_gray"
+            android:textColor="@color/mys_txt_dark_gray_83"
             android:textSize="11dp" />
 
 

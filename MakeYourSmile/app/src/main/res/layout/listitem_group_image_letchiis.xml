@@ -37,7 +37,7 @@
                     android:layout_marginRight="10dp"
                     android:singleLine="true"
                     android:text="000"
-                    android:textColor="@color/mys_txt_dark_gray"
+                    android:textColor="@color/mys_txt_dark_gray_83"
                     android:textSize="8dp" />
 
                 <com.avocado.makeyoursmile.view.AVToggleButton
@@ -87,7 +87,7 @@
                     android:layout_marginRight="10dp"
                     android:singleLine="true"
                     android:text="000"
-                    android:textColor="@color/mys_txt_dark_gray"
+                    android:textColor="@color/mys_txt_dark_gray_83"
                     android:textSize="8dp" />
 
                 <com.avocado.makeyoursmile.view.AVToggleButton
@@ -136,7 +136,7 @@
                     android:layout_marginRight="10dp"
                     android:singleLine="true"
                     android:text="000"
-                    android:textColor="@color/mys_txt_dark_gray"
+                    android:textColor="@color/mys_txt_dark_gray_83"
                     android:textSize="8dp" />
 
                 <com.avocado.makeyoursmile.view.AVToggleButton

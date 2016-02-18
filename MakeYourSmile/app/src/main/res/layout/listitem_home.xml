@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp">
 
 
@@ -29,21 +30,22 @@
 
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/EventImg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_margin="20dp"
-        android:src="@drawable/cheeseicon" />
 
     <RelativeLayout
         android:id="@+id/DetailLay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_toLeftOf="@+id/EventImg"
         android:layout_toRightOf="@+id/ProfileImgLay"
         android:paddingLeft="10dp">
+
+        <ImageView
+            android:id="@+id/EventImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="22dp"
+            android:src="@drawable/cheeseicon" />
 
         <LinearLayout
             android:id="@+id/LocationLay"
@@ -52,6 +54,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
+            android:visibility="gone"
             android:orientation="horizontal">
 
             <ImageView
@@ -67,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:singleLine="true"
                 android:text="000m"
-                android:textColor="@color/mys_txt_dark_gray"
+                android:textColor="@color/mys_txt_dark_gray_83"
                 android:textSize="10dp" />
 
         </LinearLayout>
@@ -77,31 +80,32 @@
             android:id="@+id/TitleTxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/LocationLay"
+            android:layout_toLeftOf="@+id/EventImg"
             android:singleLine="true"
             android:text="지엔 치과"
-            android:textColor="@color/black"
-            android:textSize="11dp"
-            android:layout_marginTop="20dp"
+            android:textColor="@color/mys_txt_dark_gray_83"
+            android:textSize="18dp"
+            android:layout_marginTop="10dp"
             android:textStyle="bold" />
 
         <com.avocado.makeyoursmile.view.AVTextView
             android:id="@+id/SubTitleTxt"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/TitleTxt"
+            android:layout_toLeftOf="@+id/EventImg"
             android:lines="2"
             android:layout_marginTop="5dp"
             android:text="서울시 강남구 역삼동 749-12번지\n엘리빌 202호"
-            android:textColor="@color/mys_txt_dark_gray"
-            android:textSize="10dp" />
+            android:textColor="@color/black"
+            android:textSize="12dp" />
 
         <LinearLayout
             android:id="@+id/TagLay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/SubTitleTxt"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:orientation="horizontal">
 
             <include layout="@layout/layout_taglay" />

@@ -16,7 +16,7 @@
         android:layout_centerVertical="true"
         android:singleLine="true"
         android:text="좋아요"
-        android:textColor="@color/mys_txt_blue"
+        android:textColor="@color/mys_txt_blue_11"
         android:textStyle="bold"
         android:textSize="12dp" />
 
@@ -27,7 +27,7 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:singleLine="true"
-        android:textColor="@color/mys_txt_dark_gray"
+        android:textColor="@color/mys_txt_dark_gray_83"
         android:textSize="10dp" />
 
     <View
@@ -38,7 +38,7 @@
         android:layout_centerVertical="true"
         android:layout_margin="5dp"
         android:visibility="gone"
-        android:background="@color/mys_txt_dark_gray"
+        android:background="@color/mys_txt_dark_gray_83"
         />
 
     <com.avocado.makeyoursmile.view.AVTextView
@@ -48,7 +48,7 @@
         android:layout_toLeftOf="@+id/SubLine"
         android:layout_centerVertical="true"
         android:singleLine="true"
-        android:textColor="@color/mys_txt_dark_gray"
+        android:textColor="@color/mys_txt_dark_gray_83"
         android:textSize="10dp" />
 
 

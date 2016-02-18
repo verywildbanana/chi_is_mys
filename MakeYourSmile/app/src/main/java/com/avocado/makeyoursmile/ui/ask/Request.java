@@ -322,8 +322,8 @@ public class Request extends BaseActivity {
             mFemaleTagLay.setBackgroundResource(R.drawable.tag_round_bg_blue_tranparent);
             mMaleTagLay.setBackgroundResource(R.drawable.tag_round_bg_blue_tranparent);
 
-            mFemaleTagTxt.setTextColor(getResources().getColor(R.color.mys_txt_blue));
-            mMaleTagTxt.setTextColor(getResources().getColor(R.color.mys_txt_blue));
+            mFemaleTagTxt.setTextColor(getResources().getColor(R.color.mys_txt_blue_11));
+            mMaleTagTxt.setTextColor(getResources().getColor(R.color.mys_txt_blue_11));
 
             switch (v.getId()) {
 
@@ -356,11 +356,11 @@ public class Request extends BaseActivity {
             mYear40TagLay.setBackgroundResource(R.drawable.tag_round_bg_blue_tranparent);
             mYear50TagLay.setBackgroundResource(R.drawable.tag_round_bg_blue_tranparent);
 
-            mYear10TagTxt.setTextColor(getResources().getColor(R.color.mys_txt_blue));
-            mYear20TagTxt.setTextColor(getResources().getColor(R.color.mys_txt_blue));
-            mYear30TagTxt.setTextColor(getResources().getColor(R.color.mys_txt_blue));
-            mYear40TagTxt.setTextColor(getResources().getColor(R.color.mys_txt_blue));
-            mYear50TagTxt.setTextColor(getResources().getColor(R.color.mys_txt_blue));
+            mYear10TagTxt.setTextColor(getResources().getColor(R.color.mys_txt_blue_11));
+            mYear20TagTxt.setTextColor(getResources().getColor(R.color.mys_txt_blue_11));
+            mYear30TagTxt.setTextColor(getResources().getColor(R.color.mys_txt_blue_11));
+            mYear40TagTxt.setTextColor(getResources().getColor(R.color.mys_txt_blue_11));
+            mYear50TagTxt.setTextColor(getResources().getColor(R.color.mys_txt_blue_11));
 
             switch (v.getId()) {
 
@@ -427,7 +427,7 @@ public class Request extends BaseActivity {
                     else {
 
                         mAsk1TagLay.setBackgroundResource(R.drawable.tag_round_bg_blue_tranparent);
-                        mAsk1TagTxt.setTextColor(getResources().getColor(R.color.mys_txt_blue));
+                        mAsk1TagTxt.setTextColor(getResources().getColor(R.color.mys_txt_blue_11));
                     }
 
                     break;
@@ -445,7 +445,7 @@ public class Request extends BaseActivity {
                     else {
 
                         mAsk2TagLay.setBackgroundResource(R.drawable.tag_round_bg_blue_tranparent);
-                        mAsk2TagTxt.setTextColor(getResources().getColor(R.color.mys_txt_blue));
+                        mAsk2TagTxt.setTextColor(getResources().getColor(R.color.mys_txt_blue_11));
                     }
 
                     break;
@@ -463,7 +463,7 @@ public class Request extends BaseActivity {
                     else {
 
                         mAsk3TagLay.setBackgroundResource(R.drawable.tag_round_bg_blue_tranparent);
-                        mAsk3TagTxt.setTextColor(getResources().getColor(R.color.mys_txt_blue));
+                        mAsk3TagTxt.setTextColor(getResources().getColor(R.color.mys_txt_blue_11));
                     }
 
                     break;
@@ -481,7 +481,7 @@ public class Request extends BaseActivity {
                     else {
 
                         mAsk4TagLay.setBackgroundResource(R.drawable.tag_round_bg_blue_tranparent);
-                        mAsk4TagTxt.setTextColor(getResources().getColor(R.color.mys_txt_blue));
+                        mAsk4TagTxt.setTextColor(getResources().getColor(R.color.mys_txt_blue_11));
                     }
 
                     break;
@@ -499,7 +499,7 @@ public class Request extends BaseActivity {
                     else {
 
                         mAsk5TagLay.setBackgroundResource(R.drawable.tag_round_bg_blue_tranparent);
-                        mAsk5TagTxt.setTextColor(getResources().getColor(R.color.mys_txt_blue));
+                        mAsk5TagTxt.setTextColor(getResources().getColor(R.color.mys_txt_blue_11));
                     }
 
                     break;
@@ -517,7 +517,7 @@ public class Request extends BaseActivity {
                     else {
 
                         mAsk6TagLay.setBackgroundResource(R.drawable.tag_round_bg_blue_tranparent);
-                        mAsk6TagTxt.setTextColor(getResources().getColor(R.color.mys_txt_blue));
+                        mAsk6TagTxt.setTextColor(getResources().getColor(R.color.mys_txt_blue_11));
                     }
 
                     break;
@@ -535,7 +535,7 @@ public class Request extends BaseActivity {
                     else {
 
                         mAsk7TagLay.setBackgroundResource(R.drawable.tag_round_bg_blue_tranparent);
-                        mAsk7TagTxt.setTextColor(getResources().getColor(R.color.mys_txt_blue));
+                        mAsk7TagTxt.setTextColor(getResources().getColor(R.color.mys_txt_blue_11));
                     }
 
                     break;

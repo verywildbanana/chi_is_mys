@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/mys_txt_blue" />
+    <solid android:color="@color/mys_txt_blue_11" />
 
     <stroke
         android:width="2px"
-        android:color="@color/mys_txt_blue" />
+        android:color="@color/mys_txt_blue_11" />
 
     <corners android:radius="2dp" />
 

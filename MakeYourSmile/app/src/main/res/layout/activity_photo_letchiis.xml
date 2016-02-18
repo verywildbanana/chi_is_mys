@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/mys_bg"
+    android:background="@color/mys_bg_238"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
@@ -13,7 +13,7 @@
         android:id="@+id/TitleBar"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@color/mys_titlebar">
+        android:background="@color/mys_titlebar_0">
 
 
         <ImageView
@@ -98,7 +98,7 @@
                 android:layout_width="4dp"
                 android:layout_height="25dp"
                 android:layout_marginTop="5dp"
-                android:background="@color/mys_titlebar"
+                android:background="@color/mys_titlebar_0"
                 android:orientation="vertical">
 
             </LinearLayout>
