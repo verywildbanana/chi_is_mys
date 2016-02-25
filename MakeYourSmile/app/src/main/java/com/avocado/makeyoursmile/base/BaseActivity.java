@@ -237,6 +237,8 @@ public abstract class BaseActivity extends FragmentActivity {
 
     public void registerReceiver() {
 
+        SmartLog.getInstance().i(TAG, "Base registerReceiver()");
+
         IntentFilter filter = new IntentFilter();
         filter.addAction(Constants.ACTION_FINISH);
         filter.addAction(Constants.ACTION_LOGIN);
@@ -244,7 +246,7 @@ public abstract class BaseActivity extends FragmentActivity {
         filter.addAction(Constants.ACTION_GOMAIN);
 
         mReceiver = new BaseReceiver();
-        registerReceiver(mReceiver, filter, Constants.BROADCAST_PERMISSION, null);
+        registerReceiver(mReceiver, filter);
 
     }
 
@@ -265,7 +267,7 @@ public abstract class BaseActivity extends FragmentActivity {
 
             String action = intent.getAction();
 
-            SmartLog.getInstance().i(TAG, "BaseReceiver onReceive " + action);
+            SmartLog.getInstance().i(TAG, "BroadcastReceiver onReceive " + action);
 
             if (mReceiverBlock && action.equals(mLastActionName)) {
                 return;
@@ -287,6 +289,9 @@ public abstract class BaseActivity extends FragmentActivity {
 
 
             if (Constants.ACTION_FINISH.equals(action)) {
+
+
+                SmartLog.getInstance().i(TAG, "BroadcastReceiver Constants.ACTION_FINISH");
 
                 finish();
             }

@@ -2,9 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:avocado="http://schemas.avocado.com/mys"
     android:layout_width="match_parent"
-    android:layout_height="60dp"
-    android:layout_marginLeft="17dp"
-    android:layout_marginRight="17dp"
+    android:layout_height="70dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
     android:background="@drawable/requestbox">
 
 
@@ -36,7 +36,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_toRightOf="@+id/ProfileImgLay"
-        android:gravity="center_vertical"
         android:paddingLeft="10dp">
 
 
@@ -45,8 +44,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="10dp"
             android:singleLine="true"
             android:text="2016-01-22"
             android:textColor="@color/mys_txt_dark_gray_83"
@@ -57,18 +56,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="32dp"
-            android:gravity="center_vertical"
+            android:layout_marginTop="23dp"
+            android:layout_below="@+id/DateTxt"
+            android:layout_marginRight="12dp"
             android:orientation="horizontal">
 
 
             <com.avocado.makeyoursmile.view.AVTextView
                 android:id="@+id/EditTxt"
-                android:layout_width="40dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:gravity="center_horizontal"
                 android:singleLine="true"
+                android:layout_marginRight="7dp"
                 android:text="수정"
                 android:textColor="@color/mys_txt_dark_gray_83"
                 android:textSize="10dp" />
@@ -81,7 +82,8 @@
 
             <com.avocado.makeyoursmile.view.AVTextView
                 android:id="@+id/DeleteTxt"
-                android:layout_width="40dp"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="7dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:gravity="center_horizontal"
@@ -102,6 +104,7 @@
             android:singleLine="true"
             android:text="서울시 강남구, 서울시 서초구"
             android:textColor="@color/black"
+            android:layout_marginTop="9dp"
             android:textSize="10dp" />
 
         <com.avocado.makeyoursmile.view.AVTextView

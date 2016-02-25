@@ -18,6 +18,7 @@ import com.avocado.makeyoursmile.ui.photo.Letchiis;
 import com.avocado.makeyoursmile.ui.search.Dentistry;
 import com.avocado.makeyoursmile.ui.search.DentistryList;
 import com.avocado.makeyoursmile.util.IntentManager;
+import com.avocado.makeyoursmile.util.SmartLog;
 import com.avocado.makeyoursmile.util.ToastManager;
 
 import java.util.ArrayList;
@@ -123,28 +124,12 @@ public class Home extends BaseActivity {
             mFinishHandler.sendEmptyMessageDelayed(0, 2000);
 
         } else {
-            {
 
 
-                if (mIsFinish == false) {
-
-                    String shutDown = "한번 더 누르시면 종료됩니다.";
-                    ToastManager.getInstance().show(shutDown, Toast.LENGTH_SHORT);
-                    mIsFinish = true;
-                    mFinishHandler.sendEmptyMessageDelayed(0, 2000);
-
-                } else {
-
-                    Intent intent = new Intent(Constants.ACTION_FINISH);
-                    sendBroadcast(intent, Constants.BROADCAST_PERMISSION);
-
-                }
-
-
-            }
+            SmartLog.getInstance().i(TAG, "Home onBackPressed");
 
             Intent intent = new Intent(Constants.ACTION_FINISH);
-            sendBroadcast(intent, Constants.BROADCAST_PERMISSION);
+            sendBroadcast(intent);
 
         }
 

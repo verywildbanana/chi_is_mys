@@ -3,6 +3,7 @@ package com.avocado.makeyoursmile.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 
 import com.avocado.makeyoursmile.Global;
 import com.avocado.makeyoursmile.R;
@@ -10,7 +11,6 @@ import com.avocado.makeyoursmile.base.BaseActivity;
 import com.avocado.makeyoursmile.ui.alarm.Notice;
 import com.avocado.makeyoursmile.util.IntentManager;
 import com.avocado.makeyoursmile.view.AVTextView;
-import com.avocado.makeyoursmile.view.AVToggleButton;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -26,7 +26,7 @@ public class Setting extends BaseActivity {
     protected AVTextView mAppversionTxt;
 
     @Bind(R.id.PushToggle)
-    protected AVToggleButton mPushToggle;
+    protected CheckBox mPushToggle;
 
 
     @Override

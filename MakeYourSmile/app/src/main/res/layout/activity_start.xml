@@ -61,7 +61,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2px"
-                android:background="@color/mys_setting_line"
+                android:background="@color/mys_setting_line_181"
                 android:orientation="horizontal" />
 
             <RelativeLayout
@@ -86,7 +86,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2px"
-                android:background="@color/mys_setting_line"
+                android:background="@color/mys_setting_line_181"
                 android:orientation="horizontal" />
 
 
@@ -112,7 +112,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2px"
-                android:background="@color/mys_setting_line"
+                android:background="@color/mys_setting_line_181"
                 android:orientation="horizontal" />
 
 
@@ -138,7 +138,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2px"
-                android:background="@color/mys_setting_line"
+                android:background="@color/mys_setting_line_181"
                 android:orientation="horizontal" />
 
 
@@ -164,7 +164,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2px"
-                android:background="@color/mys_setting_line"
+                android:background="@color/mys_setting_line_181"
                 android:orientation="horizontal" />
 
 
@@ -190,7 +190,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2px"
-                android:background="@color/mys_setting_line"
+                android:background="@color/mys_setting_line_181"
                 android:orientation="horizontal" />
 
 
@@ -216,7 +216,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2px"
-                android:background="@color/mys_setting_line"
+                android:background="@color/mys_setting_line_181"
                 android:orientation="horizontal" />
 
 
@@ -242,7 +242,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2px"
-                android:background="@color/mys_setting_line"
+                android:background="@color/mys_setting_line_181"
                 android:orientation="horizontal" />
 
 
@@ -268,7 +268,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2px"
-                android:background="@color/mys_setting_line"
+                android:background="@color/mys_setting_line_181"
                 android:orientation="horizontal" />
 
             <RelativeLayout
@@ -293,7 +293,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2px"
-                android:background="@color/mys_setting_line"
+                android:background="@color/mys_setting_line_181"
                 android:orientation="horizontal" />
 
 
@@ -319,7 +319,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2px"
-                android:background="@color/mys_setting_line"
+                android:background="@color/mys_setting_line_181"
                 android:orientation="horizontal" />
 
 
@@ -345,7 +345,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2px"
-                android:background="@color/mys_setting_line"
+                android:background="@color/mys_setting_line_181"
                 android:orientation="horizontal" />
 
             <RelativeLayout
@@ -370,7 +370,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2px"
-                android:background="@color/mys_setting_line"
+                android:background="@color/mys_setting_line_181"
                 android:orientation="horizontal" />
 
 

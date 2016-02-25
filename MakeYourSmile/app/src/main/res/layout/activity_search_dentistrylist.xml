@@ -22,19 +22,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
             android:src="@drawable/top_back" />
 
-        <com.avocado.makeyoursmile.view.AVTextView
+        <ImageView
             android:id="@+id/TitleTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/TitleLeftImg"
-            android:text="목록보기"
-            android:textColor="@color/white"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            android:src="@drawable/menu09"
+            />
 
         <ImageView
             android:id="@+id/TitleSearchImg"
@@ -42,7 +39,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
             android:src="@drawable/searchicon" />
 
 
@@ -51,7 +47,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
             android:layout_toLeftOf="@+id/TitleSearchImg"
             android:src="@drawable/makeyoursmile" />
 
@@ -110,13 +105,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="11dp"
+            android:layout_marginLeft="8dp"
             android:layout_toLeftOf="@+id/ReSettingTxt"
             android:layout_toRightOf="@+id/Myplace"
             android:singleLine="true"
             android:text="서울시 강남구 역삼1동"
             android:textColor="@color/mys_txt_dark_gray_83"
-            android:textSize="11dp" />
+            android:textSize="10dp" />
 
 
     </RelativeLayout>
@@ -125,129 +120,114 @@
     <LinearLayout
         android:id="@+id/ToothTabLay"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="37dp"
         android:layout_below="@+id/SettingLay"
         android:background="@color/white"
         android:orientation="horizontal">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
 
-            <com.avocado.makeyoursmile.view.AVTextView
+            <ImageView
                 android:id="@+id/Tooth1Txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:text="바른치"
-                android:textColor="#0b2d52"
-                android:textSize="12dp"
-                android:textStyle="bold" />
+                android:src="@drawable/themetext1" />
 
             <ImageView
                 android:id="@+id/Tooth1BottomLine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
                 android:src="@drawable/underbar" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
 
-            <com.avocado.makeyoursmile.view.AVTextView
+            <ImageView
                 android:id="@+id/Tooth2Txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:text="다른치"
-                android:textColor="#0b2d52"
-                android:textSize="12dp"
-                android:textStyle="bold" />
+                android:src="@drawable/themetext2" />
 
             <ImageView
                 android:id="@+id/Tooth2BottomLine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:src="@drawable/underbar"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
                 android:visibility="invisible"
-                />
+                android:src="@drawable/underbar" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
 
-            <com.avocado.makeyoursmile.view.AVTextView
+            <ImageView
                 android:id="@+id/Tooth3Txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:text="아픈치"
-                android:textColor="#0b2d52"
-                android:textSize="12dp"
-                android:textStyle="bold" />
+                android:src="@drawable/themetext3" />
 
             <ImageView
                 android:id="@+id/Tooth3BottomLine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:src="@drawable/underbar"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
                 android:visibility="invisible"
-                />
+                android:src="@drawable/underbar" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
 
-            <com.avocado.makeyoursmile.view.AVTextView
+            <ImageView
                 android:id="@+id/Tooth4Txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:text="이쁜치"
-                android:textColor="#0b2d52"
-                android:textSize="12dp"
-                android:textStyle="bold" />
+                android:src="@drawable/themetext4" />
 
             <ImageView
                 android:id="@+id/Tooth4BottomLine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:src="@drawable/underbar"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
                 android:visibility="invisible"
-                />
+                android:src="@drawable/underbar" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ThemeLay"
         android:layout_width="match_parent"
-        android:layout_height="15dp"
+        android:layout_height="25dp"
         android:layout_below="@+id/ToothTabLay"
         android:gravity="center_vertical"
         android:orientation="horizontal">

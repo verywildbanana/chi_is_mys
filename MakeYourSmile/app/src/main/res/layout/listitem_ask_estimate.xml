@@ -2,9 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:avocado="http://schemas.avocado.com/mys"
     android:layout_width="match_parent"
-    android:layout_height="73dp"
-    android:layout_marginLeft="57dp"
-    android:layout_marginRight="17dp"
+    android:layout_height="76dp"
+    android:layout_marginLeft="60dp"
+    android:layout_marginRight="20dp"
     android:layout_marginTop="7dp"
     android:background="@drawable/answerbox">
 
@@ -46,10 +46,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="1dp"
             android:singleLine="true"
             android:text="2016-01-22"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="12dp"
             android:textColor="@color/mys_txt_dark_gray_83"
             android:textSize="10dp" />
 
@@ -58,9 +58,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="7dp"
-            android:layout_marginRight="10dp"
+            android:layout_below="@+id/DateTxt"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="12dp"
             android:src="@drawable/telicon"
             />
 
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/NameTxt"
             android:layout_toLeftOf="@+id/CallImg"
-            android:layout_marginTop="7dp"
+            android:layout_marginTop="9dp"
             android:lines="2"
             android:text="안녕하세요? 지엔 치과입니다.\n문의하신 내용에 대한 답변입니다"
             android:textColor="@color/black"
