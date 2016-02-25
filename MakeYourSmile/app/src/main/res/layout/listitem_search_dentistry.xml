@@ -153,13 +153,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/TitleTxt"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginLeft="13dp"
                 android:layout_toLeftOf="@+id/EventImg"
                 android:lines="2"
                 android:text="서울시 강남구 역삼동 749-12번지\n엘리빌 202호"
                 android:textColor="@color/mys_txt_dark_gray_83"
-                android:textSize="9dp" />
+                android:textSize="11dp" />
 
         </RelativeLayout>
 

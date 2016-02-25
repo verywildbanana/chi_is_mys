@@ -74,19 +74,20 @@
             android:text="강남 지엔 치과"
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:textSize="10dp" />
+            android:textSize="12dp" />
 
-        <com.avocado.makeyoursmile.view.AVTextView
+        <com.avocado.makeyoursmile.view.AVEllipsizingTextView
             android:id="@+id/DescribeTxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/NameTxt"
             android:layout_toLeftOf="@+id/CallImg"
-            android:layout_marginTop="9dp"
+            android:layout_marginTop="6dp"
             android:lines="2"
+            android:layout_marginRight="4dp"
             android:text="안녕하세요? 지엔 치과입니다.\n문의하신 내용에 대한 답변입니다"
             android:textColor="@color/black"
-            android:textSize="9dp" />
+            android:textSize="11dp" />
 
 
 

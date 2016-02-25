@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import com.avocado.makeyoursmile.R;
 import com.avocado.makeyoursmile.network.data.host.Answer;
 import com.avocado.makeyoursmile.network.data.user.Ask;
+import com.avocado.makeyoursmile.view.AVEllipsizingTextView;
 import com.avocado.makeyoursmile.view.AVTextView;
 
 import java.util.List;
@@ -188,7 +189,7 @@ public class EstimateAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         private AVTextView mDateTxt;
         private AVTextView mNameTxt;
-        private AVTextView mDescribeTxt;
+        private AVEllipsizingTextView mDescribeTxt;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -198,8 +199,8 @@ public class EstimateAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
             mDateTxt = (AVTextView) itemView.findViewById(R.id.DateTxt);
             mNameTxt = (AVTextView) itemView.findViewById(R.id.NameTxt);
-            mDescribeTxt = (AVTextView) itemView.findViewById(R.id.DescribeTxt);
-
+            mDescribeTxt = (AVEllipsizingTextView) itemView.findViewById(R.id.DescribeTxt);
+            mDescribeTxt.setMaxLines(2);
         }
 
     }
