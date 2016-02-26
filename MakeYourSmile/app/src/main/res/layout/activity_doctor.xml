@@ -21,19 +21,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
             android:src="@drawable/top_back" />
 
-        <com.avocado.makeyoursmile.view.AVTextView
+        <ImageView
             android:id="@+id/TitleTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/TitleLeftImg"
-            android:text="의료진 소개"
-            android:textColor="@color/white"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            android:src="@drawable/menu21"
+            />
 
         <ImageView
             android:id="@+id/TitleSearchImg"
@@ -41,7 +38,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
             android:src="@drawable/searchicon" />
 
 
@@ -50,7 +46,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
             android:layout_toLeftOf="@+id/TitleSearchImg"
             android:src="@drawable/makeyoursmile" />
 
@@ -73,17 +68,19 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="14dp"
                 android:text="지엔 치과"
                 android:textColor="@color/black"
-                android:textSize="12dp"
+                android:textSize="14dp"
                 android:textStyle="bold" />
 
             <LinearLayout
                 android:id="@+id/ContentAddLay"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="17dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
                 android:orientation="vertical">
 
 

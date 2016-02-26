@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/mys_bg_238"
+    android:background="@color/white"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
@@ -21,19 +21,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
             android:src="@drawable/top_back" />
 
-        <com.avocado.makeyoursmile.view.AVTextView
+        <ImageView
             android:id="@+id/TitleTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/TitleLeftImg"
-            android:text="이용약관"
-            android:textColor="@color/white"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            android:src="@drawable/menu16"
+            />
 
         <ImageView
             android:id="@+id/TitleSearchImg"
@@ -41,7 +38,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
             android:src="@drawable/searchicon" />
 
 
@@ -50,22 +46,101 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
             android:layout_toLeftOf="@+id/TitleSearchImg"
             android:src="@drawable/makeyoursmile" />
 
     </RelativeLayout>
 
+
+    <LinearLayout
+        android:id="@+id/TabLay"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_below="@+id/TitleBar"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/Tab1Txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/term_16_menu1" />
+
+            <ImageView
+                android:id="@+id/Tab1TxtBottomLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/underbar" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/gubun" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/Tab2Txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/term_16_menu2" />
+
+            <ImageView
+                android:id="@+id/Tab2TxtBottomLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:visibility="visible"
+                android:src="@drawable/underbar" />
+
+        </RelativeLayout>
+
+
+
+
+    </LinearLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/TitleBar"
+        android:layout_below="@+id/TabLay"
+        android:layout_marginTop="12dp"
         android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
             android:orientation="vertical">
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:id="@+id/TermContentTxt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/black"
+                android:textSize="10dp"
+                android:text="adsfadsfhjkasdhfjkhalsdf\nㄴㅇ뢰묄와ㅘadsfadsfhjkasdhfjkhalsdf\nㄴㅇ뢰묄와ㅘadsfadsfhjkasdhfjkhalsdf\nㄴㅇ뢰묄와ㅘadsfadsfhjkasdhfjkhalsdf\nㄴㅇ뢰묄와ㅘadsfadsfhjkasdhfjkhalsdf\nㄴㅇ뢰묄와ㅘadsfadsfhjkasdhfjkhalsdf\nㄴㅇ뢰묄와ㅘadsfadsfhjkasdhfjkhalsdf\nㄴㅇ뢰묄와ㅘ"
+                android:lineSpacingExtra="1dp"
+                />
 
 
         </LinearLayout>

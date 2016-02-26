@@ -21,19 +21,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
             android:src="@drawable/top_back" />
 
-        <com.avocado.makeyoursmile.view.AVTextView
+        <ImageView
             android:id="@+id/TitleTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/TitleLeftImg"
-            android:text="견적문의"
-            android:textColor="@color/white"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            android:src="@drawable/menu23"
+            />
 
         <ImageView
             android:id="@+id/TitleSearchImg"
@@ -41,7 +38,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
             android:src="@drawable/searchicon" />
 
 
@@ -50,7 +46,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
             android:layout_toLeftOf="@+id/TitleSearchImg"
             android:src="@drawable/makeyoursmile" />
 
@@ -67,7 +62,9 @@
             android:id="@+id/SubTitleTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="17dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="8dp"
             android:text="나의 문의 현황"
             android:textColor="@color/black"
             android:textSize="12dp"
@@ -75,10 +72,11 @@
 
         <com.avocado.makeyoursmile.view.AVEditText
             android:id="@+id/EstimateEditTxt"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/SubTitleTxt"
-            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:gravity="top"
             android:hint="견적문의는 로그인 필요 합니다."
             android:padding="5dp"
@@ -101,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:src="@drawable/facebook"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="60dp"
                 />
 
             <ImageView
@@ -111,32 +109,35 @@
                 android:layout_centerHorizontal="true"
                 android:src="@drawable/kakao"
                 android:layout_below="@+id/FacebookImg"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 />
 
             <com.avocado.makeyoursmile.view.AVTextView
                 android:id="@+id/SubBtnTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_alignParentBottom="true"
-                android:text="&quot;치이즈에 가입 후 다양한 서비스를 이용하세요. &quot;"
-                android:layout_marginBottom="70dp"
-                android:textColor="@color/mys_txt_dark_gray_83"
-                android:textSize="12dp"
-                />
-
-            <com.avocado.makeyoursmile.view.AVTextView
-                android:layout_above="@+id/SubBtnTxt"
+                android:layout_below="@+id/KakaoImg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:text="가입하기"
-                android:layout_marginBottom="5dp"
                 android:textColor="@color/black"
+                android:layout_marginTop="49dp"
                 android:textStyle="bold"
                 android:textSize="18dp"
                 />
+
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:layout_below="@+id/SubBtnTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="15dp"
+                android:text="&quot;치이즈에 가입 후 다양한 서비스를 이용하세요. &quot;"
+                android:textColor="@color/mys_txt_dark_gray_83"
+                android:textSize="12dp"
+                />
+
 
         </RelativeLayout>
 

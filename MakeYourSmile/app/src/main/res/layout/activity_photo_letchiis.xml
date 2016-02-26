@@ -21,19 +21,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
             android:src="@drawable/top_back" />
 
-        <com.avocado.makeyoursmile.view.AVTextView
+        <ImageView
             android:id="@+id/TitleTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/TitleLeftImg"
-            android:text="렛치이즈"
-            android:textColor="@color/white"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            android:src="@drawable/menu24"
+            />
 
         <ImageView
             android:id="@+id/TitleSearchImg"
@@ -41,7 +38,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
             android:src="@drawable/searchicon" />
 
 
@@ -50,7 +46,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
             android:layout_toLeftOf="@+id/TitleSearchImg"
             android:src="@drawable/makeyoursmile" />
 
@@ -68,67 +63,59 @@
             android:layout_height="35dp"
             android:orientation="horizontal">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <com.avocado.makeyoursmile.view.AVTextView
-                    android:id="@+id/TabTxt1"
+                <ImageView
+                    android:id="@+id/Tab1Txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:singleLine="true"
-                    android:text="렛치이즈"
-                    android:textColor="#0b2d52"
-                    android:textSize="12dp"
-                    android:textStyle="bold" />
+                    android:src="@drawable/chiis_24_menu1" />
 
                 <ImageView
-                    android:id="@+id/TabTxt11BottomLine"
+                    android:id="@+id/Tab1TxtBottomLine"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
                     android:src="@drawable/underbar" />
 
-            </LinearLayout>
+            </RelativeLayout>
 
-            <LinearLayout
-                android:layout_width="4dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:background="@color/mys_titlebar_0"
-                android:orientation="vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/gubun" />
 
-            </LinearLayout>
-
-
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <com.avocado.makeyoursmile.view.AVTextView
-                    android:id="@+id/TabTxt2"
+                <ImageView
+                    android:id="@+id/Tab2Txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:singleLine="true"
-                    android:text="치이즈 모델 도전"
-                    android:textColor="#0b2d52"
-                    android:textSize="12dp"
-                    android:textStyle="bold" />
+                    android:src="@drawable/chiis_24_menu2" />
 
                 <ImageView
-                    android:id="@+id/TabTxt21BottomLine"
+                    android:id="@+id/Tab2TxtBottomLine"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:visibility="visible"
                     android:src="@drawable/underbar" />
 
-            </LinearLayout>
+            </RelativeLayout>
+
 
         </LinearLayout>
 

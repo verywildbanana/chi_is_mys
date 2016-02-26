@@ -3,8 +3,8 @@
     xmlns:avocado="http://schemas.avocado.com/mys"
     android:layout_width="match_parent"
     android:layout_height="25dp"
-    android:layout_marginLeft="17dp"
-    android:layout_marginRight="17dp"
+    android:paddingLeft="12dp"
+    android:paddingRight="10dp"
     android:background="@color/white"
     android:clickable="true"
     >
@@ -16,9 +16,9 @@
         android:layout_centerVertical="true"
         android:singleLine="true"
         android:text="좋아요"
-        android:textColor="@color/mys_txt_blue_11"
+        android:textColor="@color/mys_txt_dark_gray_83"
         android:textStyle="bold"
-        android:textSize="12dp" />
+        android:textSize="10dp" />
 
     <com.avocado.makeyoursmile.view.AVTextView
         android:id="@+id/SubSubTxt"

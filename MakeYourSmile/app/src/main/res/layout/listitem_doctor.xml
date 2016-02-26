@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="10dp">
+        android:layout_marginLeft="5dp">
 
 
         <ImageView
@@ -40,6 +40,7 @@
         android:text="2016-01-22"
         android:layout_marginRight="12dp"
         android:textColor="@color/mys_txt_dark_gray_83"
+        android:visibility="gone"
         android:textSize="9dp" />
 
 
@@ -52,9 +53,10 @@
         android:layout_marginLeft="10dp"
         android:singleLine="true"
         android:text="강남 지엔 치과"
+        android:layout_marginBottom="2dp"
         android:textColor="@color/mys_txt_dark_gray_83"
         android:textStyle="bold"
-        android:textSize="11dp" />
+        android:textSize="12dp" />
 
 
 
@@ -63,11 +65,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ProfileImgLay"
-            android:layout_margin="14dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
             android:lineSpacingExtra="1dp"
             android:text="안녕하세요? 지엔 치과입니다.\n문의하신 내용에 대한 답변입니다"
             android:textColor="@color/black"
-            android:textSize="10dp" />
+            android:textSize="12dp" />
 
 
 
