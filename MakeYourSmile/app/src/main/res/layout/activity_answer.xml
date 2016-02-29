@@ -69,10 +69,11 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="195dp"
+            android:layout_height="205dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:background="@color/white"
+            android:layout_marginBottom="5dp"
             android:orientation="vertical">
 
             <ImageView
@@ -123,42 +124,42 @@
 
         </RelativeLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:background="@color/white">
 
 
             <com.avocado.makeyoursmile.view.AVTextView
-                android:id="@+id/DentistName"
+                android:id="@+id/DentistNameTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:gravity="center"
+                android:singleLine="true"
                 android:text="지엔 치과"
                 android:textColor="@color/black"
-                android:textSize="14dp"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
-
             <com.avocado.makeyoursmile.view.AVTextView
-                android:id="@+id/DentistDescribe"
+                android:id="@+id/DentistAddressTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/DentistName"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:lineSpacingExtra="1dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:gravity="center_horizontal"
                 android:lines="3"
-                android:text="임플란트\n임플란트\n임플란트"
+                android:text="임플란드틀 잘하고 교종을 잫라고 이것저것 잘하는 \n병원 입니다 잘 부탁 드립니다.\n 감사합니다"
                 android:textColor="@color/mys_txt_dark_gray_83"
-                android:textSize="10dp" />
+                android:textSize="12dp" />
 
 
-        </RelativeLayout>
+
+        </LinearLayout>
 
 
         <LinearLayout
@@ -202,7 +203,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="105dp"
         android:layout_marginRight="18dp"
         android:src="@drawable/cheeseicon" />
 

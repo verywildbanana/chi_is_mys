@@ -126,15 +126,6 @@
 
         </RelativeLayout>
 
-        <include
-            android:id="@+id/ImgListHeaderLay"
-            layout="@layout/listitem_header_image_letchiis" />
-
-        <include
-            android:id="@+id/ImgListGroupLay"
-            layout="@layout/listitem_group_image_letchiis" />
-
-
         <android.support.v4.view.ViewPager
             android:id="@+id/ImgListViewPage"
             android:layout_width="match_parent"

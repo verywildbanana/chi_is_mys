@@ -10,20 +10,14 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ExpandableListView;
-import android.widget.ImageView;
 import android.widget.PopupWindow;
-import android.widget.TextView;
 
 import com.avocado.makeyoursmile.R;
 import com.avocado.makeyoursmile.base.BaseActivity;
-import com.avocado.makeyoursmile.network.data.image.ImageData;
 import com.avocado.makeyoursmile.network.data.image.ImageDetailGoupData;
-import com.avocado.makeyoursmile.network.data.image.ImageSubData;
 import com.avocado.makeyoursmile.ui.ask.Request;
 import com.avocado.makeyoursmile.ui.search.Dentistry;
 import com.avocado.makeyoursmile.util.IntentManager;
-import com.avocado.makeyoursmile.view.AVTextView;
 import com.avocado.makeyoursmile.view.AVToggleButton;
 
 import java.util.ArrayList;
@@ -31,6 +25,7 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
 /**
  * Created by HDlee on 1/29/16.
@@ -41,29 +36,14 @@ public class Letchiis extends BaseActivity {
     @Bind(R.id.ImgListViewPage)
     protected ViewPager mImgListViewPage;
 
-    protected AVTextView mTitleTxt;
-    protected AVTextView mSubTxt;
-
-    ImageView mList1List;
-    TextView mCountTxt1;
-    AVToggleButton mToggleLike1;
-
-    ImageView mList2List;
-    TextView mCountTxt2;
-    AVToggleButton mToggleLike2;
-
-    ImageView mList3List;
-    TextView mCountTxt3;
-    AVToggleButton mToggleLike3;
-
-
     ViewPagerAdapter mViewPagerAdapter;
 
-    ImageData mImgDataOne = new ImageData();
 
-    ExpandableListView mExpandableListViewOne;
+    StickyListHeadersListView mStickyListViewOne;
 
-    ExpandableListAdapter mExpandableListAdapterOne;
+    StickyHeaderListAdapter mStickyHeaderListAdapterOne;
+
+    public ArrayList<ImageDetailGoupData> mImagetList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,104 +51,18 @@ public class Letchiis extends BaseActivity {
         setContentView(R.layout.activity_photo_letchiis);
         ButterKnife.bind(this);
 
-        View header = findViewById(R.id.ImgListHeaderLay);
+        getTestImageData();
 
-        mTitleTxt = (AVTextView) header.findViewById(R.id.TitleTxt);
-        mSubTxt = (AVTextView) header.findViewById(R.id.SubTxt);
-
-        View group = findViewById(R.id.ImgListGroupLay);
-
-        mList1List = (ImageView) group.findViewById(R.id.List1List);
-        mCountTxt1 = (TextView) group.findViewById(R.id.CountTxt1);
-        mToggleLike1 = (AVToggleButton) group.findViewById(R.id.ToggleLike1);
-        group.findViewById(R.id.RankinImg1).setVisibility(View.VISIBLE);
-
-        mList2List = (ImageView) group.findViewById(R.id.List2List);
-        mCountTxt2 = (TextView) group.findViewById(R.id.CountTxt2);
-        mToggleLike2 = (AVToggleButton) group.findViewById(R.id.ToggleLike2);
-        group.findViewById(R.id.RankinImg2).setVisibility(View.VISIBLE);
-
-        mList3List = (ImageView) group.findViewById(R.id.List3List);
-        mCountTxt3 = (TextView) group.findViewById(R.id.CountTxt3);
-        mToggleLike3 = (AVToggleButton) group.findViewById(R.id.ToggleLike3);
-        group.findViewById(R.id.RankinImg3).setVisibility(View.VISIBLE);
-
-        mTitleTxt.setText("좋아요 Best");
-        mSubTxt.setText("접수중");
-
-        mCountTxt1.setText("" + 1001);
-        mList1List.setImageResource(R.drawable.photo1);
-
-        mCountTxt2.setText("" + 1002);
-        mList2List.setImageResource(R.drawable.photo2);
-
-        mCountTxt3.setText("" + 1003);
-        mList3List.setImageResource(R.drawable.photo3);
-
-
-        ImageSubData sub = new ImageSubData();
-        sub.mTitle = "새로운 사진";
-
-        ImageDetailGoupData goupData = new ImageDetailGoupData();
-        goupData.mImageDetailData1.mImageRes = R.drawable.photo4;
-        goupData.mImageDetailData1.mLikeCount = 2001;
-
-        goupData.mImageDetailData2.mImageRes = R.drawable.photo5;
-        goupData.mImageDetailData2.mLikeCount = 2002;
-
-        goupData.mImageDetailData3.mImageRes = R.drawable.photo6;
-        goupData.mImageDetailData3.mLikeCount = 2003;
-
-        sub.mImagetList.add(goupData);
-
-        goupData = new ImageDetailGoupData();
-        goupData.mImageDetailData1.mImageRes = R.drawable.photo6;
-        goupData.mImageDetailData1.mLikeCount = 2004;
-
-        goupData.mImageDetailData2.mImageRes = R.drawable.photo7;
-        goupData.mImageDetailData2.mLikeCount = 2005;
-
-        goupData.mImageDetailData3.mImageRes = R.drawable.photo8;
-        goupData.mImageDetailData3.mLikeCount = 2006;
-
-        sub.mImagetList.add(goupData);
-
-
-        goupData = new ImageDetailGoupData();
-        goupData.mImageDetailData1.mImageRes = R.drawable.photo9;
-        goupData.mImageDetailData1.mLikeCount = 2007;
-
-        goupData.mImageDetailData2.mImageRes = R.drawable.photo10;
-        goupData.mImageDetailData2.mLikeCount = 2008;
-
-        goupData.mImageDetailData3.mImageRes = R.drawable.photo11;
-        goupData.mImageDetailData3.mLikeCount = 2009;
-
-        sub.mImagetList.add(goupData);
-
-
-        goupData = new ImageDetailGoupData();
-        goupData.mImageDetailData1.mImageRes = R.drawable.photo12;
-        goupData.mImageDetailData1.mLikeCount = 2010;
-
-        goupData.mImageDetailData2.mImageRes = R.drawable.photo1;
-        goupData.mImageDetailData2.mLikeCount = 2011;
-
-        goupData.mImageDetailData3 = null;
-
-        sub.mImagetList.add(goupData);
-
-        mImgDataOne.mImageSubDataList.add(sub);
-
-
-        mExpandableListViewOne = (ExpandableListView) LayoutInflater.from(this).inflate(R.layout.view_expanablelist, null);
-        mExpandableListAdapterOne = new ExpandableListAdapter(this, mImgDataOne.mImageSubDataList, ExpandableListAdapter.TYPE_LETCHIIS, mChildClickListener);
-        mExpandableListViewOne.setAdapter(mExpandableListAdapterOne);
+        mStickyListViewOne = (StickyListHeadersListView) LayoutInflater.from(this).inflate(R.layout.view_stickylistview, null);
+        mStickyHeaderListAdapterOne = new StickyHeaderListAdapter(this,mImagetList, mChildClickListener,  ExpandableListAdapter.TYPE_LETCHIIS);
+        mStickyListViewOne.setDrawingListUnderStickyHeader(true);
+        mStickyListViewOne.setAreHeadersSticky(true);
+        mStickyListViewOne.setAdapter(mStickyHeaderListAdapterOne);
 
         mViewPagerAdapter = new ViewPagerAdapter(this);
+
         mImgListViewPage.setAdapter(mViewPagerAdapter);
 
-        mExpandableListViewOne.expandGroup(0);
 
     }
 
@@ -225,7 +119,149 @@ public class Letchiis extends BaseActivity {
         }
     }
 
+    void  getTestImageData() {
 
+        ImageDetailGoupData goupData = new ImageDetailGoupData();
+        goupData.mImageDetailData1.mImageRes = R.drawable.photo1;
+        goupData.mImageDetailData1.mLikeCount = 1001;
+
+        goupData.mImageDetailData2.mImageRes = R.drawable.photo2;
+        goupData.mImageDetailData2.mLikeCount = 1002;
+
+        goupData.mImageDetailData3.mImageRes = R.drawable.photo3;
+        goupData.mImageDetailData3.mLikeCount = 3003;
+
+        goupData.mTitle = "좋아요 Best";
+        goupData.mId = 1;
+        mImagetList.add(goupData);
+
+        goupData = new ImageDetailGoupData();
+        goupData.mImageDetailData1.mImageRes = R.drawable.photo4;
+        goupData.mImageDetailData1.mLikeCount = 2001;
+
+        goupData.mImageDetailData2.mImageRes = R.drawable.photo5;
+        goupData.mImageDetailData2.mLikeCount = 2002;
+
+        goupData.mImageDetailData3.mImageRes = R.drawable.photo6;
+        goupData.mImageDetailData3.mLikeCount = 2003;
+
+        goupData.mTitle = "새로운 사진";
+        goupData.mId = 0;
+        mImagetList.add(goupData);
+
+        goupData = new ImageDetailGoupData();
+        goupData.mImageDetailData1.mImageRes = R.drawable.photo6;
+        goupData.mImageDetailData1.mLikeCount = 2004;
+
+        goupData.mImageDetailData2.mImageRes = R.drawable.photo7;
+        goupData.mImageDetailData2.mLikeCount = 2005;
+
+        goupData.mImageDetailData3.mImageRes = R.drawable.photo8;
+        goupData.mImageDetailData3.mLikeCount = 2006;
+
+        goupData.mTitle = "새로운 사진";
+        goupData.mId = 0;
+        mImagetList.add(goupData);
+
+
+        goupData = new ImageDetailGoupData();
+        goupData.mImageDetailData1.mImageRes = R.drawable.photo9;
+        goupData.mImageDetailData1.mLikeCount = 2007;
+
+        goupData.mImageDetailData2.mImageRes = R.drawable.photo10;
+        goupData.mImageDetailData2.mLikeCount = 2008;
+
+        goupData.mImageDetailData3.mImageRes = R.drawable.photo11;
+        goupData.mImageDetailData3.mLikeCount = 2009;
+
+        goupData.mTitle = "새로운 사진";
+        goupData.mId = 0;
+        mImagetList.add(goupData);
+
+
+        goupData = new ImageDetailGoupData();
+        goupData.mImageDetailData1.mImageRes = R.drawable.photo12;
+        goupData.mImageDetailData1.mLikeCount = 2010;
+
+        goupData.mImageDetailData2.mImageRes = R.drawable.photo1;
+        goupData.mImageDetailData2.mLikeCount = 2011;
+
+        goupData.mImageDetailData3 = null;
+
+        goupData.mTitle = "새로운 사진";
+        goupData.mId = 0;
+        mImagetList.add(goupData);
+
+        goupData = new ImageDetailGoupData();
+        goupData.mImageDetailData1.mImageRes = R.drawable.photo12;
+        goupData.mImageDetailData1.mLikeCount = 2010;
+
+        goupData.mImageDetailData2.mImageRes = R.drawable.photo1;
+        goupData.mImageDetailData2.mLikeCount = 2011;
+
+        goupData.mImageDetailData3 = null;
+
+        goupData.mTitle = "새로운 사진";
+        goupData.mId = 0;
+        mImagetList.add(goupData);
+
+
+        goupData = new ImageDetailGoupData();
+        goupData.mImageDetailData1.mImageRes = R.drawable.photo12;
+        goupData.mImageDetailData1.mLikeCount = 2010;
+
+        goupData.mImageDetailData2.mImageRes = R.drawable.photo1;
+        goupData.mImageDetailData2.mLikeCount = 2011;
+
+        goupData.mImageDetailData3 = null;
+
+        goupData.mTitle = "새로운 사진";
+        goupData.mId = 0;
+        mImagetList.add(goupData);
+
+
+        goupData = new ImageDetailGoupData();
+        goupData.mImageDetailData1.mImageRes = R.drawable.photo12;
+        goupData.mImageDetailData1.mLikeCount = 2010;
+
+        goupData.mImageDetailData2.mImageRes = R.drawable.photo1;
+        goupData.mImageDetailData2.mLikeCount = 2011;
+
+        goupData.mImageDetailData3 = null;
+
+        goupData.mTitle = "새로운 사진";
+        goupData.mId = 0;
+        mImagetList.add(goupData);
+
+
+        goupData = new ImageDetailGoupData();
+        goupData.mImageDetailData1.mImageRes = R.drawable.photo12;
+        goupData.mImageDetailData1.mLikeCount = 2010;
+
+        goupData.mImageDetailData2.mImageRes = R.drawable.photo1;
+        goupData.mImageDetailData2.mLikeCount = 2011;
+
+        goupData.mImageDetailData3 = null;
+
+        goupData.mTitle = "새로운 사진";
+        goupData.mId = 0;
+        mImagetList.add(goupData);
+
+
+        goupData = new ImageDetailGoupData();
+        goupData.mImageDetailData1.mImageRes = R.drawable.photo12;
+        goupData.mImageDetailData1.mLikeCount = 2010;
+
+        goupData.mImageDetailData2.mImageRes = R.drawable.photo1;
+        goupData.mImageDetailData2.mLikeCount = 2011;
+
+        goupData.mImageDetailData3 = null;
+
+        goupData.mTitle = "새로운 사진";
+        goupData.mId = 0;
+        mImagetList.add(goupData);
+
+    }
 
     View.OnClickListener mChildClickListener = new View.OnClickListener() {
 
@@ -248,7 +284,7 @@ public class Letchiis extends BaseActivity {
 
             mContentView.clear();
             mContext = context;
-            mContentView.add(mExpandableListViewOne);
+            mContentView.add(mStickyListViewOne);
 
         }
 
