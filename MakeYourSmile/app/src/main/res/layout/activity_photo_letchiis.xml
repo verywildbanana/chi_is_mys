@@ -29,8 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/TitleLeftImg"
-            android:src="@drawable/menu24"
-            />
+            android:src="@drawable/menu24" />
 
         <ImageView
             android:id="@+id/TitleSearchImg"
@@ -111,8 +110,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
-                    android:visibility="visible"
-                    android:src="@drawable/underbar" />
+                    android:src="@drawable/underbar"
+                    android:visibility="visible" />
 
             </RelativeLayout>
 
@@ -126,6 +125,15 @@
             android:background="@color/mys_banner">
 
         </RelativeLayout>
+
+        <include
+            android:id="@+id/ImgListHeaderLay"
+            layout="@layout/listitem_header_image_letchiis" />
+
+        <include
+            android:id="@+id/ImgListGroupLay"
+            layout="@layout/listitem_group_image_letchiis" />
+
 
         <android.support.v4.view.ViewPager
             android:id="@+id/ImgListViewPage"
@@ -141,7 +149,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_margin="20dp"
+        android:layout_margin="25dp"
         android:src="@drawable/upload" />
 
 

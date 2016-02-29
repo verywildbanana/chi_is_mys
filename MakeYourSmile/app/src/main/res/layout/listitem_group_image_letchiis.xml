@@ -19,14 +19,21 @@
                 android:id="@+id/List1List"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                />
+                android:scaleType="fitXY" />
+
+            <ImageView
+                android:id="@+id/RankinImg1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:visibility="gone"
+                android:src="@drawable/best1" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="14dp"
                 android:layout_alignParentBottom="true"
-                android:background="@color/white_op50">
+                android:background="@color/black_op60">
 
                 <com.avocado.makeyoursmile.view.AVTextView
                     android:id="@+id/CountTxt1"
@@ -37,8 +44,8 @@
                     android:layout_marginRight="10dp"
                     android:singleLine="true"
                     android:text="000"
-                    android:textColor="@color/mys_txt_dark_gray_83"
-                    android:textSize="8dp" />
+                    android:textColor="@color/white"
+                    android:textSize="9dp" />
 
                 <com.avocado.makeyoursmile.view.AVToggleButton
                     android:id="@+id/ToggleLike1"
@@ -69,14 +76,21 @@
                 android:id="@+id/List2List"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                />
+                android:scaleType="fitXY" />
+
+            <ImageView
+                android:id="@+id/RankinImg2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:visibility="gone"
+                android:src="@drawable/best2" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="14dp"
                 android:layout_alignParentBottom="true"
-                android:background="@color/white_op50">
+                android:background="@color/black_op60">
 
                 <com.avocado.makeyoursmile.view.AVTextView
                     android:id="@+id/CountTxt2"
@@ -87,8 +101,8 @@
                     android:layout_marginRight="10dp"
                     android:singleLine="true"
                     android:text="000"
-                    android:textColor="@color/mys_txt_dark_gray_83"
-                    android:textSize="8dp" />
+                    android:textColor="@color/white"
+                    android:textSize="9dp" />
 
                 <com.avocado.makeyoursmile.view.AVToggleButton
                     android:id="@+id/ToggleLike2"
@@ -118,14 +132,21 @@
                 android:id="@+id/List3List"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                />
+                android:scaleType="fitXY" />
+
+            <ImageView
+                android:id="@+id/RankinImg3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:visibility="gone"
+                android:src="@drawable/best3" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="14dp"
                 android:layout_alignParentBottom="true"
-                android:background="@color/white_op50">
+                android:background="@color/black_op60">
 
                 <com.avocado.makeyoursmile.view.AVTextView
                     android:id="@+id/CountTxt3"
@@ -136,8 +157,8 @@
                     android:layout_marginRight="10dp"
                     android:singleLine="true"
                     android:text="000"
-                    android:textColor="@color/mys_txt_dark_gray_83"
-                    android:textSize="8dp" />
+                    android:textColor="@color/white"
+                    android:textSize="9dp" />
 
                 <com.avocado.makeyoursmile.view.AVToggleButton
                     android:id="@+id/ToggleLike3"

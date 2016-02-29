@@ -97,7 +97,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         final ImageDetailGoupData data = mData.get(groupPosition).mImagetList.get(childPosition);
 
 
-        if(data.mImageDetailData1 != null) {
+        if (data.mImageDetailData1 != null) {
 
             childHolder.mList1List.setVisibility(View.VISIBLE);
             childHolder.mCountTxt1.setVisibility(View.VISIBLE);
@@ -109,8 +109,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             childHolder.mList1List.setTag(data.mImageDetailData1.mImageRes);
             childHolder.mList1List.setOnClickListener(mChildClickListener);
 
-        }
-        else {
+        } else {
 
             childHolder.mList1List.setVisibility(View.INVISIBLE);
             childHolder.mCountTxt1.setVisibility(View.INVISIBLE);
@@ -121,7 +120,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         }
 
 
-        if(data.mImageDetailData2 != null) {
+        if (data.mImageDetailData2 != null) {
 
             childHolder.mList2List.setVisibility(View.VISIBLE);
             childHolder.mCountTxt2.setVisibility(View.VISIBLE);
@@ -133,8 +132,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             childHolder.mList2List.setTag(data.mImageDetailData1.mImageRes);
             childHolder.mList2List.setOnClickListener(mChildClickListener);
 
-        }
-        else {
+        } else {
 
             childHolder.mList2List.setVisibility(View.INVISIBLE);
             childHolder.mCountTxt2.setVisibility(View.INVISIBLE);
@@ -145,21 +143,20 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         }
 
 
-        if(data.mImageDetailData3 != null) {
+        if (data.mImageDetailData3 != null) {
 
             childHolder.mList3List.setVisibility(View.VISIBLE);
             childHolder.mCountTxt3.setVisibility(View.VISIBLE);
             childHolder.mToggleLike3.setVisibility(View.VISIBLE);
 
-            childHolder.mCountTxt3.setText( "" + data.mImageDetailData3.mLikeCount);
+            childHolder.mCountTxt3.setText("" + data.mImageDetailData3.mLikeCount);
             childHolder.mList3List.setImageResource(data.mImageDetailData3.mImageRes);
 
             childHolder.mList3List.setTag(data.mImageDetailData1.mImageRes);
             childHolder.mList3List.setOnClickListener(mChildClickListener);
 
 
-        }
-        else {
+        } else {
 
             childHolder.mList3List.setVisibility(View.INVISIBLE);
             childHolder.mCountTxt3.setVisibility(View.INVISIBLE);
@@ -205,8 +202,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
             groupHolder.mTitleTxt = (TextView) convertView.findViewById(R.id.TitleTxt);
             groupHolder.mSubTxt = (TextView) convertView.findViewById(R.id.SubTxt);
-            groupHolder.mSubSubTxt = (TextView) convertView.findViewById(R.id.SubSubTxt);
-            groupHolder.mSubLine = convertView.findViewById(R.id.SubLine);
+            groupHolder.mTagLay = (ViewGroup) convertView.findViewById(R.id.TagLay);
+            groupHolder.mSubImg = (ImageView) convertView.findViewById(R.id.SubImg);
 
             convertView.setTag(groupHolder);
 
@@ -219,26 +216,11 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
 
         groupHolder.mTitleTxt.setText(data.mTitle);
-
-        if(groupPosition == 0) {
-
-            groupHolder.mSubLine.setVisibility(View.GONE);
-            groupHolder.mSubTxt.setVisibility(View.GONE);
-            groupHolder.mSubSubTxt.setText(data.mDate);
-
-        }
-        else  if(groupPosition == 1) {
-
-
-            groupHolder.mSubLine.setVisibility(View.VISIBLE);
-            groupHolder.mSubTxt.setVisibility(View.VISIBLE);
-            groupHolder.mSubSubTxt.setText("랭킹순");
-            groupHolder.mSubTxt.setText("최신순");
-       }
+        groupHolder.mTagLay.setVisibility(View.GONE);
+        groupHolder.mSubImg.setVisibility(View.VISIBLE);
 
 
         groupHolder.index = groupPosition;
-
 
         return convertView;
     }
@@ -274,8 +256,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
         TextView mTitleTxt;
         TextView mSubTxt;
-        View mSubLine;
-        TextView mSubSubTxt;
+        ViewGroup mTagLay;
+        ImageView mSubImg;
 
         int index;
 

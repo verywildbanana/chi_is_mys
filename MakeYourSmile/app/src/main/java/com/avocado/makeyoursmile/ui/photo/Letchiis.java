@@ -11,7 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import com.avocado.makeyoursmile.R;
 import com.avocado.makeyoursmile.base.BaseActivity;
@@ -21,6 +23,8 @@ import com.avocado.makeyoursmile.network.data.image.ImageSubData;
 import com.avocado.makeyoursmile.ui.ask.Request;
 import com.avocado.makeyoursmile.ui.search.Dentistry;
 import com.avocado.makeyoursmile.util.IntentManager;
+import com.avocado.makeyoursmile.view.AVTextView;
+import com.avocado.makeyoursmile.view.AVToggleButton;
 
 import java.util.ArrayList;
 
@@ -37,6 +41,22 @@ public class Letchiis extends BaseActivity {
     @Bind(R.id.ImgListViewPage)
     protected ViewPager mImgListViewPage;
 
+    protected AVTextView mTitleTxt;
+    protected AVTextView mSubTxt;
+
+    ImageView mList1List;
+    TextView mCountTxt1;
+    AVToggleButton mToggleLike1;
+
+    ImageView mList2List;
+    TextView mCountTxt2;
+    AVToggleButton mToggleLike2;
+
+    ImageView mList3List;
+    TextView mCountTxt3;
+    AVToggleButton mToggleLike3;
+
+
     ViewPagerAdapter mViewPagerAdapter;
 
     ImageData mImgDataOne = new ImageData();
@@ -51,29 +71,45 @@ public class Letchiis extends BaseActivity {
         setContentView(R.layout.activity_photo_letchiis);
         ButterKnife.bind(this);
 
+        View header = findViewById(R.id.ImgListHeaderLay);
+
+        mTitleTxt = (AVTextView) header.findViewById(R.id.TitleTxt);
+        mSubTxt = (AVTextView) header.findViewById(R.id.SubTxt);
+
+        View group = findViewById(R.id.ImgListGroupLay);
+
+        mList1List = (ImageView) group.findViewById(R.id.List1List);
+        mCountTxt1 = (TextView) group.findViewById(R.id.CountTxt1);
+        mToggleLike1 = (AVToggleButton) group.findViewById(R.id.ToggleLike1);
+        group.findViewById(R.id.RankinImg1).setVisibility(View.VISIBLE);
+
+        mList2List = (ImageView) group.findViewById(R.id.List2List);
+        mCountTxt2 = (TextView) group.findViewById(R.id.CountTxt2);
+        mToggleLike2 = (AVToggleButton) group.findViewById(R.id.ToggleLike2);
+        group.findViewById(R.id.RankinImg2).setVisibility(View.VISIBLE);
+
+        mList3List = (ImageView) group.findViewById(R.id.List3List);
+        mCountTxt3 = (TextView) group.findViewById(R.id.CountTxt3);
+        mToggleLike3 = (AVToggleButton) group.findViewById(R.id.ToggleLike3);
+        group.findViewById(R.id.RankinImg3).setVisibility(View.VISIBLE);
+
+        mTitleTxt.setText("좋아요 Best");
+        mSubTxt.setText("접수중");
+
+        mCountTxt1.setText("" + 1001);
+        mList1List.setImageResource(R.drawable.photo1);
+
+        mCountTxt2.setText("" + 1002);
+        mList2List.setImageResource(R.drawable.photo2);
+
+        mCountTxt3.setText("" + 1003);
+        mList3List.setImageResource(R.drawable.photo3);
+
 
         ImageSubData sub = new ImageSubData();
-        sub.mTitle = "좋아요 Best";
-
-        ImageDetailGoupData goupData = new ImageDetailGoupData();
-        goupData.mImageDetailData1.mImageRes = R.drawable.photo1;
-        goupData.mImageDetailData1.mLikeCount = 1001;
-
-        goupData.mImageDetailData2.mImageRes = R.drawable.photo2;
-        goupData.mImageDetailData2.mLikeCount = 1002;
-
-        goupData.mImageDetailData3.mImageRes = R.drawable.photo3;
-        goupData.mImageDetailData3.mLikeCount = 1003;
-
-        sub.mImagetList.add(goupData);
-
-        mImgDataOne.mImageSubDataList.add(sub);
-
-
-        sub = new ImageSubData();
         sub.mTitle = "새로운 사진";
 
-        goupData = new ImageDetailGoupData();
+        ImageDetailGoupData goupData = new ImageDetailGoupData();
         goupData.mImageDetailData1.mImageRes = R.drawable.photo4;
         goupData.mImageDetailData1.mLikeCount = 2001;
 
@@ -133,7 +169,6 @@ public class Letchiis extends BaseActivity {
         mImgListViewPage.setAdapter(mViewPagerAdapter);
 
         mExpandableListViewOne.expandGroup(0);
-        mExpandableListViewOne.expandGroup(1);
 
     }
 
@@ -250,7 +285,7 @@ public class Letchiis extends BaseActivity {
     }
 
     PopupWindow mPopUp;
-
+    AVToggleButton mPopUpToggleLike;
     private void showIamgeDialog(int imgRes) {
 
 
@@ -261,6 +296,8 @@ public class Letchiis extends BaseActivity {
         }
 
         View v = LayoutInflater.from(this).inflate(R.layout.layout_image_popup, null);
+         mPopUpToggleLike =  (AVToggleButton)v.findViewById(R.id.ToggleLike);
+
         mPopUp = new PopupWindow(v, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, true);
         v.findViewById(R.id.CloseImg).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -270,12 +307,49 @@ public class Letchiis extends BaseActivity {
             }
         });
 
+        v.findViewById(R.id.PopImg).setOnClickListener(new DoubleClickListener() {
+            @Override
+            public void onSingleClick(View v) {
+
+            }
+
+            @Override
+            public void onDoubleClick(View v) {
+
+                mPopUpToggleLike.setOn(!mPopUpToggleLike.isOn());
+
+            }
+        });
+
         mPopUp.setTouchable(true);
         mPopUp.setBackgroundDrawable(new BitmapDrawable());
         mPopUp.setWindowLayoutMode(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         View parent = getWindow().getDecorView();
         mPopUp.showAtLocation(parent, Gravity.CENTER, 0, -100);
     }
+
+
+    public abstract class DoubleClickListener implements View.OnClickListener {
+
+        private static final long DOUBLE_CLICK_TIME_DELTA = 300;//milliseconds
+
+        long lastClickTime = 0;
+
+        @Override
+        public void onClick(View v) {
+            long clickTime = System.currentTimeMillis();
+            if (clickTime - lastClickTime < DOUBLE_CLICK_TIME_DELTA){
+                onDoubleClick(v);
+            } else {
+                onSingleClick(v);
+            }
+            lastClickTime = clickTime;
+        }
+
+        public abstract void onSingleClick(View v);
+        public abstract void onDoubleClick(View v);
+    }
+
 
 
 }

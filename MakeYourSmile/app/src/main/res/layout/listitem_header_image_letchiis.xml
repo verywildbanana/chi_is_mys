@@ -3,10 +3,9 @@
     xmlns:avocado="http://schemas.avocado.com/mys"
     android:layout_width="match_parent"
     android:layout_height="25dp"
-    android:paddingLeft="12dp"
-    android:paddingRight="10dp"
     android:background="@color/white"
     android:clickable="true"
+    android:paddingLeft="12dp"
     >
 
     <com.avocado.makeyoursmile.view.AVTextView
@@ -17,39 +16,42 @@
         android:singleLine="true"
         android:text="좋아요"
         android:textColor="@color/mys_txt_dark_gray_83"
-        android:textStyle="bold"
-        android:textSize="10dp" />
+        android:textSize="10dp"
+        android:textStyle="bold" />
 
-    <com.avocado.makeyoursmile.view.AVTextView
-        android:id="@+id/SubSubTxt"
+    <RelativeLayout
+        android:id="@+id/TagLay"
+        android:layout_width="wrap_content"
+        android:layout_height="17dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/tag_round_bg_blue"
+        android:orientation="horizontal"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"
+        android:visibility="visible">
+
+        <com.avocado.makeyoursmile.view.AVTextView
+            android:id="@+id/SubTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:singleLine="true"
+            android:text="접수중"
+            android:textColor="@color/white"
+            android:textSize="10dp" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/SubImg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:singleLine="true"
-        android:textColor="@color/mys_txt_dark_gray_83"
-        android:textSize="10dp" />
-
-    <View
-        android:id="@+id/SubLine"
-        android:layout_width="1px"
-        android:layout_height="10dp"
-        android:layout_toLeftOf="@+id/SubSubTxt"
-        android:layout_centerVertical="true"
-        android:layout_margin="5dp"
-        android:visibility="gone"
-        android:background="@color/mys_txt_dark_gray_83"
-        />
-
-    <com.avocado.makeyoursmile.view.AVTextView
-        android:id="@+id/SubTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toLeftOf="@+id/SubLine"
-        android:layout_centerVertical="true"
-        android:singleLine="true"
-        android:textColor="@color/mys_txt_dark_gray_83"
-        android:textSize="10dp" />
+        android:src="@drawable/kakao_friend"
+        android:visibility="gone" />
 
 
 </RelativeLayout>

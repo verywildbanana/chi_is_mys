@@ -3,6 +3,7 @@
     xmlns:avocado="http://schemas.avocado.com/mys"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black_op60"
     >
 
     <RelativeLayout
@@ -15,38 +16,35 @@
             android:id="@+id/PopImg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="22dp"
             android:scaleType="fitXY"
-            android:src="@drawable/photo7" />
+            android:src="@drawable/popupphoto" />
+
+        <com.avocado.makeyoursmile.view.AVToggleButton
+            android:id="@+id/ToggleLike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            avocado:ToggleButtonClickable="false"
+            avocado:ToggleButtonOffImage="@drawable/likeblank"
+            avocado:ToggleButtonOnImage="@drawable/likefull" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="22dp"
+            android:layout_height="32dp"
             android:layout_alignParentBottom="true"
-            android:background="@color/white"
+            android:background="@color/whit_op60"
             android:orientation="horizontal">
 
-            <com.avocado.makeyoursmile.view.AVToggleButton
-                android:id="@+id/ToggleLike"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="5dp"
-                android:layout_toLeftOf="@+id/CountTxt3"
-                avocado:ToggleButtonOffImage="@drawable/likeblank"
-                avocado:ToggleButtonOnImage="@drawable/likefull" />
 
             <com.avocado.makeyoursmile.view.AVTextView
-                android:id="@+id/LikeCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/ToggleLike"
+                android:layout_centerInParent="true"
                 android:singleLine="true"
-                android:text="0000"
-                android:textColor="@color/mys_txt_blue_11"
-                android:textSize="10dp" />
+                android:text="사진 선택은 두번 터치"
+                android:textColor="@color/mys_txt_dark_gray_83"
+                android:textStyle="bold"
+                android:textSize="11dp" />
 
             <ImageView
                 android:id="@+id/CloseImg"
@@ -54,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="9dp"
                 android:src="@drawable/x" />
 
 
