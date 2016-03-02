@@ -80,7 +80,7 @@ public class Setting extends BaseActivity {
 
     }
 
-    @OnClick({R.id.NoticeLay, R.id.ExplainLay, R.id.ReqLay, R.id.FAQLay, R.id.TermLay, R.id.PersonalTermLay, R.id.AccountTermLay})
+    @OnClick({R.id.NoticeLay, R.id.ExplainLay, R.id.ReqLay, R.id.FAQLay, R.id.TermLay, R.id.PersonalTermLay, R.id.AccountTermLay, R.id.PushToggleLay})
     public void onClickLay(View v) {
 
         switch (v.getId()) {
@@ -121,6 +121,13 @@ public class Setting extends BaseActivity {
 
 
             case R.id.AccountTermLay:
+
+                break;
+
+            case R.id.PushToggleLay:
+
+
+                mPushToggle.setChecked(!mPushToggle.isChecked());
 
                 break;
 

@@ -73,6 +73,7 @@
                 android:textStyle="bold" />
 
             <RelativeLayout
+                android:id="@+id/PushToggleLay"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
