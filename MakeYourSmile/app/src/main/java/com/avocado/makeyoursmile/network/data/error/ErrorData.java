@@ -16,11 +16,9 @@ public class ErrorData {
 	@SerializedName("message")
 	private String dpMsg;
 
-
-	@SerializedName("url")
-	public String url;
-
+	@SerializedName("update_info")
 	public UpdateData update_info;
+
 
 	public String getDpMsg() {
 		try {
@@ -29,8 +27,7 @@ public class ErrorData {
 			
 		} 
 		catch (UnsupportedEncodingException e) {
-			
-			// e.printStackTrace();
+
 			SmartLog.getInstance().e(TAG, "UnsupportedEncodingException");
 		}
 		catch (Exception e) {
@@ -40,13 +37,6 @@ public class ErrorData {
 
 		return dpMsg;
 	}
-
-//	@SerializedName("display_message")
-	public void setDpMsg(String dpMsg) {
-		
-		this.dpMsg = dpMsg;
-	}
-
 
 
 //	{

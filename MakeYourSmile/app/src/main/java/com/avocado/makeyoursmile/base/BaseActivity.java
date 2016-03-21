@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -15,6 +16,7 @@ import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
@@ -25,8 +27,10 @@ import android.widget.ListView;
 import com.avocado.makeyoursmile.Constants;
 import com.avocado.makeyoursmile.Global;
 import com.avocado.makeyoursmile.R;
+import com.avocado.makeyoursmile.network.data.error.ErrorData;
 import com.avocado.makeyoursmile.util.IntentManager;
 import com.avocado.makeyoursmile.util.SmartLog;
+import com.avocado.makeyoursmile.util.ToastManager;
 
 import butterknife.ButterKnife;
 
@@ -46,7 +50,7 @@ public abstract class BaseActivity extends FragmentActivity {
         super.onPostCreate(savedInstanceState);
 
 
-        if ( Global.getInstance().getSdkInt() >= Build.VERSION_CODES.LOLLIPOP) {
+        if (Global.getInstance().getSdkInt() >= Build.VERSION_CODES.LOLLIPOP) {
 
             Window window = getWindow();
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -64,12 +68,13 @@ public abstract class BaseActivity extends FragmentActivity {
 
     }
 
-        @Override
+    @Override
     public void onBackPressed() {
 
         IntentManager.getInstance().pop(this);
 
     }
+
     @Override
     protected void onDestroy() {
 
@@ -104,7 +109,7 @@ public abstract class BaseActivity extends FragmentActivity {
 
     public void showDialog(String title, String message, String positiveBtn, String negativeBtn, boolean cancelable, final OnDialogButtonListener listener, int imgRes) {
 
-        if(d !=  null) {
+        if (d != null) {
 
             d.dismiss();
 
@@ -294,8 +299,7 @@ public abstract class BaseActivity extends FragmentActivity {
                 SmartLog.getInstance().i(TAG, "BroadcastReceiver Constants.ACTION_FINISH");
 
                 finish();
-            }
-            else if (Constants.ACTION_LOGOUT.equals(action)) {
+            } else if (Constants.ACTION_LOGOUT.equals(action)) {
 
                 onLogout();
 
@@ -303,7 +307,6 @@ public abstract class BaseActivity extends FragmentActivity {
             }
         }
     }
-
 
 
     public void onUpdateMainViewpager() {
@@ -318,6 +321,105 @@ public abstract class BaseActivity extends FragmentActivity {
 
     public void onLogout() {
 
+
+    }
+
+
+    ViewGroup mFrameIndicator;
+
+
+    public void showIndicator(boolean isTouchBlock, String text) {
+
+
+        if (mFrameIndicator == null) {
+            Window w = getWindow();
+
+            ViewGroup view = (ViewGroup) w.getDecorView();
+
+            mFrameIndicator = (ViewGroup) LayoutInflater.from(this).inflate(
+                    R.layout.view_indicator_spinner, view, false);
+
+            // 스피너 색상 변경
+            //			ProgressBar spinner = (ProgressBar)mFrameIndicator.findViewById(R.id.ProgressBar02);
+            //			spinner.getIndeterminateDrawable().setColorFilter(
+            //					0xffeb5340, Mode.MULTIPLY);
+
+            if (isTouchBlock == true) {
+                mFrameIndicator.setClickable(true);
+            }
+
+
+            w.addContentView(mFrameIndicator, new ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT));
+            //			ViewAnimationUtil.waveScaleAnimation(this, spinner, null);
+        }
+    }
+
+    public void hideIndicator() {
+
+        if (mFrameIndicator != null) {
+            // 기존 Pickat 1.x
+            //			if ((ViewGroup) mFrameIndicator.getParent() != null) {
+            //
+            //				mFrameIndicator.setVisibility(View.GONE);
+            //
+            //				if (((ViewGroup) mFrameIndicator.getParent()).indexOfChild(mFrameIndicator) >= 0) {
+            //
+            //					((ViewGroup) mFrameIndicator.getParent()).removeView(mFrameIndicator);
+            //				}
+            //				mFrameIndicator = null;
+            //			}
+            // 변경
+            ViewGroup parent = (ViewGroup) mFrameIndicator.getParent();
+            if (parent != null && parent.getChildCount() > 0) {
+                parent.removeView(mFrameIndicator);
+                mFrameIndicator = null;
+            }
+        }
+    }
+
+
+    public boolean controlApiError(final ErrorData errorData) {
+
+        if (errorData != null) {
+
+            if (errorData.mCode.equals(Constants.API_ERROR_CODE_REQ_UPDTE_APP)) {
+
+                //강제 업데이트
+                String message = errorData.getDpMsg();
+                String positive = "확인";
+
+                showDialog(null, message, positive, null, false, new BaseActivity.OnDialogButtonListener() {
+                    @Override
+                    public void onPositiveButtonClick() {
+
+                        if (errorData.update_info.update_url != null) {
+
+                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(errorData.update_info.update_url));
+                            startActivity(intent);
+
+                        }
+                        sendBroadcast(new Intent(Constants.ACTION_FINISH));
+
+                    }
+
+                    @Override
+                    public void onNegativeButtonClick() {
+
+                    }
+                }, 0);
+
+                return false;
+            } else if (errorData.mCode.contains("401.")) {
+
+                ToastManager.getInstance().show(errorData.getDpMsg());
+                return false;
+            }
+
+        }
+
+        return true;
 
     }
 

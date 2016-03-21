@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:avocado="http://schemas.avocado.com/mys"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mys_bg_238"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/TitleBar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/mys_titlebar_0">
+
+
+        <ImageView
+            android:id="@+id/TitleLeftImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/top_back" />
+
+        <ImageView
+            android:id="@+id/TitleTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/TitleLeftImg"
+            android:src="@drawable/menu07"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/TitleSearchImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/searchicon"
+            android:visibility="invisible" />
+
+
+        <ImageView
+            android:id="@+id/TitleLogoImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/TitleSearchImg"
+            android:src="@drawable/makeyoursmile" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/TitleBar"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:text="계정아이디"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:background="@color/mys_stroke_color_149"
+                android:orientation="horizontal">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1px"
+                    android:background="@color/mys_bg_238"
+                    android:fillViewport="true">
+
+                    <com.avocado.makeyoursmile.view.AVEditText
+                        android:id="@+id/IDEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@null"
+                        android:gravity="top"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="12dp" />
+                </ScrollView>
+            </LinearLayout>
+
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="비밀번호(10자)"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:background="@color/mys_stroke_color_149"
+                android:orientation="horizontal">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1px"
+                    android:background="@color/mys_bg_238"
+                    android:fillViewport="true">
+
+                    <com.avocado.makeyoursmile.view.AVEditText
+                        android:id="@+id/PWEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@null"
+                        android:gravity="top"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="12dp" />
+                </ScrollView>
+            </LinearLayout>
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="병원명(10자)"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:background="@color/mys_stroke_color_149"
+                android:orientation="horizontal">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1px"
+                    android:background="@color/mys_bg_238"
+                    android:fillViewport="true">
+
+                    <com.avocado.makeyoursmile.view.AVEditText
+                        android:id="@+id/DentistNameEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@null"
+                        android:gravity="top"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="12dp" />
+                </ScrollView>
+            </LinearLayout>
+
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="주소(시/도)"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:background="@color/mys_stroke_color_149"
+                android:orientation="horizontal">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1px"
+                    android:background="@color/mys_bg_238"
+                    android:fillViewport="true">
+
+                    <com.avocado.makeyoursmile.view.AVEditText
+                        android:id="@+id/ADDR1Edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@null"
+                        android:gravity="top"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="12dp" />
+                </ScrollView>
+            </LinearLayout>
+
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="주소(지역구)"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:background="@color/mys_stroke_color_149"
+                android:orientation="horizontal">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1px"
+                    android:background="@color/mys_bg_238"
+                    android:fillViewport="true">
+
+                    <com.avocado.makeyoursmile.view.AVEditText
+                        android:id="@+id/ADDR2Edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@null"
+                        android:gravity="top"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="12dp" />
+                </ScrollView>
+            </LinearLayout>
+
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="주소(동)"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:background="@color/mys_stroke_color_149"
+                android:orientation="horizontal">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1px"
+                    android:background="@color/mys_bg_238"
+                    android:fillViewport="true">
+
+                    <com.avocado.makeyoursmile.view.AVEditText
+                        android:id="@+id/ADDR3Edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@null"
+                        android:gravity="top"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="12dp" />
+                </ScrollView>
+            </LinearLayout>
+
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="주소(세부)"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:background="@color/mys_stroke_color_149"
+                android:orientation="horizontal">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1px"
+                    android:background="@color/mys_bg_238"
+                    android:fillViewport="true">
+
+                    <com.avocado.makeyoursmile.view.AVEditText
+                        android:id="@+id/ADDR4Edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@null"
+                        android:gravity="top"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="12dp" />
+                </ScrollView>
+            </LinearLayout>
+
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="좌표(latitude, 예 37.5515~~ )"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:background="@color/mys_stroke_color_149"
+                android:orientation="horizontal">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1px"
+                    android:background="@color/mys_bg_238"
+                    android:fillViewport="true">
+
+                    <com.avocado.makeyoursmile.view.AVEditText
+                        android:id="@+id/LatEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@null"
+                        android:gravity="top"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="12dp" />
+                </ScrollView>
+            </LinearLayout>
+
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="좌표(longtitude, 예 126.988~~ )"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:background="@color/mys_stroke_color_149"
+                android:orientation="horizontal">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1px"
+                    android:background="@color/mys_bg_238"
+                    android:fillViewport="true">
+
+                    <com.avocado.makeyoursmile.view.AVEditText
+                        android:id="@+id/LngEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@null"
+                        android:gravity="top"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="12dp" />
+                </ScrollView>
+            </LinearLayout>
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="전화번호(15자)"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:background="@color/mys_stroke_color_149"
+                android:orientation="horizontal">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1px"
+                    android:background="@color/mys_bg_238"
+                    android:fillViewport="true">
+
+                    <com.avocado.makeyoursmile.view.AVEditText
+                        android:id="@+id/NumberEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@null"
+                        android:gravity="top"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="12dp" />
+                </ScrollView>
+            </LinearLayout>
+
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="진료시간(평일)"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:background="@color/mys_stroke_color_149"
+                android:orientation="horizontal">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1px"
+                    android:background="@color/mys_bg_238"
+                    android:fillViewport="true">
+
+                    <com.avocado.makeyoursmile.view.AVEditText
+                        android:id="@+id/ActTime1Edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@null"
+                        android:gravity="top"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="12dp" />
+                </ScrollView>
+            </LinearLayout>
+
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="진료시간(주말)"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:background="@color/mys_stroke_color_149"
+                android:orientation="horizontal">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1px"
+                    android:background="@color/mys_bg_238"
+                    android:fillViewport="true">
+
+                    <com.avocado.makeyoursmile.view.AVEditText
+                        android:id="@+id/ActTime2Edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@null"
+                        android:gravity="top"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="12dp" />
+                </ScrollView>
+            </LinearLayout>
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="진료시간(점심)"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:background="@color/mys_stroke_color_149"
+                android:orientation="horizontal">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1px"
+                    android:background="@color/mys_bg_238"
+                    android:fillViewport="true">
+
+                    <com.avocado.makeyoursmile.view.AVEditText
+                        android:id="@+id/ActTime3Edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@null"
+                        android:gravity="top"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="12dp" />
+                </ScrollView>
+            </LinearLayout>
+
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="병원소개(50자)"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:background="@color/mys_stroke_color_149"
+                android:orientation="horizontal">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1px"
+                    android:background="@color/mys_bg_238"
+                    android:fillViewport="true">
+
+                    <com.avocado.makeyoursmile.view.AVEditText
+                        android:id="@+id/IntroduceDentistEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@null"
+                        android:gravity="top"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="12dp" />
+                </ScrollView>
+            </LinearLayout>
+
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="의료진1이름"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:background="@color/mys_stroke_color_149"
+                android:orientation="horizontal">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1px"
+                    android:background="@color/mys_bg_238"
+                    android:fillViewport="true">
+
+                    <com.avocado.makeyoursmile.view.AVEditText
+                        android:id="@+id/Doctor1NameEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@null"
+                        android:gravity="top"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="12dp" />
+                </ScrollView>
+            </LinearLayout>
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="의료진1내용"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:background="@color/mys_stroke_color_149"
+                android:orientation="horizontal">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1px"
+                    android:background="@color/mys_bg_238"
+                    android:fillViewport="true">
+
+                    <com.avocado.makeyoursmile.view.AVEditText
+                        android:id="@+id/Doctor1DesEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@null"
+                        android:gravity="top"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="12dp" />
+                </ScrollView>
+            </LinearLayout>
+
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="의료진2이름"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:background="@color/mys_stroke_color_149"
+                android:orientation="horizontal">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1px"
+                    android:background="@color/mys_bg_238"
+                    android:fillViewport="true">
+
+                    <com.avocado.makeyoursmile.view.AVEditText
+                        android:id="@+id/Doctor2NameEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@null"
+                        android:gravity="top"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="12dp" />
+                </ScrollView>
+            </LinearLayout>
+
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="의료진2내용"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:background="@color/mys_stroke_color_149"
+                android:orientation="horizontal">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1px"
+                    android:background="@color/mys_bg_238"
+                    android:fillViewport="true">
+
+                    <com.avocado.makeyoursmile.view.AVEditText
+                        android:id="@+id/Doctor2DesEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@null"
+                        android:gravity="top"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="12dp" />
+                </ScrollView>
+            </LinearLayout>
+
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="의료진3이름"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:background="@color/mys_stroke_color_149"
+                android:orientation="horizontal">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1px"
+                    android:background="@color/mys_bg_238"
+                    android:fillViewport="true">
+
+                    <com.avocado.makeyoursmile.view.AVEditText
+                        android:id="@+id/Doctor3NameEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@null"
+                        android:gravity="top"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="12dp" />
+                </ScrollView>
+            </LinearLayout>
+
+            <com.avocado.makeyoursmile.view.AVTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="의료진3내용"
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:background="@color/mys_stroke_color_149"
+                android:orientation="horizontal">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1px"
+                    android:background="@color/mys_bg_238"
+                    android:fillViewport="true">
+
+                    <com.avocado.makeyoursmile.view.AVEditText
+                        android:id="@+id/Doctor3DesEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@null"
+                        android:gravity="top"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="12dp" />
+                </ScrollView>
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/ReqBtn"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/mys_titlebar_0">
+
+                <com.avocado.makeyoursmile.view.AVTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="등록하기"
+                    android:textColor="@color/white"
+                    android:textSize="13dp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>
