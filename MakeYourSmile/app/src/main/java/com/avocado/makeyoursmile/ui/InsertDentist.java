@@ -2,6 +2,7 @@ package com.avocado.makeyoursmile.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.avocado.makeyoursmile.MakeYourSmileApp;
@@ -10,6 +11,7 @@ import com.avocado.makeyoursmile.base.BaseActivity;
 import com.avocado.makeyoursmile.network.api.DentistApi;
 import com.avocado.makeyoursmile.network.data.error.ErrorData;
 import com.avocado.makeyoursmile.util.IntentManager;
+import com.avocado.makeyoursmile.util.ToastManager;
 import com.avocado.makeyoursmile.view.AVEditText;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -144,10 +146,8 @@ public class InsertDentist extends BaseActivity {
     @OnClick(R.id.ReqBtn)
     public void onClickRegBtn(View v) {
 
-        showIndicator(true, null);
 
-
-        String ID = mIDEdit.getText().toString();
+       final String ID = mIDEdit.getText().toString();
         String PASSWORD = mPWEdit.getText().toString();
         String DENTIST_NAME = mDentistNameEdit.getText().toString();
         String ADDRESS1 = mADDR1Edit.getText().toString();
@@ -168,6 +168,34 @@ public class InsertDentist extends BaseActivity {
         String DOCTOR3_NAME = mDoctor3NameEdit.getText().toString();
         String DOCTOR3_DES = mDoctor3DesEdit.getText().toString();
 
+        if(TextUtils.isEmpty(ID)) {
+
+            ToastManager.getInstance().show("아이디를 입력해 주세요.");
+            return;
+        }
+        else if(TextUtils.isEmpty(PASSWORD)) {
+
+            ToastManager.getInstance().show("비밀번호를  입력해 주세요.");
+            return;
+        }
+        else if(TextUtils.isEmpty(DENTIST_NAME)) {
+
+            ToastManager.getInstance().show("병원명을 입력해 주세요.");
+            return;
+        }
+        else if(TextUtils.isEmpty(PHONE)) {
+
+            ToastManager.getInstance().show("전화번호를 입력해 주세요.");
+            return;
+        }
+        else if(TextUtils.isEmpty(LAT) || TextUtils.isEmpty(LNG) || TextUtils.isEmpty(ADDRESS1) || TextUtils.isEmpty(ADDRESS2)) {
+
+            ToastManager.getInstance().show("주소 또는 좌를 입력해 주세요.");
+            return;
+        }
+
+        showIndicator(true, null);
+
         dentistApi.insertDentist(ID, PASSWORD, DENTIST_NAME, ADDRESS1, ADDRESS2, ADDRESS3, ADDRESS4, LAT, LNG, PHONE, ACT_TIME1, ACT_TIME2, ACT_TIME3,
                 DENTIST_DES, DOCTOR1_NAME, DOCTOR1_DES, DOCTOR2_NAME, DOCTOR2_DES, DOCTOR3_NAME, DOCTOR3_DES, new Callback<ErrorData>() {
                     @Override
@@ -176,10 +204,10 @@ public class InsertDentist extends BaseActivity {
                         hideIndicator();
                         if(controlApiError(s)) {
 
+                            IntentManager.getInstance().putExtra(IntentManager.EXTRA_ID, ID);
                             IntentManager.getInstance().push(InsertDentist.this, InsertDentistImg.class, true);
 
                         }
-
                     }
 
                     @Override

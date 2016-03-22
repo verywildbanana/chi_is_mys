@@ -3,17 +3,28 @@ package com.avocado.makeyoursmile.ui;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.avocado.makeyoursmile.Global;
 import com.avocado.makeyoursmile.MakeYourSmileApp;
 import com.avocado.makeyoursmile.R;
 import com.avocado.makeyoursmile.base.BaseActivity;
 import com.avocado.makeyoursmile.network.api.DentistApi;
+import com.avocado.makeyoursmile.network.data.ImageUploadParser;
 import com.avocado.makeyoursmile.util.IntentManager;
+import com.avocado.makeyoursmile.util.SmartLog;
 import com.bumptech.glide.Glide;
+import com.squareup.okhttp.MediaType;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
+
+import java.io.File;
+import java.io.IOException;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -51,11 +62,21 @@ public class InsertDentistImg extends BaseActivity {
 
     DentistApi dentistApi = MakeYourSmileApp.createApi(DentistApi.class);
 
+    String mDentistId;
+    String mSelectImgPosition;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_isertdentist_img);
         ButterKnife.bind(this);
+
+        Intent t = getIntent();
+
+        if(t != null) {
+
+            mDentistId = t.getStringExtra(IntentManager.EXTRA_ID);
+        }
 
         mUploadImg1.setOnClickListener(mClickListener);
         mUploadImg2.setOnClickListener(mClickListener);
@@ -188,41 +209,47 @@ public class InsertDentistImg extends BaseActivity {
 
             case R.id.UploadImg1:
 
+                mSelectImgPosition = "1";
                 selectImageView = mUploadImg1;
 
                 break;
 
             case R.id.UploadImg2:
-
+                mSelectImgPosition = "2";
                 selectImageView = mUploadImg2;
                 break;
 
             case R.id.UploadImg3:
-
+                mSelectImgPosition = "3";
                 selectImageView = mUploadImg3;
                 break;
 
             case R.id.UploadImg4:
-
+                mSelectImgPosition = "4";
                 selectImageView = mUploadImg4;
                 break;
 
             case R.id.UploadImg5:
-
+                mSelectImgPosition = "5";
                 selectImageView = mUploadImg5;
                 break;
 
             case R.id.UploadImg6:
+                mSelectImgPosition = "6";
                 selectImageView = mUploadImg6;
 
                 break;
 
             case R.id.UploadImg7:
+
+                mSelectImgPosition = "7";
                 selectImageView = mUploadImg7;
 
                 break;
 
             case R.id.UploadImg8:
+
+                mSelectImgPosition = "8";
                 selectImageView = mUploadImg8;
 
                 break;
@@ -234,7 +261,7 @@ public class InsertDentistImg extends BaseActivity {
 
         String[] temp = {imgPath};
 
-//        new ProcessImageTask().execute(temp);
+        new ProcessImageTask().execute(temp);
 
     }
 
@@ -246,5 +273,75 @@ public class InsertDentistImg extends BaseActivity {
 
         }
     };
+
+
+    private class ProcessImageTask extends AsyncTask<String, String, String> {
+
+        @Override
+        protected String doInBackground(String... params) {
+
+            String file = params[0];
+
+            SmartLog.getInstance().w("tag", "upload  ~~ ");
+
+            OkHttpClient client = new OkHttpClient();
+            RequestBody requestBody = RequestBody.create(MediaType.parse("image/jpeg"), new File(file));
+            Request request = new Request.Builder()
+                    .url(Global.getInstance().getEndpoint() + "/files.do")
+                    .post(requestBody)
+                    .addHeader("insert_id", mDentistId)
+                    .addHeader("img_position", mSelectImgPosition)
+                    .build();
+
+            com.squareup.okhttp.Response response = null;
+            try {
+
+                response = client.newCall(request).execute();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            if (!response.isSuccessful()) {
+
+
+                SmartLog.getInstance().d("POST", "upload fail ~~ ");
+
+            }
+
+            String json = null;
+
+            try {
+
+                json = response.body().string();
+                SmartLog.getInstance().d("POST", "upload Success ~~ " + json);
+
+            } catch (IOException e) {
+
+                e.printStackTrace();
+
+            }
+
+            return json;
+        }
+
+        protected void onPostExecute(String response) {
+
+            if (response != null) {
+
+                ImageUploadParser parser = new ImageUploadParser();
+                try {
+
+                    parser.parse(response);
+                    SmartLog.getInstance().d("POST", "upload Success mImage_url  ~~ " + parser.mJsonObj.location);
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+        }
+    }
 
 }
