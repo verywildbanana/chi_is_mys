@@ -169,6 +169,8 @@ public class Start extends BaseActivity {
 
                 IntentManager.getInstance().push(Start.this, InsertDentist.class, true);
 
+//                IntentManager.getInstance().putExtra(IntentManager.EXTRA_ID, "dentalkxb112");
+//                IntentManager.getInstance().push(Start.this, Landing.class, true);
 
                 break;
 

@@ -3,6 +3,7 @@ package com.avocado.makeyoursmile.view;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
@@ -29,4 +30,13 @@ public class AVTextView extends TextView{
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
+    public void setText(String text) {
+
+        if(TextUtils.isEmpty(text)) {
+
+            return;
+        }
+
+        super.setText(text);
+    }
 }

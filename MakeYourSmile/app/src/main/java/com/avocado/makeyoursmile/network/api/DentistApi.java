@@ -1,11 +1,14 @@
 package com.avocado.makeyoursmile.network.api;
 
+import com.avocado.makeyoursmile.network.data.dentist.DetailDentistParserData;
 import com.avocado.makeyoursmile.network.data.error.ErrorData;
 
 import retrofit.Callback;
 import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
+import retrofit.http.GET;
 import retrofit.http.POST;
+import retrofit.http.Query;
 
 /**
  * Created by HDlee on 15. 11. 4..
@@ -35,5 +38,8 @@ public interface DentistApi {
                        @Field("DT_3_NAME")String  DOCTOR3_NAME,
                        @Field("DT_3_DES")String  DOCTOR3_DES,
                        Callback<ErrorData> callback);
+
+    @GET("/getDentistInfo.do")
+    void getDentistInfo(@Query("ID")String  ID, Callback<DetailDentistParserData> callback);
 
 }
