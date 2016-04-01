@@ -103,6 +103,9 @@ public class InsertDentist extends BaseActivity {
         setContentView(R.layout.activity_isertdentist);
         ButterKnife.bind(this);
 
+        mIDEdit.setPrivateImeOptions("defaultInputmode=english;");
+        mPWEdit.setPrivateImeOptions("defaultInputmode=english;");
+
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
