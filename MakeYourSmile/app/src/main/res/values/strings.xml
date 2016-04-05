@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">MakeYourSmile</string>
     <string name="facebook_app_id">1511116425859350</string>
+    <string name="kakao_app_id">2402594825d3254b57e3f66522073435</string>
+
 </resources>

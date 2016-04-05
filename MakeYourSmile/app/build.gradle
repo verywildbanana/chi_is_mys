@@ -44,4 +44,9 @@ dependencies {
     compile 'se.emilsjolander:stickylistheaders:2.7.0'
     compile 'com.google.android.gms:play-services-appindexing:8.3.0'
     compile 'com.facebook.android:facebook-android-sdk:4.10.1'
+
+    // 카카오스토리, 카카오톡 sdk를 사용하기 위해 필요.
+    compile 'com.mcxiaoke.volley:library:1.0.8'
+    // 카카오톡 sdk를 사용하기 위해 필요.
+    compile group: 'com.kakao.sdk', name: 'kakaotalk', version: project.KAKAO_SDK_VERSION
 }

@@ -1,5 +1,6 @@
 package com.avocado.makeyoursmile;
 
+import android.app.Activity;
 import android.app.Application;
 
 import com.avocado.makeyoursmile.network.ApiRequestInterceptor;
@@ -12,6 +13,7 @@ import com.avocado.makeyoursmile.util.ToastManager;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.integration.okhttp.OkHttpUrlLoader;
 import com.bumptech.glide.load.model.GlideUrl;
+import com.kakao.auth.KakaoSDK;
 import com.squareup.okhttp.OkHttpClient;
 
 import java.io.InputStream;
@@ -27,7 +29,7 @@ public class MakeYourSmileApp extends Application {
     private static MakeYourSmileApp mApplication;
     private OkHttpClient mOkHttpClient;
     private RestAdapter mApiRestAdapter;
-
+    private static volatile Activity currentActivity = null;
 
     public static MakeYourSmileApp getInstance() {
 
@@ -47,6 +49,7 @@ public class MakeYourSmileApp extends Application {
         super.onCreate();
 
         SmartLog.getInstance().d(TAG, "Application onCreate");
+
         Global.getInstance().setApplicationContext(getApplicationContext());
         initOkHttp();
         initRestAdapter();
@@ -55,7 +58,7 @@ public class MakeYourSmileApp extends Application {
         SharedPreferenceManager.getInstance().init(getApplicationContext());
         mApplication = this;
         SharedPreferenceManager.getInstance().setPID(android.os.Process.myPid());
-
+        KakaoSDK.init(new KakaoSDKAdapter());
     }
 
     public static <T> T createApi(Class<T> service) {
@@ -88,5 +91,15 @@ public class MakeYourSmileApp extends Application {
     private void initGlide() {
         Glide.get(this).register(GlideUrl.class, InputStream.class, new OkHttpUrlLoader.Factory(mOkHttpClient));
     }
+
+
+    public static Activity getCurrentActivity() {
+        return currentActivity;
+    }
+
+    public static void setCurrentActivity(Activity currentActivity) {
+        MakeYourSmileApp.currentActivity = currentActivity;
+    }
+
 }
 

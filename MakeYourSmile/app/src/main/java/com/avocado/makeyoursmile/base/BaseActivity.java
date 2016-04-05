@@ -1,6 +1,7 @@
 package com.avocado.makeyoursmile.base;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -26,6 +27,7 @@ import android.widget.ListView;
 
 import com.avocado.makeyoursmile.Constants;
 import com.avocado.makeyoursmile.Global;
+import com.avocado.makeyoursmile.MakeYourSmileApp;
 import com.avocado.makeyoursmile.R;
 import com.avocado.makeyoursmile.network.data.error.ErrorData;
 import com.avocado.makeyoursmile.util.IntentManager;
@@ -78,9 +80,9 @@ public abstract class BaseActivity extends FragmentActivity {
     @Override
     protected void onDestroy() {
 
-
         ButterKnife.unbind(this);
         unRegisterReceiver();
+        clearReferences();
         super.onDestroy();
     }
 
@@ -92,6 +94,7 @@ public abstract class BaseActivity extends FragmentActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        MakeYourSmileApp.setCurrentActivity(this);
     }
 
     @Override
@@ -104,6 +107,13 @@ public abstract class BaseActivity extends FragmentActivity {
         super.onStop();
     }
 
+
+    private void clearReferences() {
+        Activity currActivity = MakeYourSmileApp.getCurrentActivity();
+        if (currActivity != null && currActivity.equals(this)) {
+            MakeYourSmileApp.setCurrentActivity(null);
+        }
+    }
 
     Dialog d;
 
