@@ -19,6 +19,11 @@ android {
     }
 }
 
+repositories {
+    mavenCentral()
+}
+
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
@@ -38,4 +43,5 @@ dependencies {
     compile 'com.google.android.gms:play-services-gcm:8.3.0'
     compile 'se.emilsjolander:stickylistheaders:2.7.0'
     compile 'com.google.android.gms:play-services-appindexing:8.3.0'
+    compile 'com.facebook.android:facebook-android-sdk:4.10.1'
 }
