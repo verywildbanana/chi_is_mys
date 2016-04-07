@@ -14,8 +14,11 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.avocado.makeyoursmile.MakeYourSmileApp;
 import com.avocado.makeyoursmile.R;
 import com.avocado.makeyoursmile.base.BaseActivity;
+import com.avocado.makeyoursmile.network.api.UserLoginApi;
+import com.avocado.makeyoursmile.network.data.user.LoginParserData;
 import com.avocado.makeyoursmile.util.IntentManager;
 import com.avocado.makeyoursmile.util.SmartLog;
 import com.facebook.AccessToken;
@@ -54,6 +57,10 @@ import java.util.Set;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
+
 /**
  * Created by HDlee on 1/29/16.
  */
@@ -64,7 +71,9 @@ public class Login extends BaseActivity {
     private ProfileTracker profileTracker;
     private AccessTokenTracker accessTokenTracker;
 
-    private SessionCallback callback;
+    private SessionCallback callback = new SessionCallback();
+
+    UserLoginApi mUserLoginApi = MakeYourSmileApp.createApi(UserLoginApi.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,77 +81,7 @@ public class Login extends BaseActivity {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
 
-
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        mCallbackManager = CallbackManager.Factory.create();
-
-        LoginManager.getInstance().registerCallback(mCallbackManager,
-                new FacebookCallback<LoginResult>() {
-                    @Override
-                    public void onSuccess(LoginResult loginResult) {
-
-
-                        Profile profile = Profile.getCurrentProfile();
-
-                        SmartLog.getInstance().d(TAG, "FACEBOOK LoginManager onSuccess getToken " + loginResult.getAccessToken().getToken());
-                        SmartLog.getInstance().d(TAG, "FACEBOOK LoginManager onSuccess getRecentlyGrantedPermissions " + loginResult.getRecentlyGrantedPermissions());
-                        SmartLog.getInstance().d(TAG, "FACEBOOK LoginManager onSuccess profile " + profile.getName());
-
-                        GraphRequest request = GraphRequest.newMeRequest(
-                                loginResult.getAccessToken(),
-                                new GraphRequest.GraphJSONObjectCallback() {
-                                    @Override
-                                    public void onCompleted(JSONObject object, GraphResponse response) {
-
-                                        SmartLog.getInstance().d(TAG, "FACEBOOK newMeRequest onCompleted object " + object.toString());
-                                        SmartLog.getInstance().d(TAG, "FACEBOOK newMeRequest onCompleted response " + response.toString());
-
-                                    }
-
-                                });
-
-                        Bundle parameters = new Bundle();
-                        parameters.putString("fields", "id,name,email,gender,birthday");
-                        request.setParameters(parameters);
-                        request.executeAsync();
-
-
-                    }
-
-                    @Override
-                    public void onCancel() {
-                        Toast.makeText(Login.this, "Login Cancel", Toast.LENGTH_LONG).show();
-                    }
-
-                    @Override
-                    public void onError(FacebookException exception) {
-                        Toast.makeText(Login.this, exception.getMessage(), Toast.LENGTH_LONG).show();
-                    }
-                });
-
-        accessTokenTracker = new AccessTokenTracker() {
-            @Override
-            protected void onCurrentAccessTokenChanged(AccessToken oldToken, AccessToken newToken) {
-
-                AccessToken.setCurrentAccessToken(newToken);
-                SmartLog.getInstance().d(TAG, "FACEBOOK AccessTokenTracker onCurrentAccessTokenChanged getPermissions " + newToken.getPermissions());
-            }
-        };
-
-        profileTracker = new ProfileTracker() {
-            @Override
-            protected void onCurrentProfileChanged(Profile oldProfile, Profile newProfile) {
-
-
-                SmartLog.getInstance().d(TAG, "FACEBOOK ProfileTracker onCurrentProfileChanged getName " + newProfile.getName());
-                SmartLog.getInstance().d(TAG, "FACEBOOK ProfileTracker onCurrentProfileChanged getId " + newProfile.getId());
-
-            }
-        };
-
-
-        Session.getCurrentSession().addCallback(callback);
-
+        initSdk();
 
     }
 
@@ -188,6 +127,96 @@ public class Login extends BaseActivity {
 
     }
 
+
+    void initSdk() {
+
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        mCallbackManager = CallbackManager.Factory.create();
+
+        LoginManager.getInstance().registerCallback(mCallbackManager,
+                new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+
+
+                        Profile profile = Profile.getCurrentProfile();
+
+                        final  String name =   profile.getName();
+                        final  String id =   profile.getId();
+                        final  String token =   loginResult.getAccessToken().getToken();
+                        final  String logintype =   "f";
+                        final  String img =   profile.getProfilePictureUri(200, 200).toString();
+
+                        SmartLog.getInstance().d(TAG, "FACEBOOK LoginManager onSuccess getToken " + loginResult.getAccessToken().getToken());
+                        SmartLog.getInstance().d(TAG, "FACEBOOK LoginManager onSuccess getRecentlyGrantedPermissions " + loginResult.getRecentlyGrantedPermissions());
+                        SmartLog.getInstance().d(TAG, "FACEBOOK LoginManager onSuccess profile name " + name);
+                        SmartLog.getInstance().d(TAG, "FACEBOOK LoginManager onSuccess profile img  " + img);
+
+                        GraphRequest request = GraphRequest.newMeRequest(
+                                loginResult.getAccessToken(),
+                                new GraphRequest.GraphJSONObjectCallback() {
+                                    @Override
+                                    public void onCompleted(JSONObject object, GraphResponse response) {
+
+                                        SmartLog.getInstance().d(TAG, "FACEBOOK newMeRequest onCompleted object " + object.toString());
+                                        SmartLog.getInstance().d(TAG, "FACEBOOK newMeRequest onCompleted response " + response.toString());
+
+                                        showIndicator(false, null);
+                                        requestLogin(id, logintype, token,  name, img, null, null );
+
+                                    }
+
+                                });
+
+                        Bundle parameters = new Bundle();
+                        parameters.putString("fields", "id,name,email,gender,birthday");
+                        request.setParameters(parameters);
+                        request.executeAsync();
+
+
+                    }
+
+                    @Override
+                    public void onCancel() {
+
+                        Toast.makeText(Login.this, "Facebook Login Cancel", Toast.LENGTH_LONG).show();
+
+                    }
+
+                    @Override
+                    public void onError(FacebookException exception) {
+
+                        Toast.makeText(Login.this, "Facebook Error : " +exception.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                });
+
+
+        accessTokenTracker = new AccessTokenTracker() {
+            @Override
+            protected void onCurrentAccessTokenChanged(AccessToken oldToken, AccessToken newToken) {
+
+                AccessToken.setCurrentAccessToken(newToken);
+                SmartLog.getInstance().d(TAG, "FACEBOOK AccessTokenTracker onCurrentAccessTokenChanged getPermissions " + newToken.getPermissions());
+            }
+        };
+
+        profileTracker = new ProfileTracker() {
+            @Override
+            protected void onCurrentProfileChanged(Profile oldProfile, Profile newProfile) {
+
+                SmartLog.getInstance().d(TAG, "FACEBOOK ProfileTracker onCurrentProfileChanged getName " + newProfile.getName());
+                SmartLog.getInstance().d(TAG, "FACEBOOK ProfileTracker onCurrentProfileChanged getId " + newProfile.getId());
+
+            }
+        };
+
+
+        Session.getCurrentSession().addCallback(callback);
+
+    }
+
+
     final String fb_public_profile = "public_profile";
     final String fb_user_friends = "user_friends";
     final String fb_user_birthday = "user_birthday";
@@ -196,6 +225,7 @@ public class Login extends BaseActivity {
 
     @OnClick(R.id.FacebookImg)
     public void onClicLoginFacebook(View v) {
+
 
 
         LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList(fb_public_profile, fb_user_friends, fb_email));
@@ -240,46 +270,6 @@ public class Login extends BaseActivity {
         if(Session.getCurrentSession().checkAndImplicitOpen() ) {
 
             SmartLog.getInstance().d(TAG, "kakao Session.getCurrentSession().getAccessToken() " + Session.getCurrentSession().getAccessToken());
-
-            requestMe(new MeResponseCallback() {
-                @Override
-                public void onFailure(ErrorResult errorResult) {
-
-                    String message = "failed to get user info. msg=" + errorResult;
-
-                    SmartLog.getInstance().d(TAG, "kakao requestMe  onFailure " + message );
-
-                    ErrorCode result = ErrorCode.valueOf(errorResult.getErrorCode());
-
-                    if (result == ErrorCode.CLIENT_ERROR_CODE) {
-
-                    } else {
-
-                    }
-                }
-
-                @Override
-                public void onSessionClosed(ErrorResult errorResult) {
-
-                    SmartLog.getInstance().d(TAG, "kakao requestMe  onSessionClosed "  );
-
-                }
-
-                @Override
-                public void onSuccess(UserProfile userProfile) {
-
-                    SmartLog.getInstance().d(TAG, "kakao requestMe  onSuccess " + userProfile);
-
-                }
-
-                @Override
-                public void onNotSignedUp() {
-
-                    SmartLog.getInstance().d(TAG, "kakao requestMe  onNotSignedUp "  );
-
-
-                }
-            }, null, false);
 
         }
         else {
@@ -394,6 +384,59 @@ public class Login extends BaseActivity {
 
             SmartLog.getInstance().i(TAG, "kakao SessionCallback onSessionOpened redirectSignupActivity");
             SmartLog.getInstance().d(TAG, "kakao onSessionOpened Session.getCurrentSession().getAccessToken() " + Session.getCurrentSession().getAccessToken());
+
+
+            final String id = Session.getCurrentSession().getAppKey();
+            final String token = Session.getCurrentSession().getAccessToken();
+            final String logintype= "k";
+
+            requestMe(new MeResponseCallback() {
+                @Override
+                public void onFailure(ErrorResult errorResult) {
+
+                    String message = "failed to get user info. msg=" + errorResult;
+
+                    SmartLog.getInstance().d(TAG, "kakao requestMe  onFailure " + message);
+
+                    ErrorCode result = ErrorCode.valueOf(errorResult.getErrorCode());
+
+                    Toast.makeText(Login.this, "kakao Login fail : " + message, Toast.LENGTH_LONG).show();
+
+                }
+
+                @Override
+                public void onSessionClosed(ErrorResult errorResult) {
+
+                    SmartLog.getInstance().d(TAG, "kakao requestMe  onSessionClosed ");
+
+                    Toast.makeText(Login.this, "kakao onSessionClosed ", Toast.LENGTH_LONG).show();
+
+                }
+
+                @Override
+                public void onSuccess(UserProfile userProfile) {
+
+                    SmartLog.getInstance().d(TAG, "kakao requestMe  onSuccess " + userProfile);
+
+                    String name = userProfile.getNickname();
+                    String img = userProfile.getProfileImagePath();
+
+                    showIndicator(false, null);
+                    requestLogin(id, logintype, token, name, img, null, null);
+
+                }
+
+                @Override
+                public void onNotSignedUp() {
+
+                    SmartLog.getInstance().d(TAG, "kakao requestMe  onNotSignedUp ");
+
+                    Toast.makeText(Login.this, "kakao onNotSignedUp ", Toast.LENGTH_LONG).show();
+
+
+                }
+            }, null, false);
+
         }
 
         @Override
@@ -417,6 +460,63 @@ public class Login extends BaseActivity {
                 return UserApi.requestMe(propertyKeys, secureResource).getUserProfile();
             }
         });
+    }
+
+
+    void requestLogin(String id, String login_typ, String token, String name, String img, String phone, String email) {
+
+
+        if(login_typ.equalsIgnoreCase("f")) {
+
+            mUserLoginApi.insertFBUser(id, login_typ, token, name, img, phone, email, new Callback<LoginParserData>() {
+                @Override
+                public void success(LoginParserData data, Response response) {
+
+                    hideIndicator();
+
+                    SmartLog.getInstance().i(TAG, "insertKAKAOUser success ID  " + data.login.ID);
+
+                    if (controlApiError(data)) {
+
+                    }
+                }
+
+                @Override
+                public void failure(RetrofitError error) {
+
+                    hideIndicator();
+
+                }
+            });
+
+        }
+        else {
+
+
+            mUserLoginApi.insertKAKAOUser(id, login_typ, token, name, img, phone, email, new Callback<LoginParserData>() {
+                @Override
+                public void success(LoginParserData data, Response response) {
+
+                    hideIndicator();
+
+                    SmartLog.getInstance().i(TAG, "insertKAKAOUser success ID  " + data.login.ID);
+
+                    if (controlApiError(data)) {
+
+                    }
+                }
+
+                @Override
+                public void failure(RetrofitError error) {
+
+                    hideIndicator();
+
+                }
+            });
+
+        }
+
+
     }
 
 }
