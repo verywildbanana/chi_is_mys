@@ -386,7 +386,6 @@ public class Login extends BaseActivity {
             SmartLog.getInstance().d(TAG, "kakao onSessionOpened Session.getCurrentSession().getAccessToken() " + Session.getCurrentSession().getAccessToken());
 
 
-            final String id = Session.getCurrentSession().getAppKey();
             final String token = Session.getCurrentSession().getAccessToken();
             final String logintype= "k";
 
@@ -416,8 +415,9 @@ public class Login extends BaseActivity {
                 @Override
                 public void onSuccess(UserProfile userProfile) {
 
-                    SmartLog.getInstance().d(TAG, "kakao requestMe  onSuccess " + userProfile);
+                    SmartLog.getInstance().d(TAG, "kakao requestMe  onSuccess");
 
+                    String id =  "" + userProfile.getId();
                     String name = userProfile.getNickname();
                     String img = userProfile.getProfileImagePath();
 
@@ -463,8 +463,17 @@ public class Login extends BaseActivity {
     }
 
 
+    boolean block = false;
+
     void requestLogin(String id, String login_typ, String token, String name, String img, String phone, String email) {
 
+
+        if(block) {
+
+            return;
+
+        }
+        block = true;
 
         if(login_typ.equalsIgnoreCase("f")) {
 
@@ -478,14 +487,18 @@ public class Login extends BaseActivity {
 
                     if (controlApiError(data)) {
 
+                        IntentManager.getInstance().push(Login.this, Home.class, true);
+
                     }
+
+                    block = false;
                 }
 
                 @Override
                 public void failure(RetrofitError error) {
 
                     hideIndicator();
-
+                    block = false;
                 }
             });
 
@@ -503,14 +516,20 @@ public class Login extends BaseActivity {
 
                     if (controlApiError(data)) {
 
+
+                        IntentManager.getInstance().push(Login.this, Home.class, true);
+
                     }
+
+                    block = false;
+
                 }
 
                 @Override
                 public void failure(RetrofitError error) {
 
                     hideIndicator();
-
+                    block = false;
                 }
             });
 
