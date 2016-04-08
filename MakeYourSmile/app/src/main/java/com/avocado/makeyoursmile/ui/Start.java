@@ -68,7 +68,7 @@ public class Start extends BaseActivity {
     }
 
     @OnClick({R.id.Click1, R.id.Click2, R.id.Click3, R.id.Click4, R.id.Click5, R.id.Click6, R.id.Click7, R.id.Click8, R.id.Click9,
-              R.id.Click10, R.id.Click11, R.id.Click12, R.id.Click13, R.id.Click14, R.id.Click15})
+              R.id.Click10, R.id.Click11, R.id.Click12, R.id.Click13, R.id.Click14, R.id.Click15, R.id.Click16})
     public void onClickLay(View v) {
 
         switch (v.getId()) {
@@ -167,13 +167,21 @@ public class Start extends BaseActivity {
 
             case R.id.Click15:
 
+
+                IntentManager.getInstance().push(Start.this, Home.class, true);
+
+                break;
+
+            case R.id.Click16:
+
+
                 IntentManager.getInstance().push(Start.this, InsertDentist.class, true);
+
 
 //                IntentManager.getInstance().putExtra(IntentManager.EXTRA_ID, "dentalkxb112");
 //                IntentManager.getInstance().push(Start.this, Landing.class, true);
 
                 break;
-
 
 
 
