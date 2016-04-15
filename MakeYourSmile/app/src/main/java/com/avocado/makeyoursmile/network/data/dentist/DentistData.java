@@ -40,6 +40,9 @@ public class DentistData {
     @SerializedName("LNG")
     public String LNG;
 
+    @SerializedName("PHONE")
+    public String PHONE;
+
     @SerializedName("ACTIVE_TIME1")
     public String ACTIVE_TIME1;
 

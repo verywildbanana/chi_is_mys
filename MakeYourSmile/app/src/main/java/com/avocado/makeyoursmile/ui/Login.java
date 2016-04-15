@@ -19,6 +19,7 @@ import com.avocado.makeyoursmile.R;
 import com.avocado.makeyoursmile.base.BaseActivity;
 import com.avocado.makeyoursmile.network.api.UserLoginApi;
 import com.avocado.makeyoursmile.network.data.user.LoginParserData;
+import com.avocado.makeyoursmile.network.data.user.UserParserData;
 import com.avocado.makeyoursmile.util.IntentManager;
 import com.avocado.makeyoursmile.util.SmartLog;
 import com.facebook.AccessToken;
@@ -141,6 +142,12 @@ public class Login extends BaseActivity {
 
 
                         Profile profile = Profile.getCurrentProfile();
+
+                        if(profile == null) {
+
+                            Toast.makeText(Login.this, "Facebook profile null", Toast.LENGTH_LONG).show();
+                            return;
+                        }
 
                         final  String name =   profile.getName();
                         final  String id =   profile.getId();
@@ -481,13 +488,16 @@ public class Login extends BaseActivity {
                 @Override
                 public void success(LoginParserData data, Response response) {
 
-                    hideIndicator();
 
                     SmartLog.getInstance().i(TAG, "insertKAKAOUser success ID  " + data.login.ID);
 
                     if (controlApiError(data)) {
 
-                        IntentManager.getInstance().push(Login.this, Home.class, true);
+                        getUserInfo(data.login.ID);
+                    }
+                    else {
+
+                        hideIndicator();
 
                     }
 
@@ -510,14 +520,18 @@ public class Login extends BaseActivity {
                 @Override
                 public void success(LoginParserData data, Response response) {
 
-                    hideIndicator();
 
                     SmartLog.getInstance().i(TAG, "insertKAKAOUser success ID  " + data.login.ID);
 
                     if (controlApiError(data)) {
 
 
-                        IntentManager.getInstance().push(Login.this, Home.class, true);
+                        getUserInfo(data.login.ID);
+
+                    }
+                    else {
+
+                        hideIndicator();
 
                     }
 
@@ -537,5 +551,33 @@ public class Login extends BaseActivity {
 
 
     }
+
+    void getUserInfo(String id) {
+
+        mUserLoginApi.selectLikeIDUser(id, new Callback<UserParserData>() {
+            @Override
+            public void success(UserParserData userParserData, Response response) {
+
+                hideIndicator();
+
+                if (controlApiError(userParserData)) {
+
+                    IntentManager.getInstance().push(Login.this, Home.class, true);
+
+                }
+
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+
+                hideIndicator();
+
+            }
+        });
+
+
+    }
+
 
 }

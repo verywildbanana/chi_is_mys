@@ -11,8 +11,12 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.avocado.makeyoursmile.Constants;
+import com.avocado.makeyoursmile.MakeYourSmileApp;
 import com.avocado.makeyoursmile.R;
 import com.avocado.makeyoursmile.base.BaseActivity;
+import com.avocado.makeyoursmile.network.api.DentistApi;
+import com.avocado.makeyoursmile.network.data.dentist.DentistData;
+import com.avocado.makeyoursmile.network.data.dentist.DentistListParserData;
 import com.avocado.makeyoursmile.ui.ask.Estimate;
 import com.avocado.makeyoursmile.ui.photo.Letchiis;
 import com.avocado.makeyoursmile.ui.search.Dentistry;
@@ -26,6 +30,9 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 /**
  * Created by HDlee on 1/29/16.
@@ -40,6 +47,20 @@ public class Home extends BaseActivity {
     private Handler mFinishHandler;
     private boolean mIsFinish = false;
 
+    DentistApi dentistApi = MakeYourSmileApp.createApi(DentistApi.class);
+
+    public ArrayList<DentistData> mDentistData = new ArrayList<DentistData>();
+
+    LinearLayoutManager mLayoutManager;
+
+    private int visibleItemCount;
+    private int totalItemCount;
+    private int pastVisiblesItems;
+    private boolean loading = false;
+    private int reqProgramsAvailablePage = 0;
+    private int reqProgramsAvailableSize = 10;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,13 +68,21 @@ public class Home extends BaseActivity {
         ButterKnife.bind(this);
 
         mListRecyclerView.setHasFixedSize(true);
-        mListRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mLayoutManager = new LinearLayoutManager(this);
+        mListRecyclerView.setLayoutManager(mLayoutManager);
         mListRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        mListAdapter = new HomeListAdapter(this, new ArrayList<String>()) {
+        mListAdapter = new HomeListAdapter(this, new ArrayList<DentistData>()) {
             @Override
             public void onClick(View view) {
                 super.onClick(view);
+
+                if(view.getTag() != null) {
+
+                    DentistData data = (DentistData) view.getTag();
+                    String id = data.ID;
+                    IntentManager.getInstance().putExtra(IntentManager.EXTRA_ID, id);
+                }
 
                 IntentManager.getInstance().push(Home.this, Landing.class, true);
 
@@ -62,17 +91,30 @@ public class Home extends BaseActivity {
 
         mListRecyclerView.setAdapter(mListAdapter);
 
-        ArrayList<String> data = new ArrayList<>();
-        data.add("지엔 치과1");
-        data.add("지엔 치과2");
-        data.add("지엔 치과3");
-        data.add("지엔 치과4");
-        data.add("지엔 치과5");
-        data.add("지엔 치과6");
-        data.add("지엔 치과7");
-        data.add("지엔 치과8");
+        mListRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
 
-        mListAdapter.setData(data);
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+
+                if (dy > 0) {
+                    visibleItemCount = mLayoutManager.getChildCount();
+                    totalItemCount = mLayoutManager.getItemCount();
+                    pastVisiblesItems = mLayoutManager.findFirstVisibleItemPosition();
+
+                    if (loading) {
+                        if ((visibleItemCount + pastVisiblesItems) >= totalItemCount) {
+
+                            loading = false;
+                            reqProgramsAvailablePage = reqProgramsAvailablePage + 1;
+                            reqDentistList();
+
+                        }
+                    }
+                }
+            }
+        });
+
 
         mFinishHandler = new Handler() {
             @Override
@@ -82,6 +124,10 @@ public class Home extends BaseActivity {
                 }
             }
         };
+
+        showIndicator(true, null);
+
+       reqDentistList();
 
     }
 
@@ -189,5 +235,35 @@ public class Home extends BaseActivity {
                 break;
         }
     }
+
+    void reqDentistList() {
+
+
+        dentistApi.getDentistList(reqProgramsAvailablePage, reqProgramsAvailableSize, new Callback<DentistListParserData>() {
+            @Override
+            public void success(DentistListParserData data, Response response) {
+
+                hideIndicator();
+
+                if(controlApiError(data)) {
+
+                    loading = data.NEXT;
+                    mDentistData.addAll(data.dentist);
+                    mListAdapter.setData(mDentistData);
+                }
+
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+
+                hideIndicator();
+
+            }
+        });
+
+
+    }
+
 
 }

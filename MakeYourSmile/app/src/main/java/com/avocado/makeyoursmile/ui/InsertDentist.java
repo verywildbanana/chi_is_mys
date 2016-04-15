@@ -208,7 +208,7 @@ public class InsertDentist extends BaseActivity {
                         if(controlApiError(s)) {
 
                             IntentManager.getInstance().putExtra(IntentManager.EXTRA_ID, ID);
-                            IntentManager.getInstance().push(InsertDentist.this, InsertDentistImg.class, true);
+                            IntentManager.getInstance().push(InsertDentist.this, InsertDentistThemesHashTags.class, true);
 
                         }
                     }

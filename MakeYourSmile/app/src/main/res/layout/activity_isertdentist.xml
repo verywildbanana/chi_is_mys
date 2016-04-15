@@ -93,7 +93,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:background="@null"
-                        android:gravity="top"
+                        android:singleLine="true"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
                         android:textSize="12dp" />
@@ -130,7 +130,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:background="@null"
-                        android:gravity="top"
+                        android:singleLine="true"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
                         android:textSize="12dp" />
@@ -166,7 +166,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:background="@null"
-                        android:gravity="top"
+                        android:singleLine="true"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
                         android:textSize="12dp" />
@@ -203,7 +203,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:background="@null"
-                        android:gravity="top"
+                        android:singleLine="true"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
                         android:textSize="12dp" />
@@ -240,7 +240,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:background="@null"
-                        android:gravity="top"
+                        android:singleLine="true"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
                         android:textSize="12dp" />
@@ -277,7 +277,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:background="@null"
-                        android:gravity="top"
+                        android:singleLine="true"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
                         android:textSize="12dp" />
@@ -314,7 +314,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:background="@null"
-                        android:gravity="top"
+                        android:singleLine="true"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
                         android:textSize="12dp" />
@@ -351,7 +351,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:background="@null"
-                        android:gravity="top"
+                        android:singleLine="true"
                         android:inputType="numberDecimal"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
@@ -389,7 +389,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:background="@null"
-                        android:gravity="top"
+                        android:singleLine="true"
                         android:inputType="numberDecimal"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
@@ -426,7 +426,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:background="@null"
-                        android:gravity="top"
+                        android:singleLine="true"
                         android:inputType="phone"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
@@ -464,7 +464,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:background="@null"
-                        android:gravity="top"
+                        android:singleLine="true"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
                         android:textSize="12dp" />
@@ -501,7 +501,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:background="@null"
-                        android:gravity="top"
+                        android:singleLine="true"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
                         android:textSize="12dp" />
@@ -537,7 +537,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:background="@null"
-                        android:gravity="top"
+                        android:singleLine="true"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
                         android:textSize="12dp" />
@@ -611,7 +611,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:background="@null"
-                        android:gravity="top"
+                        android:singleLine="true"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
                         android:textSize="12dp" />
@@ -647,7 +647,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:background="@null"
-                        android:gravity="top"
+                        android:singleLine="true"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
                         android:textSize="12dp" />
@@ -684,7 +684,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:background="@null"
-                        android:gravity="top"
+                        android:singleLine="true"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
                         android:textSize="12dp" />
@@ -721,7 +721,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:background="@null"
-                        android:gravity="top"
+                        android:singleLine="true"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
                         android:textSize="12dp" />
@@ -758,7 +758,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:background="@null"
-                        android:gravity="top"
+                        android:singleLine="true"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
                         android:textSize="12dp" />
@@ -794,7 +794,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:background="@null"
-                        android:gravity="top"
+                        android:singleLine="true"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
                         android:textSize="12dp" />

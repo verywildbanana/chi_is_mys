@@ -10,8 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.avocado.makeyoursmile.R;
+import com.avocado.makeyoursmile.network.data.dentist.DentistData;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class HomeListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnClickListener {
     private static final String TAG = HomeListAdapter.class.getCanonicalName();
@@ -22,9 +23,9 @@ public class HomeListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         FOOTER
     }
 
-    private List<String> mData;
+    private ArrayList<DentistData> mData;
     Context mContext;
-    public HomeListAdapter(Context context, List<String> data) {
+    public HomeListAdapter(Context context, ArrayList<DentistData> data) {
         mContext = context;
         this.mData =data;
     }
@@ -115,9 +116,9 @@ public class HomeListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
                 int realPosition =  position;
 
-                String data = mData.get(position);
+                DentistData data = mData.get(position);
                 ViewHolder h = (ViewHolder) holder;
-                h.mTitleTxt.setText(data);
+                h.mTitleTxt.setText(data.NAME);
                 h.itemView.setTag(data);
 
 
@@ -128,7 +129,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
 
-    public void add(String data) {
+    public void add(DentistData data) {
 
         if(!mData.contains(data)) {
             mData.add(data);
@@ -136,7 +137,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         }
     }
 
-    public void setData(List<String> data) {
+    public void setData(ArrayList<DentistData> data) {
 
         mData = data;
         notifyDataSetChanged();

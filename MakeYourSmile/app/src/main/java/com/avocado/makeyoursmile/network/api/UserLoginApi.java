@@ -1,11 +1,14 @@
 package com.avocado.makeyoursmile.network.api;
 
 import com.avocado.makeyoursmile.network.data.user.LoginParserData;
+import com.avocado.makeyoursmile.network.data.user.UserParserData;
 
 import retrofit.Callback;
 import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
+import retrofit.http.GET;
 import retrofit.http.POST;
+import retrofit.http.Query;
 
 /**
  * Created by HDlee on 12/4/15.
@@ -36,4 +39,7 @@ public interface UserLoginApi {
                        Callback<LoginParserData> callback);
 
 
+
+    @GET("/getUserInfo.do")
+    void selectLikeIDUser(@Query("ID")String  ID, Callback<UserParserData> callback);
 }
