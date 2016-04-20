@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 
+import com.avocado.makeyoursmile.network.data.user.UserParserData;
 import com.avocado.makeyoursmile.util.SharedPreferenceManager;
 import com.avocado.makeyoursmile.util.SmartLog;
 
@@ -17,314 +18,320 @@ import java.util.UUID;
 
 public class Global {
 
-	private final String TAG = Global.class.getSimpleName();
+    private final String TAG = Global.class.getSimpleName();
 
-	private static Context mApplicationContext;
+    private static Context mApplicationContext;
 
-	public String mClientVersion = null;
-	private static Global sInstance = null;
-	private String mMdn;
-	private String mSimpleMdn = "";
-	private int mDisplayWidth = 0;
-	private int mDisplayHeight;
-	public String mOsver;
-	private String mModel;
-	public String mAppver;
-	public String mDeviceID;
-	public int mSdkInt;
-	private String mCountryIso;
+    public String mClientVersion = null;
+    private static Global sInstance = null;
+    private String mMdn;
+    private String mSimpleMdn = "";
+    private int mDisplayWidth = 0;
+    private int mDisplayHeight;
+    public String mOsver;
+    private String mModel;
+    public String mAppver;
+    public String mDeviceID;
+    public int mSdkInt;
+    private String mCountryIso;
 
-	static {
-		sInstance = new Global();
-	}
+    private UserParserData mUserParserData;
 
-	public Global() {
+    static {
+        sInstance = new Global();
+    }
 
-	}
+    public Global() {
 
-	public static Global getInstance() {
+    }
 
-		return sInstance;
-	}
+    public static Global getInstance() {
 
-	public void setApplicationContext(Context applicationContext) {
-		Global.mApplicationContext = applicationContext;
-	}
+        return sInstance;
+    }
 
-	public Context getApplicationContext() {
-		return mApplicationContext;
-	}
+    public void setApplicationContext(Context applicationContext) {
+        Global.mApplicationContext = applicationContext;
+    }
 
+    public Context getApplicationContext() {
+        return mApplicationContext;
+    }
 
-	public int getDisplayWidth() {
 
-		if (mDisplayWidth == 0) {
+    public int getDisplayWidth() {
 
-			DisplayMetrics dm = mApplicationContext.getResources().getDisplayMetrics();
+        if (mDisplayWidth == 0) {
 
-			int width = dm.widthPixels;
-			mDisplayWidth = width;
+            DisplayMetrics dm = mApplicationContext.getResources().getDisplayMetrics();
 
-		}
+            int width = dm.widthPixels;
+            mDisplayWidth = width;
 
-		SmartLog.getInstance().w(TAG, "width "+mDisplayWidth);
+        }
 
-		return mDisplayWidth;
-	}
+        SmartLog.getInstance().w(TAG, "width " + mDisplayWidth);
 
+        return mDisplayWidth;
+    }
 
 
-	public int getDisplayHeight() {
+    public int getDisplayHeight() {
 
-		if(mDisplayHeight == 0) {
+        if (mDisplayHeight == 0) {
 
-			DisplayMetrics dm = mApplicationContext.getResources().getDisplayMetrics();
+            DisplayMetrics dm = mApplicationContext.getResources().getDisplayMetrics();
 
-			int height = dm.heightPixels;
-			mDisplayHeight = height;
+            int height = dm.heightPixels;
+            mDisplayHeight = height;
 
 
-		}
+        }
 
-		SmartLog.getInstance().w(TAG, "Height "+mDisplayHeight);
+        SmartLog.getInstance().w(TAG, "Height " + mDisplayHeight);
 
-		return mDisplayHeight;
+        return mDisplayHeight;
 
-	}
+    }
 
-	public boolean isFullHd() {
+    public boolean isFullHd() {
 
 
-		if (getDisplayWidth() >= 1080) {
+        if (getDisplayWidth() >= 1080) {
 
-			return true;
+            return true;
 
-		}
+        }
 
-		return false;
+        return false;
 
 
-	}
+    }
 
-	public float dipToPixels(float dipValue) {
+    public float dipToPixels(float dipValue) {
 
-		DisplayMetrics dm = mApplicationContext.getResources().getDisplayMetrics();
-		return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dipValue, dm);
-	}
+        DisplayMetrics dm = mApplicationContext.getResources().getDisplayMetrics();
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dipValue, dm);
+    }
 
 
+    public String getMdn() {
+        return mMdn;
+    }
 
-	public String getMdn() {
-		return mMdn;
-	}
+    public void setMdn(String mdn) {
 
-	public void setMdn(String mdn) {
+        mMdn = mdn;
+        setSimpleMdn(mdn);
+    }
 
-		mMdn = mdn;
-		setSimpleMdn(mdn);
-	}
+    public void setSimpleMdn(String mdn) {
 
-	public void setSimpleMdn(String mdn) {
+        if (TextUtils.isEmpty(mdn)) {
+            mSimpleMdn = "";
+        } else {
+            if (mdn.contains("+82")) {
 
-		if(TextUtils.isEmpty(mdn)) {
-			mSimpleMdn = "";
-		}
-		else {
-			if(mdn.contains("+82")) {
+                mSimpleMdn = mdn.replace("+82", "0");
+            } else {
 
-				mSimpleMdn = mdn.replace("+82", "0");
-			}
-			else {
+                mSimpleMdn = mdn;
+            }
+        }
+    }
 
-				mSimpleMdn = mdn;
-			}
-		}
-	}
+    public String getSimpleMdn() {
 
-	public String getSimpleMdn() {
+        return mSimpleMdn;
+    }
 
-		return mSimpleMdn;
-	}
 
+    public String getCountryIs() {
 
-	public String getCountryIs() {
+        if (mCountryIso == null) {
 
-		if(mCountryIso == null) {
+            final TelephonyManager tm = (TelephonyManager) mApplicationContext.getSystemService(Context.TELEPHONY_SERVICE);
+            mCountryIso = tm.getSimCountryIso();
 
-			final TelephonyManager tm = (TelephonyManager) mApplicationContext.getSystemService(Context.TELEPHONY_SERVICE);
-			mCountryIso = tm.getSimCountryIso();
 
+        }
 
-		}
+        return mCountryIso;
+    }
 
-		return mCountryIso;
-	}
+    public String getDeviceUUID() {
 
-	public String getDeviceUUID() {
 
+        if (mDeviceID == null) {
 
-		if(mDeviceID == null) {
+            final TelephonyManager tm = (TelephonyManager) mApplicationContext.getSystemService(Context.TELEPHONY_SERVICE);
+            final String tmDevice, tmSerial, androidId;
+            tmDevice = "" + tm.getDeviceId();
+            tmSerial = "" + tm.getSimSerialNumber();
+            androidId = "" + android.provider.Settings.Secure.getString(mApplicationContext.getContentResolver(), android.provider.Settings.Secure.ANDROID_ID);
 
-			final TelephonyManager tm = (TelephonyManager) mApplicationContext.getSystemService(Context.TELEPHONY_SERVICE);
-			final String tmDevice, tmSerial, androidId;
-			tmDevice = "" + tm.getDeviceId();
-			tmSerial = "" + tm.getSimSerialNumber();
-			androidId = "" + android.provider.Settings.Secure.getString(mApplicationContext.getContentResolver(), android.provider.Settings.Secure.ANDROID_ID);
+            UUID deviceUuid = new UUID(tmDevice.hashCode(), ((long) androidId.hashCode() << 32) | tmSerial.hashCode());
 
-			UUID deviceUuid = new UUID(tmDevice.hashCode(), ((long)androidId.hashCode() << 32) | tmSerial.hashCode());
+            if (Constants.RELEASE_BUILD) {
 
-			if(Constants.RELEASE_BUILD) {
+                mDeviceID = deviceUuid.toString();
+            } else {
 
-				mDeviceID = deviceUuid.toString();
-			}
-			else {
+                mDeviceID = (new StringBuffer(deviceUuid.toString())).reverse().toString();
+            }
+        }
 
-				mDeviceID = (new StringBuffer(deviceUuid.toString())).reverse().toString();  
-			}
-		}
+        return mDeviceID;
+    }
 
-		return mDeviceID;
-	}
+    public String getOsver() {
 
-	public String getOsver() {
+        if (mOsver == null) {
 
-		if(mOsver == null) {
+            mOsver = android.os.Build.VERSION.RELEASE;
+            SmartLog.getInstance().w(TAG, "mOsver " + mOsver);
 
-			mOsver = android.os.Build.VERSION.RELEASE;
-			SmartLog.getInstance().w(TAG, "mOsver "+mOsver);
+        }
 
-		}
 
+        return mOsver;
 
-		return mOsver;
+    }
 
-	}
 
+    public int getSdkInt() {
 
-	public int getSdkInt() {
+        if (mSdkInt == 0) {
 
-		if(mSdkInt == 0) {
+            mSdkInt = android.os.Build.VERSION.SDK_INT;
+            SmartLog.getInstance().w(TAG, "mSdkInt " + mSdkInt);
 
-			mSdkInt = android.os.Build.VERSION.SDK_INT;
-			SmartLog.getInstance().w(TAG, "mSdkInt "+mSdkInt);
+        }
 
-		}
 
+        return mSdkInt;
+    }
 
-		return mSdkInt;
-	}
+    public String getModel() {
 
-	public String getModel() {
+        if (mModel == null) {
 
-		if(mModel == null) {
+            mModel = android.os.Build.MODEL;
+            SmartLog.getInstance().w(TAG, "mModel " + mModel);
+        }
+        return mModel;
+    }
 
-			mModel = android.os.Build.MODEL;
-			SmartLog.getInstance().w(TAG, "mModel "+mModel);
-		}
-		return mModel;
-	}
+    public String getPackageName() {
 
-	public String getPackageName() {
-		
-		return mApplicationContext.getPackageName();
-	}
-	
-	public String getAppVer() {
+        return mApplicationContext.getPackageName();
+    }
 
-		if(mAppver == null) {
+    public String getAppVer() {
 
-			PackageManager manager = mApplicationContext.getPackageManager();
-			PackageInfo info = null;
-			try {
-				info = manager.getPackageInfo(mApplicationContext.getPackageName(), 0);
-			} catch (PackageManager.NameNotFoundException e1) {
+        if (mAppver == null) {
 
-				//				e1.printStackTrace();
-				SmartLog.getInstance().e(TAG, e1.getMessage());
-			}
-			mAppver = info.versionName;
+            PackageManager manager = mApplicationContext.getPackageManager();
+            PackageInfo info = null;
+            try {
+                info = manager.getPackageInfo(mApplicationContext.getPackageName(), 0);
+            } catch (PackageManager.NameNotFoundException e1) {
 
-			SmartLog.getInstance().w(TAG, "mAppver "+mAppver);
-		}
+                //				e1.printStackTrace();
+                SmartLog.getInstance().e(TAG, e1.getMessage());
+            }
+            mAppver = info.versionName;
 
-		return mAppver;
-	}
+            SmartLog.getInstance().w(TAG, "mAppver " + mAppver);
+        }
 
+        return mAppver;
+    }
 
-	public boolean isNumeric(String str)
-	{                          
-		return str.matches("^-?\\d+\\.?\\d*$");
-	}
 
-	/**
-	 * 특정 앱 설치 여부 확인
-	 * @param context
-	 * @param pkgName
-	 * @return
-	 */
-	public boolean isInstalledApp(Context context, String pkgName) {
-		PackageManager pm = context.getPackageManager();
+    public boolean isNumeric(String str) {
+        return str.matches("^-?\\d+\\.?\\d*$");
+    }
 
-		String vName = null;
-		ApplicationInfo aInfo = null;
+    /**
+     * 특정 앱 설치 여부 확인
+     *
+     * @param context
+     * @param pkgName
+     * @return
+     */
+    public boolean isInstalledApp(Context context, String pkgName) {
+        PackageManager pm = context.getPackageManager();
 
-		try
-		{
-			aInfo = pm.getApplicationInfo(pkgName, PackageManager.GET_META_DATA);
-			PackageInfo pInfo = pm.getPackageInfo(pkgName, 0);
-			vName = pInfo.versionName;
-		}
-		catch(PackageManager.NameNotFoundException e) {
+        String vName = null;
+        ApplicationInfo aInfo = null;
 
-			// e.printStackTrace();
-			SmartLog.getInstance().e(TAG, "NameNotFoundException");
-			return false;
-		}
+        try {
+            aInfo = pm.getApplicationInfo(pkgName, PackageManager.GET_META_DATA);
+            PackageInfo pInfo = pm.getPackageInfo(pkgName, 0);
+            vName = pInfo.versionName;
+        } catch (PackageManager.NameNotFoundException e) {
 
-		if(pkgName.equals(aInfo.packageName)){
-			return true;
-		} else {
-			return false;
-		}
-	}
+            // e.printStackTrace();
+            SmartLog.getInstance().e(TAG, "NameNotFoundException");
+            return false;
+        }
 
+        if (pkgName.equals(aInfo.packageName)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-	public double getDefaultLatitude() {
 
+    public double getDefaultLatitude() {
 
-		return 37.4018902;
-	}
 
+        return 37.4018902;
+    }
 
 
-	public double getDefaultLongitude() {
+    public double getDefaultLongitude() {
 
 
+        return 127.1101719;
+    }
 
-		return 127.1101719;
-	}
+    public String getEndpoint() {
 
-	public String getEndpoint() {
 
+        if (Constants.RELEASE_BUILD) {
 
-		if(Constants.RELEASE_BUILD) {
+            return Constants.API_URL_LIVE;
+        } else {
 
-			return Constants.API_URL_LIVE;
-		}
-		else {
+            return Constants.API_URL_DEV;
 
-			return Constants.API_URL_DEV;
+        }
 
-		}
+    }
 
-	}
 
+    public void initUserInfo() {
 
-	public void initUserInfo() {
+        SharedPreferenceManager.getInstance().setUserId(null);
+        SharedPreferenceManager.getInstance().setBackgroundService(false);
+        SharedPreferenceManager.getInstance().setGCMId(null);
+        setUserData(null);
+    }
 
 
-		SharedPreferenceManager.getInstance().setUserId(0);
-		SharedPreferenceManager.getInstance().setBackgroundService(false);
-		SharedPreferenceManager.getInstance().setGCMId(null);
-	}
+    public void setUserData(UserParserData data) {
+
+        mUserParserData = data;
+
+    }
+
+    public UserParserData getUserData() {
+
+        return mUserParserData;
+
+    }
+
 }

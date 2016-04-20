@@ -73,11 +73,12 @@
             <com.avocado.makeyoursmile.view.AVCirclePageIndicator
                 android:id="@+id/CirclePageIndicator"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="10dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp" />
 
             <LinearLayout
+                android:id="@+id/TagAddLay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -85,14 +86,6 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
-
-                <include layout="@layout/layout_taglay_transparent" />
-
-                <include layout="@layout/layout_taglay_transparent" />
-
-                <include layout="@layout/layout_taglay_transparent" />
-
-                <include layout="@layout/layout_taglay_transparent" />
 
             </LinearLayout>
 
@@ -163,6 +156,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="105dp"
         android:layout_marginRight="18dp"
+        android:visibility="invisible"
         android:src="@drawable/cheeseicon" />
 
 </RelativeLayout>

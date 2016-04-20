@@ -249,8 +249,10 @@ public class Home extends BaseActivity {
 
                     loading = data.NEXT;
                     mDentistData.addAll(data.dentist);
+
                     mListAdapter.setData(mDentistData);
                 }
+
 
             }
 

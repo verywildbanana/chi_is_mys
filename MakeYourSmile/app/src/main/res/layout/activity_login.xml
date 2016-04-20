@@ -44,6 +44,7 @@
             android:layout_marginBottom="23dp"
             android:src="@drawable/kakao" />
 
+
         <ImageView
             android:id="@+id/FacebookImg"
             android:layout_width="wrap_content"

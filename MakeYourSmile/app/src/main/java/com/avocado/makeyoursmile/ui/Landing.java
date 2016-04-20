@@ -7,10 +7,13 @@ import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.avocado.makeyoursmile.Constants;
 import com.avocado.makeyoursmile.MakeYourSmileApp;
 import com.avocado.makeyoursmile.R;
 import com.avocado.makeyoursmile.base.BaseActivity;
@@ -67,6 +70,11 @@ public class Landing extends BaseActivity {
     @Bind(R.id.PromotionTxt)
     AVTextView mPromotionTxt;
 
+    @Bind(R.id.TagAddLay)
+    ViewGroup mTagAddLay;
+
+    @Bind(R.id.EventImg)
+    ImageView mEventImg;
 
     ViewPagerAdapter mViewPagerAdapter;
     String mDentistId;
@@ -203,6 +211,23 @@ public class Landing extends BaseActivity {
 
 
 
+        mTagAddLay.removeAllViews();
+
+        if (TextUtils.isEmpty(mDetailDentistData.mDentistData.HASH_TAG_1) == false) {
+
+            String[] hash_tags = mDetailDentistData.mDentistData.HASH_TAG_1.split(Constants.SEPARATER);
+
+            for (int i = 0; i < hash_tags.length; i++) {
+
+                View v = LayoutInflater.from(this).inflate(R.layout.layout_taglay_transparent, null);
+                ((TextView)v.findViewById(R.id.TagText)).setText(hash_tags[i]);
+                mTagAddLay.addView(v);
+
+            }
+        }
+
+        mImages.clear();
+
         if(TextUtils.isEmpty(mDetailDentistData.mDentistData.IMG_1) == false) {
 
             mImages.add(mDetailDentistData.mDentistData.IMG_1);
@@ -233,36 +258,51 @@ public class Landing extends BaseActivity {
 
         }
 
+        if(mImages.isEmpty()) {
 
-        mViewPagerAdapter = new ViewPagerAdapter(this, mImages);
-        mLandingViewPage.setAdapter(mViewPagerAdapter);
-        float density = getResources().getDisplayMetrics().density;
-        mCirclePageIndicator.setViewPager(mLandingViewPage);
-        mCirclePageIndicator.setRadius(4 * density);
-        mCirclePageIndicator.setPageColor(0xFFcccccc);
-        mCirclePageIndicator.setFillColor(0xffFFFFFF);
-        mCirclePageIndicator.setStrokeColor(0xFFCCCCCC);
-        mCirclePageIndicator.setStrokeWidth(2 * density);
-        mCirclePageIndicator.setCentered(true);
+            mLandingViewPage.setBackgroundResource(R.drawable.photosample_list);
 
-        mCirclePageIndicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        }
+        else {
 
-            @Override
-            public void onPageSelected(int position) {
+            mViewPagerAdapter = new ViewPagerAdapter(this, mImages);
+            mLandingViewPage.setAdapter(mViewPagerAdapter);
 
+            if(mImages.size() > 1) {
+
+                float density = getResources().getDisplayMetrics().density;
+                mCirclePageIndicator.setViewPager(mLandingViewPage);
+                mCirclePageIndicator.setRadius(4 * density);
+                mCirclePageIndicator.setPageColor(0xFFcccccc);
+                mCirclePageIndicator.setFillColor(0xffFFFFFF);
+                mCirclePageIndicator.setStrokeColor(0xFFCCCCCC);
+                mCirclePageIndicator.setStrokeWidth(2 * density);
+                mCirclePageIndicator.setCentered(true);
+
+                mCirclePageIndicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+                    @Override
+                    public void onPageSelected(int position) {
+
+
+                    }
+
+                    @Override
+                    public void onPageScrolled(int arg0, float arg1, int arg2) {
+
+                    }
+
+                    @Override
+                    public void onPageScrollStateChanged(int arg0) {
+
+                    }
+                });
 
             }
 
-            @Override
-            public void onPageScrolled(int arg0, float arg1, int arg2) {
 
-            }
 
-            @Override
-            public void onPageScrollStateChanged(int arg0) {
-
-            }
-        });
+        }
 
     }
 

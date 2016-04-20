@@ -100,4 +100,19 @@ public class DentistData {
     @SerializedName("REG_TIME")
     public String REG_TIME;
 
+    @SerializedName("THEME_1")
+    public String THEME_1;
+
+    @SerializedName("THEME_2")
+    public String THEME_2;
+
+    @SerializedName("THEME_3")
+    public String THEME_3;
+
+    @SerializedName("THEME_4")
+    public String THEME_4;
+
+    @SerializedName("HASH_TAG_1")
+    public String HASH_TAG_1;
+
 }

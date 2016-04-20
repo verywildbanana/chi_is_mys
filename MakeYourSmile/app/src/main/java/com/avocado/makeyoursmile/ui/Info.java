@@ -6,13 +6,19 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.avocado.makeyoursmile.Global;
+import com.avocado.makeyoursmile.MakeYourSmileApp;
 import com.avocado.makeyoursmile.R;
 import com.avocado.makeyoursmile.base.BaseActivity;
+import com.avocado.makeyoursmile.network.api.UserLoginApi;
+import com.avocado.makeyoursmile.network.data.user.UserParserData;
 import com.avocado.makeyoursmile.util.IntentManager;
+import com.avocado.makeyoursmile.util.SharedPreferenceManager;
 import com.avocado.makeyoursmile.view.AVCirclePageIndicator;
 
 import java.util.ArrayList;
@@ -20,6 +26,9 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 /**
  * Created by HDlee on 1/29/16.
@@ -39,6 +48,8 @@ public class Info extends BaseActivity {
     AVCirclePageIndicator mCirclePageIndicator;
 
     ViewPagerAdapter mViewPagerAdapter;
+
+    UserLoginApi mUserLoginApi = MakeYourSmileApp.createApi(UserLoginApi.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,7 +138,44 @@ public class Info extends BaseActivity {
     @OnClick(R.id.SkipImg)
     public void onClicSkip(View v) {
 
-        IntentManager.getInstance().push(this, Login.class, true);
+        if (TextUtils.isEmpty(SharedPreferenceManager.getInstance().getUserId())) {
+
+            IntentManager.getInstance().push(this, Login.class, true);
+
+        }
+        else {
+
+            getUserInfo(SharedPreferenceManager.getInstance().getUserId());
+
+        }
+
+    }
+
+    void getUserInfo(final String id) {
+
+        mUserLoginApi.selectLikeIDUser(id, new Callback<UserParserData>() {
+            @Override
+            public void success(UserParserData userParserData, Response response) {
+
+                hideIndicator();
+
+                if (controlApiError(userParserData)) {
+
+                    Global.getInstance().setUserData(userParserData);
+                    IntentManager.getInstance().push(Info.this, Home.class, true);
+
+                }
+
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+
+                hideIndicator();
+
+            }
+        });
+
 
     }
 

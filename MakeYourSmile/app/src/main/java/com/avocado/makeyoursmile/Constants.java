@@ -37,8 +37,8 @@ public class Constants {
 
     public static final int NOTI_ID_PUSH_MSG	= 99653180;	// push massage notification id
 
-    public final static String API_ERROR_CODE_REQ_UPDTE_APP = "400.1111"; // 강제 업데이트
-    public final static String API_ERROR_CODE_TOTAL_1 = "401.0000"; // try catch error
+    public final static String API_ERROR_CODE_REQ_UPDTE_APP = "401.1111"; // 강제 업데이트
+    public final static String API_ERROR_CODE_TOTAL_1 = "400.0000"; // try catch error
     public final static String API_ERROR_CODE_DENTAL_1 = "401.0001"; // 이미 존재하는 아이디
 
 }

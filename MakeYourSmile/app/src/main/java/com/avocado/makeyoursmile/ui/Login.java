@@ -14,6 +14,7 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.avocado.makeyoursmile.Global;
 import com.avocado.makeyoursmile.MakeYourSmileApp;
 import com.avocado.makeyoursmile.R;
 import com.avocado.makeyoursmile.base.BaseActivity;
@@ -21,6 +22,7 @@ import com.avocado.makeyoursmile.network.api.UserLoginApi;
 import com.avocado.makeyoursmile.network.data.user.LoginParserData;
 import com.avocado.makeyoursmile.network.data.user.UserParserData;
 import com.avocado.makeyoursmile.util.IntentManager;
+import com.avocado.makeyoursmile.util.SharedPreferenceManager;
 import com.avocado.makeyoursmile.util.SmartLog;
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
@@ -72,7 +74,7 @@ public class Login extends BaseActivity {
     private ProfileTracker profileTracker;
     private AccessTokenTracker accessTokenTracker;
 
-    private SessionCallback callback = new SessionCallback();
+    private SessionCallback callback;
 
     UserLoginApi mUserLoginApi = MakeYourSmileApp.createApi(UserLoginApi.class);
 
@@ -107,18 +109,22 @@ public class Login extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
-
+        Session.getCurrentSession().removeCallback(callback);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        super.onActivityResult(requestCode, resultCode, data);
-
         if (mCallbackManager.onActivityResult(requestCode, resultCode, data)) {
             return;
         }
+
+        if (Session.getCurrentSession().handleActivityResult(requestCode, resultCode, data)) {
+            return;
+        }
+
+
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @OnClick(R.id.SkipImg)
@@ -219,6 +225,7 @@ public class Login extends BaseActivity {
         };
 
 
+        callback = new SessionCallback();
         Session.getCurrentSession().addCallback(callback);
 
     }
@@ -362,6 +369,9 @@ public class Login extends BaseActivity {
                 .setAdapter(adapter, new DialogInterface.OnClickListener() {
                     public void onClick(final DialogInterface dialog, final int position) {
                         final AuthType authType = items[position].authType;
+
+                        SmartLog.getInstance().d(TAG, "KAKAO Login List onClick " + authType.toString());
+
                         if (authType != null) {
                             Session.getCurrentSession().open(authType, Login.this);
                         }
@@ -552,7 +562,7 @@ public class Login extends BaseActivity {
 
     }
 
-    void getUserInfo(String id) {
+    void getUserInfo(final String id) {
 
         mUserLoginApi.selectLikeIDUser(id, new Callback<UserParserData>() {
             @Override
@@ -562,6 +572,8 @@ public class Login extends BaseActivity {
 
                 if (controlApiError(userParserData)) {
 
+                    SharedPreferenceManager.getInstance().setUserId(id);
+                    Global.getInstance().setUserData(userParserData);
                     IntentManager.getInstance().push(Login.this, Home.class, true);
 
                 }

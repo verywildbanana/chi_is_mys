@@ -309,6 +309,7 @@ public abstract class BaseActivity extends FragmentActivity {
                 SmartLog.getInstance().i(TAG, "BroadcastReceiver Constants.ACTION_FINISH");
 
                 finish();
+
             } else if (Constants.ACTION_LOGOUT.equals(action)) {
 
                 onLogout();
@@ -331,6 +332,7 @@ public abstract class BaseActivity extends FragmentActivity {
 
     public void onLogout() {
 
+        Global.getInstance().initUserInfo();
 
     }
 
@@ -424,6 +426,22 @@ public abstract class BaseActivity extends FragmentActivity {
             } else if (errorData.mCode.contains("401.")) {
 
                 ToastManager.getInstance().show(errorData.getDpMsg());
+                return false;
+
+            } else if (errorData.mCode.contains("400.")) {
+
+                if (Constants.IS_SHOW_SMART_LOG) {
+
+                    ToastManager.getInstance().show(errorData.getDpMsg());
+
+                }
+                else {
+
+                    ToastManager.getInstance().show("total error");
+
+                }
+
+
                 return false;
             }
 

@@ -3,7 +3,7 @@
     xmlns:avocado="http://schemas.avocado.com/mys"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginRight="5dp"
+    android:paddingRight="5dp"
     >
 
     <RelativeLayout
@@ -21,7 +21,6 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:singleLine="true"
-            android:text="#임플란트"
             android:textColor="@color/mys_txt_blue_11"
             android:textSize="10dp" />
 

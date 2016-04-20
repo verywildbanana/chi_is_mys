@@ -9,14 +9,15 @@
 
     <RelativeLayout
         android:id="@+id/ProfileImgLay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:layout_centerVertical="true"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp">
 
 
         <ImageView
+            android:id="@+id/ProfileDftImg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/photo_hos" />
@@ -45,6 +46,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginTop="20dp"
             android:layout_marginRight="22dp"
+            android:visibility="gone"
             android:src="@drawable/cheeseicon" />
 
         <LinearLayout
@@ -82,7 +84,6 @@
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@+id/EventImg"
             android:singleLine="true"
-            android:text="지엔 치과"
             android:textColor="@color/mys_txt_dark_gray_83"
             android:textSize="18dp"
             android:layout_marginTop="10dp"
@@ -96,7 +97,6 @@
             android:layout_toLeftOf="@+id/EventImg"
             android:lines="2"
             android:layout_marginTop="5dp"
-            android:text="서울시 강남구 역삼동 749-12번지\n엘리빌 202호"
             android:textColor="@color/black"
             android:textSize="12dp" />
 
@@ -107,11 +107,6 @@
             android:layout_below="@+id/SubTitleTxt"
             android:layout_marginTop="5dp"
             android:orientation="horizontal">
-
-            <include layout="@layout/layout_taglay" />
-            <include layout="@layout/layout_taglay" />
-            <include layout="@layout/layout_taglay" />
-
 
         </LinearLayout>
 

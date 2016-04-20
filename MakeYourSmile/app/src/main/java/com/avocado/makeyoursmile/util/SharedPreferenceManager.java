@@ -7,8 +7,7 @@ import android.preference.PreferenceManager;
 
 public class SharedPreferenceManager {
 
-    private static final String TAG = SharedPreferenceManager.class
-            .getSimpleName();
+    private static final String TAG = SharedPreferenceManager.class.getSimpleName();
 
     private final String USER_ID = "USER_ID";
     private final String GCM_REGISTER_ID = "GCM_REGISTER_ID";
@@ -52,19 +51,17 @@ public class SharedPreferenceManager {
     }
 
 
-    public void setUserId(long id) {
+    public void setUserId(String id) {
 
         Editor editor = mPreferences.edit();
-        editor.putLong(USER_ID, id);
+        editor.putString(USER_ID, id);
         editor.commit();
     }
 
-    public long getUserId() {
+    public String getUserId() {
 
-        return mPreferences.getLong(USER_ID, 0);
+        return mPreferences.getString(USER_ID, null);
     }
-
-
 
     public String getGCMId() {
         return mPreferences.getString(GCM_REGISTER_ID, null);

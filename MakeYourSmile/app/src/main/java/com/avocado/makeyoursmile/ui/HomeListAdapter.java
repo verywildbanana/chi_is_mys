@@ -2,15 +2,20 @@ package com.avocado.makeyoursmile.ui;
 
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.avocado.makeyoursmile.Constants;
 import com.avocado.makeyoursmile.R;
 import com.avocado.makeyoursmile.network.data.dentist.DentistData;
+import com.avocado.makeyoursmile.util.CircleTransformation;
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -119,7 +124,72 @@ public class HomeListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 DentistData data = mData.get(position);
                 ViewHolder h = (ViewHolder) holder;
                 h.mTitleTxt.setText(data.NAME);
+
+
+                h.mTagLay.removeAllViews();
+
+
+                if (TextUtils.isEmpty(data.HASH_TAG_1) == false) {
+
+                    String[] hash_tags = data.HASH_TAG_1.split(Constants.SEPARATER);
+
+                    for (int i = 0; i < hash_tags.length; i++) {
+
+                        View v = LayoutInflater.from(mContext).inflate(R.layout.layout_taglay, null);
+                        ((TextView)v.findViewById(R.id.TagText)).setText(hash_tags[i]);
+                        h.mTagLay.addView(v);
+
+                    }
+                }
+
+                StringBuffer addrBuffer = new StringBuffer();
+
+                if(TextUtils.isEmpty(data.ADDRESS1) == false) {
+
+                    addrBuffer.append(data.ADDRESS1);
+
+                }
+                if(TextUtils.isEmpty(data.ADDRESS2) == false) {
+
+                    addrBuffer.append(" ").append(data.ADDRESS2);
+
+                }
+                if(TextUtils.isEmpty(data.ADDRESS3) == false) {
+
+                    addrBuffer.append("\n").append(data.ADDRESS3);
+
+                }
+
+                if(TextUtils.isEmpty(addrBuffer.toString()) == false) {
+
+                    h.mSubTitleTxt.setText(addrBuffer.toString());
+                }
+
+
+                if(TextUtils.isEmpty(data.IMG_1) == false) {
+
+                    h.mProfileImg.setVisibility(View.VISIBLE);
+                    h.mProfileDftImg.setVisibility(View.GONE);
+                    Uri uri = Uri.parse(data.IMG_1);
+                    Glide.with(mContext)
+                            .load(uri)
+                            .transform(new CircleTransformation(mContext))
+                            .into(h.mProfileImg);
+
+                }
+                else {
+
+                    h.mProfileDftImg.setVisibility(View.VISIBLE);
+                    h.mProfileImg.setVisibility(View.GONE);
+
+                }
+
+
+
                 h.itemView.setTag(data);
+
+
+
 
 
                 break;
@@ -158,12 +228,21 @@ public class HomeListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     public static class ViewHolder extends RecyclerView.ViewHolder  {
         private TextView mTitleTxt, mSubTitleTxt;
-        private ImageView detailImg;
+        private ImageView mProfileImg, mEventImg, mProfileDftImg;
+        private ViewGroup mTagLay;
+
 
         public ViewHolder(View itemView) {
             super(itemView);
             mTitleTxt = (TextView) itemView.findViewById(R.id.TitleTxt);
             mSubTitleTxt = (TextView) itemView.findViewById(R.id.SubTitleTxt);
+
+            mProfileImg = (ImageView) itemView.findViewById(R.id.ProfileImg);
+            mProfileDftImg  = (ImageView) itemView.findViewById(R.id.ProfileDftImg);
+            mEventImg = (ImageView) itemView.findViewById(R.id.EventImg);
+
+            mTagLay = (ViewGroup) itemView.findViewById(R.id.TagLay);
+
         }
 
     }
