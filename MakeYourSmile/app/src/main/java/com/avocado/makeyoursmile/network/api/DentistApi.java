@@ -65,4 +65,8 @@ public interface DentistApi {
                                Callback<ErrorData> callback);
 
 
+    @GET("/selectDentistThemeList.do")
+    void getDentistThemeList(@Query("THEME") String theme, @Query("PAGE") int page, @Query("SIZE") int SIZE, Callback<DentistListParserData> callback);
+
+
 }

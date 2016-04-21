@@ -2,14 +2,21 @@ package com.avocado.makeyoursmile.ui.search;
 
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.avocado.makeyoursmile.Constants;
 import com.avocado.makeyoursmile.R;
+import com.avocado.makeyoursmile.network.data.dentist.DentistData;
+import com.avocado.makeyoursmile.util.CircleTransformation;
 import com.avocado.makeyoursmile.view.AVTextView;
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -22,9 +29,9 @@ public class DentistryListAdapter extends RecyclerView.Adapter<RecyclerView.View
         FOOTER
     }
 
-    private List<String> mData;
+    private List<DentistData> mData;
     Context mContext;
-    public DentistryListAdapter(Context context, List<String> data) {
+    public DentistryListAdapter(Context context, List<DentistData> data) {
         mContext = context;
         this.mData =data;
     }
@@ -114,11 +121,77 @@ public class DentistryListAdapter extends RecyclerView.Adapter<RecyclerView.View
 
                 int realPosition =  position;
 
-                String data = mData.get(position);
-                ViewHolder h = (ViewHolder) holder;
-                h.mTitleTxt.setText(data);
+                final DentistData data = mData.get(position);
+                final ViewHolder h = (ViewHolder) holder;
+
+                h.mTitleTxt.setText(data.NAME);
+
+                h.mAddTagLay.removeAllViews();
+
+                if (TextUtils.isEmpty(data.HASH_TAG_1) == false) {
+
+                    String[] hash_tags = data.HASH_TAG_1.split(Constants.SEPARATER);
+
+                    for (int i = 0; i < hash_tags.length; i++) {
+
+                        View v = LayoutInflater.from(mContext).inflate(R.layout.layout_taglay_top_padding, null);
+                        ((TextView)v.findViewById(R.id.TagText)).setText(hash_tags[i]);
+                        h.mAddTagLay.addView(v);
+
+                    }
+                }
+
+                StringBuffer addrBuffer = new StringBuffer();
+
+                if(TextUtils.isEmpty(data.ADDRESS1) == false) {
+
+                    addrBuffer.append(data.ADDRESS1);
+
+                }
+                if(TextUtils.isEmpty(data.ADDRESS2) == false) {
+
+                    addrBuffer.append(" ").append(data.ADDRESS2);
+
+                }
+                if(TextUtils.isEmpty(data.ADDRESS3) == false) {
+
+                    addrBuffer.append(" ").append(data.ADDRESS3);
+
+                }
+
+                if(TextUtils.isEmpty(data.ADDRESS4) == false) {
+
+                    addrBuffer.append("\n").append(data.ADDRESS4);
+
+                }
+
+                if(TextUtils.isEmpty(addrBuffer.toString()) == false) {
+
+                    h.mSubTitleTxt.setText(addrBuffer.toString());
+                }
+
+
+                if(TextUtils.isEmpty(data.IMG_1) == false) {
+
+                    h.mDentistImg.setVisibility(View.VISIBLE);
+                    h.mDentistSampleImg.setVisibility(View.GONE);
+                    Uri uri = Uri.parse(data.IMG_1);
+                    Glide.with(mContext)
+                            .load(uri)
+                            .transform(new CircleTransformation(mContext))
+                            .into(h.mDentistImg);
+
+                }
+                else {
+
+                    h.mDentistSampleImg.setVisibility(View.VISIBLE);
+                    h.mDentistImg.setVisibility(View.GONE);
+
+                }
+
                 h.itemView.setTag(data);
                 h.itemView.setOnClickListener(this);
+
                 h.mLandingBntImg.setTag(data);
                 h.mLandingBntImg.setOnClickListener(this);
 
@@ -129,7 +202,7 @@ public class DentistryListAdapter extends RecyclerView.Adapter<RecyclerView.View
     }
 
 
-    public void add(String data) {
+    public void add(DentistData data) {
 
         if(!mData.contains(data)) {
             mData.add(data);
@@ -137,7 +210,7 @@ public class DentistryListAdapter extends RecyclerView.Adapter<RecyclerView.View
         }
     }
 
-    public void setData(List<String> data) {
+    public void setData(List<DentistData> data) {
 
         mData = data;
         notifyDataSetChanged();
@@ -158,18 +231,23 @@ public class DentistryListAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     public static class ViewHolder extends RecyclerView.ViewHolder  {
         private AVTextView mTitleTxt, mSubTitleTxt, mDistanceTxt;
-        private ImageView mDentistImg,mLandingBntImg, mEventImg;
+        private ImageView mDentistImg,mLandingBntImg, mEventImg, mDentistSampleImg;
+        ViewGroup mAddTagLay;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             mDentistImg = (ImageView) itemView.findViewById(R.id.DentistImg);
+            mDentistSampleImg = (ImageView) itemView.findViewById(R.id.DentistSampleImg);
             mLandingBntImg = (ImageView) itemView.findViewById(R.id.LandingBntImg);
             mEventImg = (ImageView) itemView.findViewById(R.id.EventImg);
 
             mTitleTxt = (AVTextView) itemView.findViewById(R.id.TitleTxt);
             mSubTitleTxt = (AVTextView) itemView.findViewById(R.id.SubTitleTxt);
             mDistanceTxt = (AVTextView) itemView.findViewById(R.id.DistanceTxt);
+
+            mAddTagLay = (ViewGroup)itemView.findViewById(R.id.AddTagLay);
+
         }
 
     }

@@ -156,7 +156,13 @@ public class HomeListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 }
                 if(TextUtils.isEmpty(data.ADDRESS3) == false) {
 
-                    addrBuffer.append("\n").append(data.ADDRESS3);
+                    addrBuffer.append(" ").append(data.ADDRESS3);
+
+                }
+
+                if(TextUtils.isEmpty(data.ADDRESS4) == false) {
+
+                    addrBuffer.append("\n").append(data.ADDRESS4);
 
                 }
 

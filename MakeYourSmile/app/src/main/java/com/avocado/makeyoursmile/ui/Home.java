@@ -58,7 +58,7 @@ public class Home extends BaseActivity {
     private int pastVisiblesItems;
     private boolean loading = false;
     private int reqProgramsAvailablePage = 0;
-    private int reqProgramsAvailableSize = 10;
+    private int reqProgramsAvailableSize = 20;
 
 
     @Override
@@ -197,21 +197,30 @@ public class Home extends BaseActivity {
 
             case R.id.ToothTheme1:
 
+                IntentManager.getInstance().putExtra(IntentManager.EXTRA_TYPE, DentistryList.THEME_1);
                 IntentManager.getInstance().push(Home.this, DentistryList.class, true);
 
                 break;
 
             case R.id.ToothTheme2:
 
+                IntentManager.getInstance().putExtra(IntentManager.EXTRA_TYPE, DentistryList.THEME_2);
+                IntentManager.getInstance().push(Home.this, DentistryList.class, true);
 
                 break;
 
             case R.id.ToothTheme3:
 
+                IntentManager.getInstance().putExtra(IntentManager.EXTRA_TYPE, DentistryList.THEME_3);
+                IntentManager.getInstance().push(Home.this, DentistryList.class, true);
+
                 break;
 
             case R.id.ToothTheme4:
 
+
+                IntentManager.getInstance().putExtra(IntentManager.EXTRA_TYPE, DentistryList.THEME_4);
+                IntentManager.getInstance().push(Home.this, DentistryList.class, true);
 
                 break;
             case R.id.QueryBtn:
