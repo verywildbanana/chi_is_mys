@@ -79,6 +79,7 @@
             android:gravity="center_vertical"
             android:hint="검색어 입력 또는 키워드 선택"
             android:paddingLeft="10dp"
+            android:singleLine="true"
             android:textColor="@color/black"
             android:textColorHint="@color/mys_txt_gray_149"
             android:textSize="12dp" />
@@ -100,15 +101,93 @@
             android:layout_marginTop="15dp"
             android:orientation="horizontal">
 
-            <include layout="@layout/layout_taglay" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="5dp">
 
-            <include layout="@layout/layout_taglay" />
+                <RelativeLayout
+                    android:id="@+id/TagLay1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:background="@drawable/tag_round_bg"
+                    android:orientation="horizontal"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp">
 
-            <include layout="@layout/layout_taglay" />
+                    <com.avocado.makeyoursmile.view.AVTextView
+                        android:id="@+id/TagText1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:singleLine="true"
+                        android:text="#임플란트"
+                        android:textColor="@color/mys_txt_blue_11"
+                        android:textSize="10dp" />
 
-            <include layout="@layout/layout_taglay" />
 
-            <include layout="@layout/layout_taglay" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="5dp">
+
+                <RelativeLayout
+                    android:id="@+id/TagLay2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:background="@drawable/tag_round_bg"
+                    android:orientation="horizontal"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp">
+
+                    <com.avocado.makeyoursmile.view.AVTextView
+                        android:id="@+id/TagText2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:singleLine="true"
+                        android:text="#교정"
+                        android:textColor="@color/mys_txt_blue_11"
+                        android:textSize="10dp" />
+
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="5dp">
+
+                <RelativeLayout
+                    android:id="@+id/TagLay3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:background="@drawable/tag_round_bg"
+                    android:orientation="horizontal"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp">
+
+                    <com.avocado.makeyoursmile.view.AVTextView
+                        android:id="@+id/TagText3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:singleLine="true"
+                        android:text="#보철치료"
+                        android:textColor="@color/mys_txt_blue_11"
+                        android:textSize="10dp" />
+
+
+                </RelativeLayout>
+
+            </RelativeLayout>
 
         </LinearLayout>
 
@@ -118,17 +197,19 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
+            android:visibility="gone"
             android:orientation="horizontal">
-
-            <include layout="@layout/layout_taglay" />
-
-            <include layout="@layout/layout_taglay" />
-
-            <include layout="@layout/layout_taglay" />
 
 
         </LinearLayout>
 
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginTop="10dp"
+            android:id="@+id/ListRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none" />
 
     </LinearLayout>
 

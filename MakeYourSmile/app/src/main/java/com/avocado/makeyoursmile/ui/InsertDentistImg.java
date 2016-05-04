@@ -141,8 +141,7 @@ public class InsertDentistImg extends BaseActivity {
     public void onClickRegBtn(View v) {
 
 
-        IntentManager.getInstance().putExtra(IntentManager.EXTRA_ID, mDentistId);
-        IntentManager.getInstance().push(InsertDentistImg.this, Landing.class, true);
+         IntentManager.getInstance().push(InsertDentistImg.this, Home.class, true);
 
 
     }

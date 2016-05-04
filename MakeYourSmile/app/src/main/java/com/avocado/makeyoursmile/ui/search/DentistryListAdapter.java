@@ -14,7 +14,6 @@ import android.widget.TextView;
 import com.avocado.makeyoursmile.Constants;
 import com.avocado.makeyoursmile.R;
 import com.avocado.makeyoursmile.network.data.dentist.DentistData;
-import com.avocado.makeyoursmile.util.CircleTransformation;
 import com.avocado.makeyoursmile.view.AVTextView;
 import com.bumptech.glide.Glide;
 
@@ -178,7 +177,6 @@ public class DentistryListAdapter extends RecyclerView.Adapter<RecyclerView.View
                     Uri uri = Uri.parse(data.IMG_1);
                     Glide.with(mContext)
                             .load(uri)
-                            .transform(new CircleTransformation(mContext))
                             .into(h.mDentistImg);
 
                 }

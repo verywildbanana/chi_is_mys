@@ -5,7 +5,7 @@ package com.avocado.makeyoursmile;
  */
 public class Constants {
 
-    public static final boolean RELEASE_BUILD = true;
+    public static final boolean RELEASE_BUILD = false;
 
     /**
      * logCat 에 log 노출 여부

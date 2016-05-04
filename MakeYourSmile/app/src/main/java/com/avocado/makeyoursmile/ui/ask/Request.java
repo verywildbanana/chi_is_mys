@@ -8,8 +8,10 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.avocado.makeyoursmile.MakeYourSmileApp;
 import com.avocado.makeyoursmile.R;
 import com.avocado.makeyoursmile.base.BaseActivity;
+import com.avocado.makeyoursmile.network.api.QueryApi;
 import com.avocado.makeyoursmile.ui.search.Dentistry;
 import com.avocado.makeyoursmile.util.IntentManager;
 import com.avocado.makeyoursmile.view.AVTextView;
@@ -114,6 +116,9 @@ public class Request extends BaseActivity {
     boolean[] mAskTagSelect = {false, false, false, false, false, false, false};
 
     String[] DONG1 = {"역삼동","개포동", "청담동", "삼성동", "대치동", "신사동", "논현동", "압구정동", "세곡동", "자곡동", "율현동", "일원동", "수서동", "도곡동", "논현1동", "논현2동", "삼성1동", "삼성2동", "대치1동", "대치2동", "대치4동", "역삼1동", "역삼2동", "도곡1동", "도곡2동", "개포1동", "개포2동", "개포4동", "일원본동", "일원1동", "일원2동"};
+
+
+    QueryApi mQueryApi = MakeYourSmileApp.createApi(QueryApi.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

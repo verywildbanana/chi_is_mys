@@ -69,4 +69,10 @@ public interface DentistApi {
     void getDentistThemeList(@Query("THEME") String theme, @Query("PAGE") int page, @Query("SIZE") int SIZE, Callback<DentistListParserData> callback);
 
 
+
+    @GET("/searchDentistList.do")
+    void searchDentistList(@Query("TYPE") String type, @Query("QUERY") String query, @Query("PAGE") int page, @Query("SIZE") int SIZE, Callback<DentistListParserData> callback);
+
+
+
 }
